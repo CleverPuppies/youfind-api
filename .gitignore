@@ -1,0 +1,4 @@
+.DS_Store
+
+configs/secrets.yml
+spec/fixtures/
