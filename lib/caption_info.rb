@@ -6,30 +6,28 @@ require 'yaml'
 config = YAML.safe_load(File.read('config/secrets.yml'))
 
 def yt_api_path(path = '')
-  "https://youtube.googleapis.com/youtube/v3/captions/#{path}"
+  "https://ytube-videos.p.rapidapi.com/#{path}"
 end
 
-def call_yt_url(part, video_id, config)
-  HTTP.get(yt_api_path, params: { part:, videoId: video_id, key: config['API_KEY'] })
+def call_yt_url(config, url, video_id)
+  HTTP.headers('X-RapidAPI-Key' => config['API_KEY'],
+               'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com').get(url, params: { id: video_id })
 end
 
 yt_response = {}
 yt_results = {}
 
 # List captions for Sandi Metz video https://www.youtube.com/watch?v=8bZh5LMaSmE
-list_caption_url = yt_api_path('')
-yt_response[list_caption_url] = call_yt_url('snippet', '8bZh5LMaSmE', config)
-captions = yt_response[list_caption_url].parse
+caption_url = yt_api_path('captions')
 
-yt_results['kind'] = captions['kind']
-# What kind of response
+yt_response[caption_url] = call_yt_url(config, caption_url, '8bZh5LMaSmE')
 
-yt_results['etag'] = captions['etag']
-# etag of the video
+captions = yt_response[caption_url].parse
 
-yt_results['items'] = captions['items']
+yt_results['captions'] = captions
 
-captions['items'].count
-# 2 caption items
+captions.count
+# 956 caption items
 
-File.write('spec/fixtures/youtube_results', yt_results.to_yaml)
+File.write('spec/fixtures/yt_response.yml', yt_response.to_yaml)
+File.write('spec/fixtures/yt_results.yml', yt_results.to_yaml)
