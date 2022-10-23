@@ -22,8 +22,6 @@ video_url = yt_api_path('info')
 yt_response[video_url] = call_yt_url(config, video_url, '8bZh5LMaSmE')
 video = yt_response[video_url].parse[0]
 
-puts video
-
 yt_results['title'] = video['title']
 yt_results['url'] = video['url']
 yt_results['id'] = video['id']['videoId']
@@ -42,5 +40,4 @@ yt_results['captions'] = captions
 captions.count
 # 956 caption items
 
-File.write('spec/fixtures/yt_response.yml', yt_response.to_yaml)
 File.write('spec/fixtures/yt_results.yml', yt_results.to_yaml)
