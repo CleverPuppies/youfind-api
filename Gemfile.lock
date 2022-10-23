@@ -19,15 +19,21 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     json (2.6.2)
+    kwalify (0.7.2)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
+    minitest (5.16.3)
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
     public_suffix (5.0.0)
     rainbow (3.1.1)
     rake (13.0.6)
+    reek (6.1.1)
+      kwalify (~> 0.7.0)
+      parser (~> 3.1.0)
+      rainbow (>= 2.0, < 4.0)
     regexp_parser (2.6.0)
     rexml (3.2.5)
     rubocop (1.36.0)
@@ -53,6 +59,8 @@ PLATFORMS
 
 DEPENDENCIES
   http (~> 5.1)
+  minitest (~> 5.16)
+  reek (~> 6.1)
   rubocop (~> 1.36)
 
 BUNDLED WITH
