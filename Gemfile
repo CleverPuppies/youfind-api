@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
-gem "rubocop", "~> 1.36"
+source 'https://rubygems.org'
 
-gem "http", "~> 5.1"
+# Networking
+gem 'http', '~> 5.1'
 
-gem "minitest", "~> 5.16"
+# Testing
+gem 'minitest', '~> 5.16'
+
+# Code Quality
+gem 'reek', '~> 6.1'
+gem 'rubocop', '~> 1.36'

@@ -13,13 +13,11 @@ CORRECT = YAML.safe_load(File.read('spec/fixtures/yt_results.yml'))
 describe 'Tests Youtube API library' do
   describe 'Video information' do
     it 'HAPPY: should provide correct video info' do
-      video = YouFind::YoutubeAPI.new(YT_API_KEY)
-                                 .video(VIDEO_ID)
+      video = YouFind::YoutubeAPI.new(YT_API_KEY).video(VIDEO_ID)
       _(video.title).must_equal CORRECT['title']
       _(video.url).must_equal CORRECT['url']
       _(video.id).must_equal CORRECT['id']
       _(video.duration).must_equal CORRECT['duration']
-      # _(video.views).must_equal CORRECT['views'] DON'T CHECK NUMBER OF VIEWS BECAUSE IT IS CONSTANTLY INCREASING
     end
 
     it 'SAD: should raise exception when unauthorized' do
@@ -37,7 +35,7 @@ describe 'Tests Youtube API library' do
     it 'HAPPY: should be able to retrieve captions' do
       _(@video.captions).wont_be_nil
     end
-    
+
     it 'HAPPY: should have start, duration, text' do
       first_caption = @video.captions.first
       _(first_caption['start']).must_equal CORRECT['captions'][0]['start']

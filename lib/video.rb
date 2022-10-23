@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'captions.rb'
+require_relative 'captions'
 
 module YouFind
+  # Model for Video
   class Video
     def initialize(video_data, data_source)
       @video = video_data
@@ -16,7 +17,7 @@ module YouFind
     def url
       @video['url']
     end
-    
+
     def id
       @video['id']['videoId']
     end
