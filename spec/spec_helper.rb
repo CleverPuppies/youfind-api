@@ -8,6 +8,7 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
+Dir.chdir('../')
 require_relative '../lib/youtube_api'
 
 VIDEO_ID = '8bZh5LMaSmE'
