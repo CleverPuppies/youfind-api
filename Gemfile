@@ -13,3 +13,4 @@ gem 'webmock', '~> 3.18'
 # Code Quality
 gem 'reek', '~> 6.1'
 gem 'rubocop', '~> 1.36'
+gem 'simplecov', '~> 0.21.2'
