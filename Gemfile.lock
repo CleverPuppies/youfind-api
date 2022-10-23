@@ -75,6 +75,7 @@ PLATFORMS
 DEPENDENCIES
   http (~> 5.1)
   minitest (~> 5.16)
+  rake (~> 13.0)
   reek (~> 6.1)
   rubocop (~> 1.36)
   simplecov (~> 0.21.2)

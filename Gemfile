@@ -14,3 +14,6 @@ gem 'webmock', '~> 3.18'
 gem 'reek', '~> 6.1'
 gem 'rubocop', '~> 1.36'
 gem 'simplecov', '~> 0.21.2'
+
+# Utility Tools
+gem 'rake', '~> 13.0'
