@@ -1,14 +1,6 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'yaml'
-
-require_relative '../lib/youtube_api'
-
-VIDEO_ID = '8bZh5LMaSmE'
-CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
-YT_API_KEY = CONFIG['API_KEY']
-CORRECT = YAML.safe_load(File.read('spec/fixtures/yt_results.yml'))
+require_relative 'spec_helper'
 
 describe 'Tests Youtube API library' do
   describe 'Video information' do
