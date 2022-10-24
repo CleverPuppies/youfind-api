@@ -9,7 +9,7 @@ def yt_api_path(path = '')
   "https://ytube-videos.p.rapidapi.com/#{path}"
 end
 
-def get_yt_url(config, url, video_id)
+def list_yt_url(config, url, video_id)
   HTTP.headers('X-RapidAPI-Key' => config['API_KEY'],
                'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com').get(url, params: { id: video_id })
 end
@@ -19,7 +19,7 @@ yt_results = {}
 
 # Get info for Sandi Metz video
 video_url = yt_api_path('info')
-yt_response[video_url] = get_yt_url(config, video_url, '8bZh5LMaSmE')
+yt_response[video_url] = list_yt_url(config, video_url, '8bZh5LMaSmE')
 video = yt_response[video_url].parse[0]
 
 yt_results['title'] = video['title']
@@ -31,7 +31,7 @@ yt_results['views'] = video['views']
 # List captions for Sandi Metz video https://www.youtube.com/watch?v=8bZh5LMaSmE
 caption_url = yt_api_path('captions')
 
-yt_response[caption_url] = get_yt_url(config, caption_url, '8bZh5LMaSmE')
+yt_response[caption_url] = list_yt_url(config, caption_url, '8bZh5LMaSmE')
 
 captions = yt_response[caption_url].parse
 

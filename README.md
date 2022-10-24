@@ -34,8 +34,11 @@ With YouFind, you can find words mentioned in YouTube videos.
 ## Requests
 
 Functions which only purpose is to make an http call should be named based on the method they use:
-- get_*: for get methods
-- post_*: for post methods
-- and so on for delete, patch...
+- list_*: for get methods with any specific id
+- retrieve_*: for get methods including query arguments such ids
+- create_*: for post methods
+- update_*: for put methods
+- partial_update_*: for patch methods
+- destroy_*: for delete methods
 
 
