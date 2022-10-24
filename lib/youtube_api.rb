@@ -27,13 +27,13 @@ module YouFind
 
     def video(video_id)
       video_url = yt_api_path('info')
-      video_data = list_yt_url(video_url, { id: video_id }).parse[0]
+      video_data = retrieve_yt_url(video_url, { id: video_id }).parse[0]
       Video.new(video_data, self)
     end
 
     def captions(video_id)
       caption_url = yt_api_path('captions')
-      captions = list_yt_url(caption_url, { id: video_id }).parse
+      captions = retrieve_yt_url(caption_url, { id: video_id }).parse
       Captions.new(captions)
     end
 
@@ -43,7 +43,7 @@ module YouFind
       "https://ytube-videos.p.rapidapi.com/#{path}"
     end
 
-    def list_yt_url(url, params = {})
+    def retrieve_yt_url(url, params = {})
       @result = HTTP.headers('X-RapidAPI-Key' => @yt_key,
                             'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com').get(url, params: params)
       successful? ? @result : raise_error()
