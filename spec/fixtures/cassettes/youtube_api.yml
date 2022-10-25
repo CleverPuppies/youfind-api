@@ -1127,4 +1127,125 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"You are not subscribed to this API."}'
   recorded_at: Sun, 23 Oct 2022 06:26:55 GMT
+- request:
+    method: get
+    uri: https://ytube-videos.p.rapidapi.com/info?id=8bZh5LMaSmE
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Host:
+      - ytube-videos.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - ytube-videos.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 25 Oct 2022 14:45:33 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"Invalid API key. Go to https:\/\/docs.rapidapi.com\/docs\/keys
+        for more info."}'
+  recorded_at: Tue, 25 Oct 2022 14:45:33 GMT
+- request:
+    method: get
+    uri: https://ytube-videos.p.rapidapi.com/info?id=cleverpuppies
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Host:
+      - ytube-videos.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - ytube-videos.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Tue, 25 Oct 2022 14:45:33 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"Too many requests"}'
+  recorded_at: Tue, 25 Oct 2022 14:45:33 GMT
+- request:
+    method: get
+    uri: https://ytube-videos.p.rapidapi.com/captions?id=8bZh5LMaSmE
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Host:
+      - ytube-videos.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - ytube-videos.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Tue, 25 Oct 2022 14:45:34 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"Too many requests"}'
+  recorded_at: Tue, 25 Oct 2022 14:45:34 GMT
 recorded_with: VCR 6.1.0

@@ -8,8 +8,8 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-Dir.chdir('../')
-require_relative '../lib/youtube_api'
+require_relative'../require_app.rb'
+require_app
 
 VIDEO_ID = '8bZh5LMaSmE'
 CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
