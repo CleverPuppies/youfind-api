@@ -1,0 +1,18 @@
+.container
+    form role="form" action="/video/" method='POST' id='show-video-form'
+        .row.vertical-align.query-bar
+            .col-md-2.col-sm-3
+                .text-right YoutubeAPI URL:
+            .col-md-8.col-sm-6
+                input{
+                    type='text' name='yt_video_url'
+                    id='yt_video_url_input' class="form-control"
+                    placeholder="e.g. https://www.youtube.com/watch?v=jNQXAC9IVRw"
+                }
+            .col-md-2.col-sm-3
+                button{
+                    type='submit' id='yt-url-submit' class='submit'
+                    value='submit' class="btn btn-success"
+                } Search Video
+        .row
+            .col-md-12.blank-row

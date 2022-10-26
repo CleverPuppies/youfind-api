@@ -2,10 +2,13 @@
 
 require 'rake/testtask'
 
-CODE = 'lib/'
-
 task :default do
   puts `rake -T`
+end
+
+desc 'run the puma server'
+task :run do
+  sh 'bundle exec puma'
 end
 
 desc 'run tests'
