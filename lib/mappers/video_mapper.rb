@@ -14,58 +14,56 @@ module YouFind
         end
 
         def find(video_id)
-            data = @gateway.video_data(video_id)
-            build_entity(data)
+          data = @gateway.video_data(video_id)
+          build_entity(data)
         end
   
         def build_entity(data)
-          DataMapper.new(data).build_entity
+          DataMapper.new(data, @token, @gateway_class).build_entity
         end
   
         # Extracts entity specific elements from data structure
         class DataMapper
-          def initialize(data)
+          def initialize(data, token, gateway_class)
             @data = data
-            @captions_mapper = CaptionsMapper.new(
-              token, gateway_class
-            )
+            @captions_mapper = CaptionsMapper.new(token, gateway_class)
           end
   
           def build_entity
             YouFind::Entity::Video.new(
-              video_id:,
-              title:,
-              url:,
-              duration_raw:,
-              views:,
-              captions:
+              id: video_id,
+              title: title,
+              url: url,
+              duration: duration,
+              views: views,
+              captions: captions
             )
           end
   
           private
           
           def video_id
-            @video['id']['videoId']
+            @data['id']['videoId']
           end
 
           def title
-            @video['title']
+            @data['title']
           end
       
           def url
-            @video['url']
+            @data['url']
           end
       
           def duration
-            @video['duration_raw']
+            @data['duration_raw']
           end
       
           def views
-            @video['views']
+            @data['views']
           end
       
           def captions
-            @mcaptions_mapper.load_captions(@data['id']['video_id'])
+            @captions_mapper.load_captions(video_id)
           end
         end
       end

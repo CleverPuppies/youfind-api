@@ -18,11 +18,11 @@ module YouFind
       end
 
       def video_data(video_id)
-        Request.new(@yt_token).video(video_id).parse
+        Request.new(@yt_key).video(video_id).parse[0]
       end
 
       def video_captions(video_id)
-        Request.new(@yt_token).captions(video_id).parse
+        Request.new(@yt_key).captions(video_id).parse
       end
 
       class Request

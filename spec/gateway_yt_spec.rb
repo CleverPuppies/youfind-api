@@ -22,6 +22,20 @@ describe 'Tests Youtube API library' do
   end
 
   describe 'Video information' do
+
+    it 'HAPPY: gateway should work' do
+      gateway = YouFind::YoutubeAPI::API.new(YT_API_KEY)
+      video = gateway.video_data(VIDEO_ID)
+      _(video).wont_be_nil
+      _(video['title']).must_equal CORRECT['title']
+    end
+
+    it 'HAPPY: video should be found' do
+      video_mapper = YouFind::YoutubeAPI::VideoMapper
+      .new(YT_API_KEY)
+      _(video_mapper).wont_be_nil
+    end
+
     it 'HAPPY: should provide correct video info' do
       video = YouFind::YoutubeAPI::VideoMapper
       .new(YT_API_KEY)
@@ -55,9 +69,9 @@ describe 'Tests Youtube API library' do
 
     it 'HAPPY: should have start, duration, text' do
       first_slice = @captions.transcript.first
-      _(first_slice['start']).must_equal CORRECT['captions'][0]['start']
-      _(first_slice['dur']).must_equal CORRECT['captions'][0]['dur']
-      _(first_slice['text']).must_equal CORRECT['captions'][0]['text']
+      _(first_slice[:start]).must_equal CORRECT['captions'][0]['start']
+      _(first_slice[:dur]).must_equal CORRECT['captions'][0]['dur']
+      _(first_slice[:text]).must_equal CORRECT['captions'][0]['text']
     end
   end
 end

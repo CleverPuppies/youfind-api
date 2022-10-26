@@ -13,7 +13,7 @@ module YouFind
         start:  Strict::String,
         dur:    Strict::String,
         text:   Strict::String
-      ))
+      ).with_key_transform(&:to_sym))
     end
   end
 end

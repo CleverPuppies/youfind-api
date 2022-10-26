@@ -28,7 +28,7 @@ module YouFind
   
           def build_entity
             YouFind::Entity::Captions.new(
-              transcript:
+              transcript: transcript
             )
           end
   
