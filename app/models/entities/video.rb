@@ -11,12 +11,13 @@ module YouFind
     class Video < Dry::Struct
       include Dry.Types
 
-      attribute :id,        Strict::String
-      attribute :title,     Strict::String
-      attribute :url,       Strict::String
-      attribute :duration,  Strict::String
-      attribute :views,     Strict::String
-      attribute :captions,  Captions
+      attribute :id,          Strict::String
+      attribute :title,       Strict::String
+      attribute :url,         Strict::String
+      attribute :embeded_url, Strict::String
+      attribute :duration,    Strict::String
+      attribute :views,       Strict::String
+      attribute :captions,    Captions
     end
   end
 end

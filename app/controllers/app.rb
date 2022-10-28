@@ -10,6 +10,7 @@ module YouFind
         
         route do |routing|
             routing.assets # load custom CSS
+            puts routing.assets
             
             # GET /
             routing.root do
@@ -21,6 +22,8 @@ module YouFind
                     # POST /video/
                     routing.post do
                         yt_video_url = routing.params['yt_video_url']
+                        puts "->"
+                        puts yt_video_url
                         routing.halt 400 unless (yt_video_url.include? 'youtube.com') &&
                                                 (yt_video_url.include? 'v=') &&
                                                 (yt_video_url.split('v=').count == 2) &&
@@ -36,7 +39,7 @@ module YouFind
                         video_data= YoutubeAPI::VideoMapper
                             .new(YT_TOKEN)
                             .find(video_id)
-                            
+
                         view 'video', locals: { data: video_data}
                     end
                 end
