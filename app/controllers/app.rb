@@ -22,8 +22,6 @@ module YouFind
                     # POST /video/
                     routing.post do
                         yt_video_url = routing.params['yt_video_url']
-                        puts "->"
-                        puts yt_video_url
                         routing.halt 400 unless (yt_video_url.include? 'youtube.com') &&
                                                 (yt_video_url.include? 'v=') &&
                                                 (yt_video_url.split('v=').count == 2) &&
