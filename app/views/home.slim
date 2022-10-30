@@ -1,28 +1,14 @@
 .container class='vertical-center'
-    h1 class='text-center' YouFind
+    h1 class='text-center mb-5'
+        a href="/" class='text-white text-decoration-none' YouFind
     #search-bar.w-75.mx-auto
         form role="form" action="/video" method='POST' id='show-video-form'
-            .row.vertical-align.query-bar
-                /*.col-md-10.col-sm-9
-                    #search-bar.px-4.py-3
-                        button class='btn' type="button" id="search-button"
-                            i class="fa-solid fa-magnifying-glass"
-                        input{
-                            type='text' name='yt_video_url'
-                            id='yt_video_url_input'
-                            placeholder="e.g. https://www.youtube.com/watch?v=jNQXAC9IVRw"
-                        }*/
-                /*.col-md-2.col-sm-3
-                    button{
-                        type='submit' id='yt-url-submit' class='submit'
-                        value='submit' class="btn btn-success"
-                    } Search Video */
             .row.vertical-align.query-bar
                 .form
                     i class='fa fa-search'
                     input{
                         type='text' name='yt_video_url'
                         class='form-control form-input px-4 py-3'
-                        placeholder='Youtube video url'
+                        placeholder='e.g. https://www.youtube.com/watch?v=jNQXAC9IVRw'
                     }
                 
