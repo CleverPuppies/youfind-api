@@ -31,12 +31,12 @@ namespace :quality do
 
   desc 'complexity analysis'
   task :flog do
-    sh 'flog lib/'
+    sh 'flog app/'
   end
 
   desc 'code smell detector'
   task :reek do
-    sh 'reek lib/'
+    sh 'reek app/'
   end
 
   desc 'code style linter'

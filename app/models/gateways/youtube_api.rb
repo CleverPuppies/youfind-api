@@ -4,14 +4,8 @@ require 'http'
 
 module YouFind
   # Library for Youtube Web API
-  module YoutubeAPI
-    module Errors
-      # Returned when caption is requested for video that doesn't exist
-      class BadRequest < StandardError; end
-      # Returned when API key is not registered
-      class Forbidden < StandardError; end
-    end
-
+  module Youtube
+    # Library for Youtube web API
     class API
       def initialize(api_key)
         @yt_key = api_key
@@ -25,14 +19,15 @@ module YouFind
         Request.new(@yt_key).captions(video_id).parse
       end
 
+      # Sends out HTTP request to Youtube
       class Request
-        VIDEOS_PATH = "https://ytube-videos.p.rapidapi.com/info"
-        CAPTIONS_PATH = "https://ytube-videos.p.rapidapi.com/captions"
+        VIDEOS_PATH = 'https://ytube-videos.p.rapidapi.com/info'
+        CAPTIONS_PATH = 'https://ytube-videos.p.rapidapi.com/captions'
 
         def initialize(api_key)
           @yt_key = api_key
         end
-        
+
         def video(video_id)
           retrieve(VIDEOS_PATH, { id: video_id })
         end
@@ -42,31 +37,33 @@ module YouFind
         end
 
         def retrieve(url, params)
-          response = HTTP.headers(
+          http_response = HTTP.headers(
             'X-RapidAPI-Key' => @yt_key,
             'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com'
           ).get(url, params: params)
 
-          Response.new(response).tap do |response|
+          Response.new(http_response).tap do |response|
             raise(response.raise_error) unless response.successful?
           end
         end
-
       end
 
+      # Decorates HTTP responses from Youtube with success/error
       class Response < SimpleDelegator
-        BadRequest = Class.new(Errors::BadRequest)
-        Forbidden = Class.new(Errors::Forbidden)
+        # Returned when caption is requested for video that doesn't exist
+        BadRequest = Class.new(StandardError)
+        # Returned when API key is not registered
+        Forbidden = Class.new(StandardError)
 
         HTTP_ERROR = {
-          400 => Errors::BadRequest,
-          403 => Errors::Forbidden
+          400 => BadRequest,
+          403 => Forbidden
         }.freeze
 
         def successful?
           !HTTP_ERROR.keys.include?(code)
         end
-    
+
         def raise_error
           HTTP_ERROR[code]
         end
