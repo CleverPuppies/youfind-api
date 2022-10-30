@@ -16,9 +16,8 @@
             .col-lg-11.col-md-10.col-sm-6
                 span.data.duration
                     = data.duration
-        h2 Captions
+        h2.text-danger Captions
         .row.top-buffer
-            / .col-lg-1.col-md-2.col-sm-2
+            .col-lg-1.col-md-2.col-sm-2
             - data.captions.transcript.each do |caption|
-                h5 #{caption[:text]}
-            end
+                p #{caption[:text]}
