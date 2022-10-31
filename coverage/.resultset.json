@@ -1,16 +1,21 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lamachine/NTHU/SOA/YouFind/require_app.rb": {
+      "/Users/wilbertharriman/repos/YouFind/require_app.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           6,
           null,
+          1,
+          1,
+          null,
           null
         ]
       },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/caption_info.rb": {
+      "/Users/wilbertharriman/repos/YouFind/app/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -20,58 +25,42 @@
           1,
           null,
           1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
           1,
           1,
           1,
           1,
           null,
-          null,
           1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
+          0,
           null,
           null,
-          1
-        ]
-      },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/entities/captions.rb": {
-        "lines": [
+          null,
+          0,
+          0,
           null,
           null,
-          1,
-          1,
+          0,
+          0,
           null,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
-          1,
-          1,
           null,
-          1,
           null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
           null,
           null,
           null,
@@ -80,7 +69,30 @@
           null
         ]
       },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/entities/video.rb": {
+      "/Users/wilbertharriman/repos/YouFind/app/models/entities/captions.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/YouFind/app/models/entities/video.rb": {
         "lines": [
           null,
           null,
@@ -95,6 +107,7 @@
           1,
           1,
           null,
+          1,
           1,
           1,
           1,
@@ -106,7 +119,7 @@
           null
         ]
       },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/gateways/youtube_api.rb": {
+      "/Users/wilbertharriman/repos/YouFind/app/models/gateways/youtube_api.rb": {
         "lines": [
           null,
           null,
@@ -115,12 +128,6 @@
           1,
           null,
           1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
           null,
           1,
           1,
@@ -135,6 +142,7 @@
           3,
           null,
           null,
+          null,
           1,
           1,
           1,
@@ -165,7 +173,9 @@
           null,
           null,
           1,
+          null,
           1,
+          null,
           1,
           null,
           null,
@@ -186,7 +196,7 @@
           null
         ]
       },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/mappers/captions_mapper.rb": {
+      "/Users/wilbertharriman/repos/YouFind/app/models/mappers/captions_mapper.rb": {
         "lines": [
           null,
           null,
@@ -233,7 +243,7 @@
           null
         ]
       },
-      "/Users/lamachine/NTHU/SOA/YouFind/lib/mappers/video_mapper.rb": {
+      "/Users/wilbertharriman/repos/YouFind/app/models/mappers/video_mapper.rb": {
         "lines": [
           null,
           null,
@@ -253,21 +263,23 @@
           1,
           2,
           1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
           1,
           null,
           null,
           1,
           1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
           null,
           null,
           null,
@@ -303,12 +315,32 @@
           1,
           null,
           null,
+          1,
+          1,
           null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/YouFind/config/environment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1666754791
+    "timestamp": 1667131125
   }
 }

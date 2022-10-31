@@ -2,10 +2,13 @@
 
 require 'rake/testtask'
 
-CODE = 'lib/'
-
 task :default do
   puts `rake -T`
+end
+
+desc 'run the puma server'
+task :run do
+  sh 'bundle exec puma'
 end
 
 desc 'run tests'
@@ -28,12 +31,12 @@ namespace :quality do
 
   desc 'complexity analysis'
   task :flog do
-    sh 'flog lib/'
+    sh 'flog app/'
   end
 
   desc 'code smell detector'
   task :reek do
-    sh 'reek lib/'
+    sh 'reek app/'
   end
 
   desc 'code style linter'

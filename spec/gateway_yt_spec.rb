@@ -22,24 +22,23 @@ describe 'Tests Youtube API library' do
   end
 
   describe 'Video information' do
-
     it 'HAPPY: gateway should work' do
-      gateway = YouFind::YoutubeAPI::API.new(YT_API_KEY)
+      gateway = YouFind::Youtube::API.new(YT_API_KEY)
       video = gateway.video_data(VIDEO_ID)
       _(video).wont_be_nil
       _(video['title']).must_equal CORRECT['title']
     end
 
     it 'HAPPY: video should be found' do
-      video_mapper = YouFind::YoutubeAPI::VideoMapper
-      .new(YT_API_KEY)
+      video_mapper = YouFind::Youtube::VideoMapper
+                     .new(YT_API_KEY)
       _(video_mapper).wont_be_nil
     end
 
     it 'HAPPY: should provide correct video info' do
-      video = YouFind::YoutubeAPI::VideoMapper
-      .new(YT_API_KEY)
-      .find(VIDEO_ID)
+      video = YouFind::Youtube::VideoMapper
+              .new(YT_API_KEY)
+              .find(VIDEO_ID)
       _(video.title).must_equal CORRECT['title']
       _(video.url).must_equal CORRECT['url']
       _(video.id).must_equal CORRECT['id']
@@ -48,19 +47,18 @@ describe 'Tests Youtube API library' do
 
     it 'SAD: should raise exception when unauthorized' do
       _(proc do
-          YouFind::YoutubeAPI::VideoMapper
+          YouFind::Youtube::VideoMapper
           .new('BAD_TOKEN')
           .find('cleverpuppies')
-        end
-      ).must_raise YouFind::YoutubeAPI::Errors::Forbidden
+        end).must_raise YouFind::Youtube::API::Response::Forbidden
     end
   end
 
   describe 'Captions' do
     before do
-      @captions = YouFind::YoutubeAPI::CaptionsMapper
-      .new(YT_API_KEY)
-      .load_captions(VIDEO_ID)
+      @captions = YouFind::Youtube::CaptionsMapper
+                  .new(YT_API_KEY)
+                  .load_captions(VIDEO_ID)
     end
 
     it 'HAPPY: should be able to retrieve captions' do
