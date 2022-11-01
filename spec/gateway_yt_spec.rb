@@ -2,6 +2,12 @@
 
 require_relative 'spec_helper'
 
+describe 'Tests environment' do
+  it 'must be in testing environment' do
+    _(ENV['RACK_ENV']).must_equal 'test'
+  end
+end
+
 describe 'Tests Youtube API library' do
   VCR.configure do |c|
     c.cassette_library_dir = CASSETTES_FOLDER

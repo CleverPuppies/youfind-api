@@ -2,6 +2,10 @@
 
 source 'https://rubygems.org'
 
+# Configuration and Utilities
+gem 'figaro', '~> 1.2'
+gem 'rake'
+
 # Web Application
 gem 'puma', '~> 5'
 gem 'roda', '~> 3'
@@ -23,11 +27,13 @@ gem 'vcr', '~> 6.0'
 gem 'webmock', '~> 3.0'
 
 # Utility Tools
-gem 'rake', '~> 13.0'
 
 # Debugging
 gem 'pry'
 
 # Code Quality
-gem 'reek', '~> 6.1'
-gem 'rubocop', '~> 1.36'
+group :development do
+    gem 'flog'
+    gem 'reek'
+    gem 'rubocop'
+end
