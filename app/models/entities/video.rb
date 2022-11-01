@@ -7,14 +7,14 @@ require_relative 'captions'
 
 module YouFind
   module Entity
-    # Domain entity for team members
+    # Domain entity for videos
     class Video < Dry::Struct
       include Dry.Types
 
       attribute :id,          Strict::String
       attribute :title,       Strict::String
       attribute :url,         Strict::String
-      attribute :embeded_url, Strict::String
+      attribute :embedded_url, Strict::String
       attribute :duration,    Strict::String
       attribute :views,       Strict::String
       attribute :captions,    Captions

@@ -15,7 +15,7 @@ module YouFind
 
       def find(video_id)
         data = @gateway.video_data(video_id)
-        data['embeded_url'] = "https://www.youtube.com/embed/#{video_id}"
+        data['embedded_url'] = "https://www.youtube.com/embed/#{video_id}"
         build_entity(data)
       end
 
@@ -35,7 +35,7 @@ module YouFind
             id: video_id,
             title: title,
             url: url,
-            embeded_url: embeded_url,
+            embedded_url: embedded_url,
             duration: duration,
             views: views,
             captions: captions
@@ -56,8 +56,8 @@ module YouFind
           @data['url']
         end
 
-        def embeded_url
-          @data['embeded_url']
+        def embedded_url
+          @data['embedded_url']
         end
 
         def duration

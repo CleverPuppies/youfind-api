@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'roda'
-# require 'yaml'
 require 'figaro'
+require 'sequel'
+require 'yaml'
 
 module YouFind
   # Configuration for the App
@@ -15,8 +16,14 @@ module YouFind
       path: File.expand_path('config/secrets.yml')
     )
     Figaro.load
-
-    # Make the environment variables accessible
     def self.config() = Figaro.env
+
+    configure :development, :test do
+      ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
+    end
+
+    # Database Setup
+    DB = Sequel.connect(ENV['DATABASE_URL'])
+    def self.DB() = DB
   end
 end
