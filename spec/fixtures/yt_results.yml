@@ -1,0 +1,3599 @@
+---
+title: RailsConf 2014 - All the Little Things by Sandi Metz
+url: https://www.youtube.com/watch?v=8bZh5LMaSmE
+id: 8bZh5LMaSmE
+duration: '38:47'
+views: '147848'
+captions:
+- start: '0.512'
+  dur: '16.71'
+  text: "(jazzy music)"
+- start: '17.222'
+  dur: '2.944'
+  text: Sandi:So you'd think that writing
+- start: '20.166'
+  dur: '3.122'
+  text: object-oriented code was hard.
+- start: '23.288'
+  dur: '3.373'
+  text: |-
+    All you have to do is
+    look at our apps, alright?
+- start: '26.661'
+  dur: '3.311'
+  text: |-
+    We mean well, and we write
+    code that almost always
+- start: '29.972'
+  dur: '5.289'
+  text: inevitably we eventually come to hate it.
+- start: '35.261'
+  dur: '1.704'
+  text: |-
+    And the more I think
+    about this, these days,
+- start: '36.965'
+  dur: '2.484'
+  text: |-
+    somehow my job is to think
+    about how to write better code.
+- start: '39.449'
+  dur: '3.149'
+  text: |-
+    And the more I think about
+    it, the more I think that
+- start: '42.598'
+  dur: '4.742'
+  text: |-
+    all of the problems we cause
+    have the same simple solution,
+- start: '47.34'
+  dur: '2.123'
+  text: and that when people ask me now
+- start: '49.463'
+  dur: '1.791'
+  text: how to write object-oriented code,
+- start: '51.254'
+  dur: '3.517'
+  text: I give them one small piece of advice.
+- start: '54.771'
+  dur: '3.654'
+  text: |-
+    I say make smaller
+    things, that's all it is.
+- start: '58.425'
+  dur: '2.168'
+  text: |-
+    Make smaller classes,
+    make smaller methods,
+- start: '60.593'
+  dur: '4.338'
+  text: |-
+    and let them know as little
+    about each other as possible.
+- start: '64.931'
+  dur: '1.709'
+  text: And lately I've been on a quest.
+- start: '66.64'
+  dur: '1.594'
+  text: |-
+    I've had this obsession for
+    the last couple of months,
+- start: '68.234'
+  dur: '2.249'
+  text: and it's been about conditionals.
+- start: '70.483'
+  dur: '0.965'
+  text: There's a lot of code out there
+- start: '71.448'
+  dur: '1.419'
+  text: with nasty conditionals in it,
+- start: '72.867'
+  dur: '2.818'
+  text: |-
+    and I've been wondering,
+    when should I replace
+- start: '75.685'
+  dur: '2.189'
+  text: conditionals with small objects,
+- start: '77.874'
+  dur: '1.76'
+  text: and how should I do this,
+- start: '79.634'
+  dur: '2.96'
+  text: and what would happen to my code if I do?
+- start: '82.594'
+  dur: '1.784'
+  text: |-
+    And I was really confident
+    in Miami in November
+- start: '84.378'
+  dur: '2.592'
+  text: |-
+    and I inflicted this
+    obsession upon Jim Weirich,
+- start: '86.97'
+  dur: '2.68'
+  text: whom some of you probably knew,
+- start: '89.65'
+  dur: '3.799'
+  text: |-
+    and he pointed me in the
+    direction of the Gilded Rose.
+- start: '93.449'
+  dur: '1.43'
+  text: Now this is a Kata, it's apparently
+- start: '94.879'
+  dur: '2.347'
+  text: |-
+    really well known, but
+    I don't get out much,
+- start: '97.226'
+  dur: '1.612'
+  text: |-
+    so I had...
+    (laughter)
+- start: '98.838'
+  dur: '1.791'
+  text: never heard of it.
+- start: '100.629'
+  dur: '3.06'
+  text: |-
+    And so, it is so famous
+    that you can just Google it,
+- start: '103.689'
+  dur: '3.04'
+  text: |-
+    and get an explanation of the
+    problem, but I didn't do that.
+- start: '106.729'
+  dur: '1.65'
+  text: I wanted to treat this problem as if
+- start: '108.379'
+  dur: '1.966'
+  text: it was a real production problem,
+- start: '110.345'
+  dur: '1.628'
+  text: and that my only source of information
+- start: '111.973'
+  dur: '2.179'
+  text: was the test and the code.
+- start: '114.152'
+  dur: '2.185'
+  text: And so I looked at his.
+- start: '116.337'
+  dur: '2.054'
+  text: I checked it out of his [repo],
+- start: '118.391'
+  dur: '0.926'
+  text: and I looked at the problem,
+- start: '119.317'
+  dur: '3.013'
+  text: |-
+    and I was so interested in it
+    that it became the skeleton
+- start: '122.33'
+  dur: '4.446'
+  text: |-
+    around which I have hung
+    the ideas for today's talk.
+- start: '126.776'
+  dur: '2.799'
+  text: I have altered his code just a little bit,
+- start: '129.575'
+  dur: '1.681'
+  text: |-
+    but it's just to make
+    it easier to talk about.
+- start: '131.256'
+  dur: '2.432'
+  text: This really is the Gilded Rose Kata,
+- start: '133.688'
+  dur: '0.826'
+  text: and here's how it goes.
+- start: '134.514'
+  dur: '2.854'
+  text: |-
+    There's a Gilded Rose class,
+    and it's structured like this.
+- start: '137.368'
+  dur: '3.086'
+  text: |-
+    It has attributes for name,
+    quality, and days remaining,
+- start: '140.454'
+  dur: '1.872'
+  text: it sets those in an initializer,
+- start: '142.326'
+  dur: '2.608'
+  text: and then there's a tick method.
+- start: '144.934'
+  dur: '2.593'
+  text: |-
+    Now here's the tick
+    method, well actually, no,
+- start: '147.527'
+  dur: '5.309'
+  text: |-
+    that's just the first half
+    of it, here's the rest.
+- start: '152.836'
+  dur: '1.5'
+  text: Now, I know you can't read this.
+- start: '154.336'
+  dur: '1.893'
+  text: |-
+    Well, don't even try,
+    even if you can, alright?
+- start: '156.229'
+  dur: '1.155'
+  text: This is the whole method.
+- start: '157.384'
+  dur: '1.615'
+  text: I just want you to get some sense
+- start: '158.999'
+  dur: '0.846'
+  text: of the size and shape of it.
+- start: '159.845'
+  dur: '3.41'
+  text: It's a 43-line "if" statement.
+- start: '163.255'
+  dur: '2.186'
+  text: And this seems really, really hard to me,
+- start: '165.441'
+  dur: '3.311'
+  text: but I am known to be Bullion-impaired.
+- start: '168.752'
+  dur: '1.688'
+  text: "(laughter)"
+- start: '170.44'
+  dur: '1.904'
+  text: |-
+    So, I know that my subjective
+    sense of how difficult this is
+- start: '172.344'
+  dur: '2.924'
+  text: to understand is probably not correct,
+- start: '175.268'
+  dur: '2.062'
+  text: and so instead I used some metrics.
+- start: '177.33'
+  dur: '3.183'
+  text: |-
+    I ran a complexity metric
+    called "Flog" against it.
+- start: '180.513'
+  dur: '1.963'
+  text: So Flog is a metric. OK, what's a metric?
+- start: '182.476'
+  dur: '3.915'
+  text: |-
+    A metric is a crowdsource
+    idea about something.
+- start: '186.391'
+  dur: '3.228'
+  text: |-
+    Right? I have my own opinion
+    about how complex this is,
+- start: '189.619'
+  dur: '2.944'
+  text: |-
+    but I can use this sort of
+    wisdom-of-the-crowd metric,
+- start: '192.563'
+  dur: '2.095'
+  text: the Flog metric, which scores...
+- start: '194.658'
+  dur: '2.592'
+  text: |-
+    It's an ABC metric, so
+    it scores assignments,
+- start: '197.25'
+  dur: '1.539'
+  text: branches, and conditionals.
+- start: '198.789'
+  dur: '1.871'
+  text: It just counts things, and adds them up.
+- start: '200.66'
+  dur: '1.297'
+  text: Higher scores are worse.
+- start: '201.957'
+  dur: '1.933'
+  text: They indicate a more complex code,
+- start: '203.89'
+  dur: '1.35'
+  text: a code that's going to be harder
+- start: '205.24'
+  dur: '1.711'
+  text: to understand and reason about.
+- start: '206.951'
+  dur: '3.503'
+  text: |-
+    And so, Flog says the Gilded
+    Rose class scored a 50,
+- start: '210.454'
+  dur: '3.157'
+  text: and that one method tick scored a 45.
+- start: '213.611'
+  dur: '2.51'
+  text: "(moans) \nYeah, just hurts, doesn't it?"
+- start: '216.121'
+  dur: '2.032'
+  text: So, Flog says it's complicated,
+- start: '218.153'
+  dur: '2.016'
+  text: but before we go on I want to introduce
+- start: '220.169'
+  dur: '4.201'
+  text: a very subjective metric about complexity.
+- start: '224.37'
+  dur: '1.316'
+  text: So, I spend a lot of time these days
+- start: '225.686'
+  dur: '5.514'
+  text: |-
+    going to places and looking
+    at code I know nothing about.
+- start: '231.2'
+  dur: '1.441'
+  text: People call me up, and I go to their shop,
+- start: '232.641'
+  dur: '1.664'
+  text: and I spend a few days.
+- start: '234.305'
+  dur: '1.638'
+  text: And as you might imagine,
+- start: '235.943'
+  dur: '3.806'
+  text: no one calls me if things are going well.
+- start: '239.749'
+  dur: '2.051'
+  text: |-
+    (laughter)
+    Alright?
+- start: '241.8'
+  dur: '1.793'
+  text: And when I get there, they don't ask me
+- start: '243.593'
+  dur: '3.057'
+  text: to look at the code they're proud of.
+- start: '246.65'
+  dur: '2.654'
+  text: |-
+    They ask me to look at the most
+    heinous bits of their apps,
+- start: '249.304'
+  dur: '1.874'
+  text: the things that have sort of complex,
+- start: '251.178'
+  dur: '2.472'
+  text: lengthy contexts in history.
+- start: '253.65'
+  dur: '2.934'
+  text: |-
+    Code that has just absolutely
+    gotten out of hand.
+- start: '256.584'
+  dur: '2.925'
+  text: |-
+    And not only are the
+    explanations long and confusing
+- start: '259.509'
+  dur: '2.241'
+  text: because the problem is hard,
+- start: '261.75'
+  dur: '0.74'
+  text: but they do that thing that we all do,
+- start: '262.49'
+  dur: '2.014'
+  text: |-
+    you know that thing
+    you do when you have to
+- start: '264.504'
+  dur: '1.902'
+  text: explain a bit of code that you wrote
+- start: '266.406'
+  dur: '2.01'
+  text: that you're embarrassed about to someone?
+- start: '268.416'
+  dur: '2.073'
+  text: You don't just tell them how it works.
+- start: '270.489'
+  dur: '1.07'
+  text: You feel compelled to explain
+- start: '271.559'
+  dur: '3.355'
+  text: |-
+    all the reasons why it got
+    that way. (laughter) Right?
+- start: '274.914'
+  dur: '2.241'
+  text: |-
+    You laugh. I do it. I know
+    you do it, too, right?
+- start: '277.155'
+  dur: '1.439'
+  text: It just hurts. We hate that.
+- start: '278.594'
+  dur: '1.583'
+  text: And so, these explanations are long
+- start: '280.177'
+  dur: '1.19'
+  text: and confusing and they have lots of
+- start: '281.367'
+  dur: '2.965'
+  text: sort of sideways kind of information.
+- start: '284.332'
+  dur: '1.867'
+  text: |-
+    And there's a point in
+    time, I really mean well,
+- start: '286.199'
+  dur: '1.25'
+  text: but there's a point in time during every
+- start: '287.449'
+  dur: '2.761'
+  text: |-
+    explanation when I start
+    feeling like that dog,
+- start: '290.21'
+  dur: '4.51'
+  text: Ginger, in this Gary Larson's cartoon
+- start: '294.72'
+  dur: '1.763'
+  text: |-
+    where it starts turning
+    into, blah, blah, blah,
+- start: '296.483'
+  dur: '1.991'
+  text: |-
+    Sandi, blah, blah, blah. (laughs)
+    (laughter)
+- start: '298.474'
+  dur: '1.926'
+  text: And then suddenly I get startled back
+- start: '300.4'
+  dur: '1.112'
+  text: into awareness when I hear them say,
+- start: '301.512'
+  dur: '2.044'
+  text: "\"So, what do you think we should do"
+- start: '303.556'
+  dur: '3.655'
+  text: |-
+    "about this line of code?" (laughs)
+    (laughter)
+- start: '307.211'
+  dur: '1.726'
+  text: And it used to terrify me, right?
+- start: '308.937'
+  dur: '1.864'
+  text: I felt like I had to understand everything
+- start: '310.801'
+  dur: '2.13'
+  text: in order to help with anything.
+- start: '312.931'
+  dur: '1.44'
+  text: But it turned out that after a few trips,
+- start: '314.371'
+  dur: '1.585'
+  text: I realized that there was a really
+- start: '315.956'
+  dur: '1.457'
+  text: simple thing I could do to help me
+- start: '317.413'
+  dur: '2.564'
+  text: |-
+    identify code that they
+    could benefit from changing.
+- start: '319.977'
+  dur: '4.265'
+  text: |-
+    And I call this the "squint test".
+    (laughter)
+- start: '324.242'
+  dur: '1.62'
+  text: Here's how it works.
+- start: '325.862'
+  dur: '3.311'
+  text: You squint your eyes, you lean back,
+- start: '329.173'
+  dur: '1.683'
+  text: and you look at the code.
+- start: '330.856'
+  dur: '5.473'
+  text: |-
+    And we're looking for changes in shape,
+    (laughter)
+- start: '336.329'
+  dur: '3.372'
+  text: and changes in color.
+- start: '339.701'
+  dur: '1.569'
+  text: |-
+    Changes in shape mean you
+    have nested conditionals
+- start: '341.27'
+  dur: '2.938'
+  text: |-
+    and they are always going
+    to be hard to reason about.
+- start: '344.208'
+  dur: '1.432'
+  text: Changes in color mean that your code is
+- start: '345.64'
+  dur: '3.25'
+  text: at differing levels of abstraction,
+- start: '348.89'
+  dur: '1.447'
+  text: and it means the story it tells
+- start: '350.337'
+  dur: '2.006'
+  text: is going to be hard to follow.
+- start: '352.343'
+  dur: '1.342'
+  text: Now, what is it about this code?
+- start: '353.685'
+  dur: '1.827'
+  text: Well, it has 16 if statements,
+- start: '355.512'
+  dur: '1.465'
+  text: some of those are not equal to them,
+- start: '356.977'
+  dur: '1.593'
+  text: and connect something with an "&",
+- start: '358.57'
+  dur: '2.16'
+  text: |-
+    there are three magic strings,
+    they're used all over,
+- start: '360.73'
+  dur: '0.829'
+  text: and a number of magic numbers,
+- start: '361.559'
+  dur: '2.995'
+  text: |-
+    I don't even know how many.
+    (laughter)
+- start: '364.554'
+  dur: '1.656'
+  text: Now, at least it has tests.
+- start: '366.21'
+  dur: '1.746'
+  text: Oh, I'm sorry, here are the magic strings.
+- start: '367.956'
+  dur: '0.9'
+  text: 'These three things:'
+- start: '368.856'
+  dur: '2.799'
+  text: Brie, Sulfuras, and Backstage passes,
+- start: '371.655'
+  dur: '1.71'
+  text: whatever that means.
+- start: '373.365'
+  dur: '4.432'
+  text: And it does have tests, and they pass.
+- start: '377.797'
+  dur: '3.835'
+  text: |-
+    Now, there are six skipped tests, alright?
+    (laughter)
+- start: '381.632'
+  dur: '3.188'
+  text: So, I don't know what that's about.
+- start: '384.82'
+  dur: '2.114'
+  text: |-
+    And so, I pry open the code, I
+    just look at this first test.
+- start: '386.934'
+  dur: '4.219'
+  text: |-
+    Oh, sorry, the tests cluster
+    around the magic strings,
+- start: '391.153'
+  dur: '1.583'
+  text: except for this set, which is for
+- start: '392.736'
+  dur: '1.449'
+  text: something called "Normal",
+- start: '394.185'
+  dur: '3.527'
+  text: |-
+    which is never mentioned in
+    the "if" statement. (laughter)
+- start: '397.712'
+  dur: '2.658'
+  text: |-
+    I suspect there's something
+    in an [L's] branch
+- start: '400.37'
+  dur: '1.04'
+  text: somewhere that matters here, alright?
+- start: '401.41'
+  dur: '1.566'
+  text: So, I pry open the test and I look at it.
+- start: '402.976'
+  dur: '3.223'
+  text: Here's one, they all look just like this.
+- start: '406.199'
+  dur: '4.211'
+  text: I'm selling something, ok?
+- start: '410.41'
+  dur: '1.212'
+  text: Given a Gilded Rose that has this name,
+- start: '411.622'
+  dur: '3.484'
+  text: |-
+    attribute, and quality, those
+    are our three [add-a-readers],
+- start: '415.106'
+  dur: '4.598'
+  text: |-
+    When I tick, in this case,
+    quality goes down by one,
+- start: '419.704'
+  dur: '2.601'
+  text: days remaining goes down by one,
+- start: '422.305'
+  dur: '0.919'
+  text: they both go down by one.
+- start: '423.224'
+  dur: '1.034'
+  text: So, it's as if I'm selling milk,
+- start: '424.258'
+  dur: '2.305'
+  text: |-
+    or eggs, or cheese or something
+    that has a sell-by date,
+- start: '426.563'
+  dur: '3.814'
+  text: |-
+    that's going to expire, where
+    they go bad at some date.
+- start: '430.377'
+  dur: '2.248'
+  text: OK, so, I'm still exploring around,
+- start: '432.625'
+  dur: '2.52'
+  text: I don't even know what my job is yet,
+- start: '435.145'
+  dur: '2.431'
+  text: and I look at the six skipped tests,
+- start: '437.576'
+  dur: '5.274'
+  text: |-
+    and there is something called "Conjured",
+    (laughter)
+- start: '442.85'
+  dur: '0.429'
+  text: and they all follow the same pattern,
+- start: '443.279'
+  dur: '1.593'
+  text: all of the tests look like given that
+- start: '444.872'
+  dur: '1.937'
+  text: when I tick, I see this change.
+- start: '446.809'
+  dur: '3.329'
+  text: And at this point, I realize, holy crap,
+- start: '450.138'
+  dur: '3.319'
+  text: |-
+    I'm supposed to change this code.
+    (laughter)
+- start: '453.457'
+  dur: '3.491'
+  text: And so I tried, I tried,
+- start: '456.948'
+  dur: '5.013'
+  text: |-
+    very obediently, I tried, but
+    I was a miserable failure.
+- start: '461.961'
+  dur: '1.16'
+  text: I couldn't do it.
+- start: '463.121'
+  dur: '1.583'
+  text: That 43 lines of statement defeated me.
+- start: '464.704'
+  dur: '3.216'
+  text: |-
+    Every time I went, I would
+    like pry open a Conjured test
+- start: '467.92'
+  dur: '1.203'
+  text: |-
+    and I'd go make some change
+    in that "if" statement
+- start: '469.123'
+  dur: '2.817'
+  text: |-
+    to make that test pass, it
+    would break something else.
+- start: '471.94'
+  dur: '1.189'
+  text: I spent hours on it.
+- start: '473.129'
+  dur: '1.664'
+  text: |-
+    Now, I am impaired, but
+    really, it was hard.
+- start: '474.793'
+  dur: '2.123'
+  text: It would be hard for you, too, I think.
+- start: '476.916'
+  dur: '1.827'
+  text: And so, if changing that "if" statement
+- start: '478.743'
+  dur: '1.565'
+  text: was so hard, you have to ask,
+- start: '480.308'
+  dur: '1.989'
+  text: why was I trying? Why did I try to do,
+- start: '482.297'
+  dur: '1.16'
+  text: what possessed me to try to alter
+- start: '483.457'
+  dur: '5.688'
+  text: that incredibly complicated bit of code?
+- start: '489.145'
+  dur: '3.311'
+  text: |-
+    And the answer is, I felt
+    like I was supposed to.
+- start: '492.456'
+  dur: '1.178'
+  text: And here's what happens, right?
+- start: '493.634'
+  dur: '3.086'
+  text: |-
+    You write some code,
+    someone asks for a change.
+- start: '496.72'
+  dur: '0.89'
+  text: What do we do?
+- start: '497.61'
+  dur: '0.669'
+  text: You go look around at the code base
+- start: '498.279'
+  dur: '2.464'
+  text: for a code that's the closest thing
+- start: '500.743'
+  dur: '1.752'
+  text: to the new thing you're trying to do,
+- start: '502.495'
+  dur: '2.162'
+  text: and you put the new code there.
+- start: '504.657'
+  dur: '0.711'
+  text: That's how we behave.
+- start: '505.368'
+  dur: '3.112'
+  text: |-
+    Novices especially, they're
+    afraid to make new objects,
+- start: '508.48'
+  dur: '2.135'
+  text: |-
+    so they just go put more
+    code in where they can
+- start: '510.615'
+  dur: '1.901'
+  text: |-
+    find a thing like the thing
+    they're trying to add,
+- start: '512.516'
+  dur: '1.767'
+  text: |-
+    and if that place already
+    has an "if" statement,
+- start: '514.283'
+  dur: '2.666'
+  text: they just put another branch on it, right?
+- start: '516.949'
+  dur: '1.641'
+  text: That's how it works.
+- start: '518.59'
+  dur: '1.522'
+  text: |-
+    And what happens is,
+    so the natural tendency
+- start: '520.112'
+  dur: '1.176'
+  text: of code is to grow bigger,
+- start: '521.288'
+  dur: '1.172'
+  text: and bigger, and bigger.
+- start: '522.46'
+  dur: '1.005'
+  text: And there comes a point, right?
+- start: '523.465'
+  dur: '0.951'
+  text: It gets bigger, and bigger, and bigger.
+- start: '524.416'
+  dur: '1.89'
+  text: And there comes a point where it tips,
+- start: '526.306'
+  dur: '1.809'
+  text: and at that point it's so big that
+- start: '528.115'
+  dur: '2.421'
+  text: |-
+    you cannot imagine putting
+    code anywhere else.
+- start: '530.536'
+  dur: '2.68'
+  text: We have a bargain to follow the pattern,
+- start: '533.216'
+  dur: '2.647'
+  text: |-
+    and if the pattern is a
+    good one, code gets better.
+- start: '535.863'
+  dur: '3.33'
+  text: |-
+    And if the pattern is a bad
+    one, we exacerbate the problem.
+- start: '539.193'
+  dur: '2.527'
+  text: Nobody adds a 10-line helper class to a
+- start: '541.72'
+  dur: '2.493'
+  text: 5000-line active record object.
+- start: '544.213'
+  dur: '1.423'
+  text: They just get bigger.
+- start: '545.636'
+  dur: '3.599'
+  text: |-
+    Once they reach a certain
+    size, they just get bigger.
+- start: '549.235'
+  dur: '3.574'
+  text: And so, I could not follow the pattern.
+- start: '552.809'
+  dur: '1.486'
+  text: |-
+    I was not good enough
+    to follow the pattern,
+- start: '554.295'
+  dur: '2.875'
+  text: |-
+    and so I decided I was
+    going to make a new pattern,
+- start: '557.17'
+  dur: '2.24'
+  text: That I was going to refactor this code.
+- start: '559.41'
+  dur: '1.98'
+  text: Now, this is real refactoring according
+- start: '561.39'
+  dur: '1.9'
+  text: to the definition of refactoring,
+- start: '563.29'
+  dur: '2.52'
+  text: I'm going to refactor this code,
+- start: '565.81'
+  dur: '0.863'
+  text: I'm going to change its arrangement
+- start: '566.673'
+  dur: '2.215'
+  text: without altering its behavior.
+- start: '568.888'
+  dur: '1.627'
+  text: I'm not going to try to add Conjured,
+- start: '570.515'
+  dur: '1.128'
+  text: I'm going to try to move this code
+- start: '571.643'
+  dur: '3.336'
+  text: around so that I can add Conjured.
+- start: '574.979'
+  dur: '1.702'
+  text: And for refactoring, for refactoring
+- start: '576.681'
+  dur: '2.285'
+  text: |-
+    it's like this test with
+    a wall at your back.
+- start: '578.966'
+  dur: '0.924'
+  text: You've got to have tests,
+- start: '579.89'
+  dur: '1.924'
+  text: or you don't know what you're doing.
+- start: '581.814'
+  dur: '1.49'
+  text: |-
+    And so, I'm just going
+    to start at the top.
+- start: '583.304'
+  dur: '1.422'
+  text: |-
+    I'm going to start with
+    these Normal tests,
+- start: '584.726'
+  dur: '1.005'
+  text: and I've got this code.
+- start: '585.731'
+  dur: '1.539'
+  text: This is what tick looks like.
+- start: '587.27'
+  dur: '2.142'
+  text: Now this is a big, long procedure.
+- start: '589.412'
+  dur: '1.955'
+  text: This is not object-oriented code.
+- start: '591.367'
+  dur: '3.183'
+  text: |-
+    In object-oriented code, you
+    have lots of little objects,
+- start: '594.55'
+  dur: '1.647'
+  text: and you send messages between them.
+- start: '596.197'
+  dur: '1.504'
+  text: And those messages give you a level of
+- start: '597.701'
+  dur: '1.923'
+  text: indirection so that you can substitute
+- start: '599.624'
+  dur: '1.984'
+  text: different objects at the back.
+- start: '601.608'
+  dur: '3.263'
+  text: |-
+    Messages create seams so that
+    you can do a different thing,
+- start: '604.871'
+  dur: '3.662'
+  text: |-
+    and there is no seam here
+    because this is a procedure.
+- start: '608.533'
+  dur: '1.26'
+  text: And so the first thing I have to do
+- start: '609.793'
+  dur: '3.346'
+  text: |-
+    if I want to refactor is
+    I have to make a seam,
+- start: '613.139'
+  dur: '2.214'
+  text: and I'm going to do that just by
+- start: '615.353'
+  dur: '2.575'
+  text: tracking Normal and Bailing.
+- start: '617.928'
+  dur: '5.245'
+  text: |-
+    At this point, four tests should
+    fail, and they do, alright?
+- start: '623.173'
+  dur: '3.789'
+  text: |-
+    And I am not about to add
+    more code to the tick method,
+- start: '626.962'
+  dur: '2.771'
+  text: |-
+    so I'm just going to
+    send a message to myself,
+- start: '629.733'
+  dur: '3.411'
+  text: |-
+    and four tests should
+    still fail, and they do.
+- start: '633.144'
+  dur: '1.196'
+  text: And so, now that I believe that I have
+- start: '634.34'
+  dur: '2.285'
+  text: caught that execution path,
+- start: '636.625'
+  dur: '1.809'
+  text: |-
+    I'm going to just break
+    open the first test
+- start: '638.434'
+  dur: '3.428'
+  text: |-
+    and I'm going to write
+    the code and make it pass.
+- start: '641.862'
+  dur: '3.38'
+  text: |-
+    Quality goes down by
+    one, that's easy enough.
+- start: '645.242'
+  dur: '2.468'
+  text: I can write that code.
+- start: '647.71'
+  dur: '4.538'
+  text: |-
+    Days remaining goes down by
+    one, and that test passes.
+- start: '652.248'
+  dur: '2.327'
+  text: Alright? One down, three to go.
+- start: '654.575'
+  dur: '1.856'
+  text: Here's the next test.
+- start: '656.431'
+  dur: '2.395'
+  text: |-
+    In this case, it looks
+    like I'm out of time,
+- start: '658.826'
+  dur: '4.4'
+  text: |-
+    I'm on the sale-by-date, so
+    now quality goes down by two.
+- start: '663.226'
+  dur: '4.074'
+  text: |-
+    So, I'll just make sure my
+    old test keeps on passing,
+- start: '667.3'
+  dur: '3.213'
+  text: |-
+    and I'll write code to
+    make this test pass.
+- start: '670.513'
+  dur: '2'
+  text: And so, now I think two tests should pass,
+- start: '672.513'
+  dur: '2.48'
+  text: so I should have two failures.
+- start: '674.993'
+  dur: '2.518'
+  text: But something I just did made some test
+- start: '677.511'
+  dur: '2.809'
+  text: |-
+    I haven't looked at
+    pass, and we love that.
+- start: '680.32'
+  dur: '4.519'
+  text: |-
+    I'm not even going to look
+    at it. (laughter) Alright?
+- start: '684.839'
+  dur: '2.123'
+  text: |-
+    I don't need to understand
+    it, I've got tests. (laughter)
+- start: '686.962'
+  dur: '1.726'
+  text: OK, so I'm going to just go,
+- start: '688.688'
+  dur: '1.683'
+  text: I'm going to make this one pass, alright?
+- start: '690.371'
+  dur: '2.551'
+  text: I'll just open the last one.
+- start: '692.922'
+  dur: '5.071'
+  text: |-
+    So, this one says if the
+    quality is already zero,
+- start: '697.993'
+  dur: '1.943'
+  text: don't change it.
+- start: '699.936'
+  dur: '1.881'
+  text: |-
+    And so I'm just going
+    to wrap this whole thing
+- start: '701.817'
+  dur: '4.328'
+  text: |-
+    in an "if" statement, and not
+    do anything if quality is zero.
+- start: '706.145'
+  dur: '2.96'
+  text: OK, so now I'm back to green.
+- start: '709.105'
+  dur: '2.656'
+  text: That code was not smart or clever,
+- start: '711.761'
+  dur: '2.07'
+  text: but that's the whole point.
+- start: '713.831'
+  dur: '2.417'
+  text: Once I get to green, I can now refactor.
+- start: '716.248'
+  dur: '2.72'
+  text: |-
+    So my goal is to get to
+    green as quickly as possible.
+- start: '718.968'
+  dur: '3.583'
+  text: |-
+    Red is not when you
+    ponder the abstraction.
+- start: '722.551'
+  dur: '3.099'
+  text: Red is when you scramble toward green.
+- start: '725.65'
+  dur: '0.661'
+  text: You're trying to reach to look for the
+- start: '726.311'
+  dur: '1.935'
+  text: lowest hanging green here,
+- start: '728.246'
+  dur: '2.674'
+  text: and so I got there, I'm at green now,
+- start: '730.92'
+  dur: '3.05'
+  text: |-
+    and I confessed to you already
+    that I am Bullion-impaired,
+- start: '733.97'
+  dur: '0.241'
+  text: and I have written code that even
+- start: '734.211'
+  dur: '3.614'
+  text: I at this moment do not understand,
+- start: '737.825'
+  dur: '2.721'
+  text: but now I'm green, so I can refactor.
+- start: '740.546'
+  dur: '1.727'
+  text: It looks to me that they always
+- start: '742.273'
+  dur: '2.422'
+  text: subtract one from days remaining,
+- start: '744.695'
+  dur: '1.234'
+  text: so I'm going to do that first.
+- start: '745.929'
+  dur: '2.608'
+  text: I like that story better.
+- start: '748.537'
+  dur: '2.601'
+  text: |-
+    It looks to me like
+    they don't do anything,
+- start: '751.138'
+  dur: '2.052'
+  text: I can just bail if quality is zero,
+- start: '753.19'
+  dur: '1.174'
+  text: so I can take that whole outer
+- start: '754.364'
+  dur: '2.108'
+  text: nesting out of that "if" statement,
+- start: '756.472'
+  dur: '1.01'
+  text: and now once I get to here,
+- start: '757.482'
+  dur: '2.454'
+  text: I can ponder these two remaining cases.
+- start: '759.936'
+  dur: '2.323'
+  text: Are there two cases here?
+- start: '762.259'
+  dur: '1.701'
+  text: |-
+    Is there a case where I
+    subtract one from quality
+- start: '763.96'
+  dur: '2.68'
+  text: |-
+    and two from quality, or
+    is this, I don't think so.
+- start: '766.64'
+  dur: '1.738'
+  text: Now that I look at it this way,
+- start: '768.378'
+  dur: '2.989'
+  text: |-
+    I think I always subtract
+    one from quality,
+- start: '771.367'
+  dur: '1.358'
+  text: and there's a special case in which
+- start: '772.725'
+  dur: '4.047'
+  text: |-
+    I subtract another, if
+    I'm past the sell-by date.
+- start: '776.772'
+  dur: '1.153'
+  text: And so, I can just delete all that,
+- start: '777.925'
+  dur: '2.654'
+  text: and now I have this, which is all the same
+- start: '780.579'
+  dur: '2.079'
+  text: |-
+    level of abstraction,
+    and I can understand it.
+- start: '782.658'
+  dur: '1.664'
+  text: I love the story this code tells.
+- start: '784.322'
+  dur: '1.206'
+  text: It's very simple.
+- start: '785.528'
+  dur: '3.394'
+  text: |-
+    It was easy to get here,
+    and now my test will pass.
+- start: '788.922'
+  dur: '0.908'
+  text: Alright, so we're going to do this
+- start: '789.83'
+  dur: '1.691'
+  text: |-
+    over and over again, much
+    more quickly than this one.
+- start: '791.521'
+  dur: '2.06'
+  text: |-
+    I'm going to just take you
+    through a quick reprise here.
+- start: '793.581'
+  dur: '3.889'
+  text: |-
+    So, I create a seam, I
+    send a message to myself,
+- start: '797.47'
+  dur: '1.637'
+  text: |-
+    I tracked all the
+    execution paths into here,
+- start: '799.107'
+  dur: '1.475'
+  text: I wrote some code, I hated it,
+- start: '800.582'
+  dur: '1.173'
+  text: I got to green as quick as possible,
+- start: '801.755'
+  dur: '1.113'
+  text: and then I used green to let me
+- start: '802.868'
+  dur: '2.357'
+  text: refactor to code that was sensible,
+- start: '805.225'
+  dur: '1.775'
+  text: and now Normal is done.
+- start: '807'
+  dur: '1.728'
+  text: All the Normal tests passed.
+- start: '808.728'
+  dur: '1.257'
+  text: So, now I'm just going to bust right
+- start: '809.985'
+  dur: '1.54'
+  text: through all the other cases.
+- start: '811.525'
+  dur: '2.284'
+  text: |-
+    Here's Brie, there's a
+    whole bunch of stuff.
+- start: '813.809'
+  dur: '1.026'
+  text: I'm going to turn that into a case
+- start: '814.835'
+  dur: '2.286'
+  text: statement so I can track Brie.
+- start: '817.121'
+  dur: '1.847'
+  text: |-
+    There are seven tests, and
+    they're all failing now,
+- start: '818.968'
+  dur: '2.571'
+  text: |-
+    so I have confidence
+    that I have caught them.
+- start: '821.539'
+  dur: '1.108'
+  text: I'm going to write the code,
+- start: '822.647'
+  dur: '1.339'
+  text: but you don't even need to look at it
+- start: '823.986'
+  dur: '1.431'
+  text: because you can see how easy it is, right?
+- start: '825.417'
+  dur: '3.483'
+  text: |-
+    Now that I am only
+    having to write code for
+- start: '828.9'
+  dur: '1.561'
+  text: |-
+    one test at a time, it's pretty
+    simple to write the code.
+- start: '830.461'
+  dur: '3.036'
+  text: What I end up with looks like this.
+- start: '833.497'
+  dur: '2.026'
+  text: And now Brie is done.
+- start: '835.523'
+  dur: '4.401'
+  text: |-
+    And now a really
+    interesting thing happens.
+- start: '839.924'
+  dur: '1.254'
+  text: When this stuff was buried in the
+- start: '841.178'
+  dur: '1.321'
+  text: 43-line "if" statement,
+- start: '842.499'
+  dur: '4.038'
+  text: |-
+    I had no idea the ways in which
+    Normal and Brie were like,
+- start: '846.537'
+  dur: '3.76'
+  text: |-
+    but now that I'm using this,
+    they seem a lot alike to me.
+- start: '850.297'
+  dur: '2.25'
+  text: |-
+    Now, there's differences sort
+    of in the driving data here,
+- start: '852.547'
+  dur: '2.143'
+  text: but the algorithm, you can see the shape
+- start: '854.69'
+  dur: '2.607'
+  text: |-
+    of the algorithm here, and the
+    algorithm is really the same.
+- start: '857.297'
+  dur: '1.502'
+  text: And it is very tempting.
+- start: '858.799'
+  dur: '3.394'
+  text: |-
+    We've had the DRY rule
+    browbeat into us so strongly,
+- start: '862.193'
+  dur: '1.511'
+  text: it's very tempting at this point.
+- start: '863.704'
+  dur: '2.187'
+  text: I'm on a road, I'm on a refactoring road.
+- start: '865.891'
+  dur: '2.502'
+  text: It's very tempting now to go on a tangent
+- start: '868.393'
+  dur: '1.304'
+  text: and try to clean this up.
+- start: '869.697'
+  dur: '1.143'
+  text: Because we believe the greatest,
+- start: '870.84'
+  dur: '2.863'
+  text: |-
+    we've been taught like the
+    greatest virtue is DRY.
+- start: '873.703'
+  dur: '2.553'
+  text: |-
+    And I will tell you that's
+    the wrong idea here.
+- start: '876.256'
+  dur: '1.333'
+  text: I'm about to get a lot more information
+- start: '877.589'
+  dur: '1.931'
+  text: about what this algorithm looks like,
+- start: '879.52'
+  dur: '3.19'
+  text: |-
+    and I need to finish
+    the refactoring I'm on
+- start: '882.71'
+  dur: '1.683'
+  text: |-
+    before I go on any tangents,
+    so I'm going to notice
+- start: '884.393'
+  dur: '3.213'
+  text: that similarity and keep the duplication,
+- start: '887.606'
+  dur: '3.094'
+  text: |-
+    and just keep on going down
+    this path to see where it leads.
+- start: '890.7'
+  dur: '1.899'
+  text: |-
+    And this brings me to my
+    first big point of this talk.
+- start: '892.599'
+  dur: '4.219'
+  text: It is far cheaper to keep duplication
+- start: '896.818'
+  dur: '2.727'
+  text: |-
+    than it is to have to mess
+    with the wrong abstraction.
+- start: '899.545'
+  dur: '1.439'
+  text: The first rule we teach novices
+- start: '900.984'
+  dur: '2.173'
+  text: is don't repeat yourself - DRY.
+- start: '903.157'
+  dur: '2.692'
+  text: |-
+    But have you ever thought about
+    why we teach them that rule?
+- start: '905.849'
+  dur: '3.594'
+  text: |-
+    It's because they can't understand
+    anything else. (laughter)
+- start: '909.443'
+  dur: '1.414'
+  text: They don't know anything, but by God,
+- start: '910.857'
+  dur: '2.933'
+  text: |-
+    they can recognize duplication,
+    and it's a good rule.
+- start: '913.79'
+  dur: '1.388'
+  text: I'm not saying it's a bad rule,
+- start: '915.178'
+  dur: '5.738'
+  text: |-
+    but I'm saying that now you're
+    grown up, you know more,
+- start: '920.916'
+  dur: '2.073'
+  text: and you have enough experience
+- start: '922.989'
+  dur: '1.914'
+  text: now to tolerate a little duplication
+- start: '924.903'
+  dur: '1.545'
+  text: and wait on a better abstraction.
+- start: '926.448'
+  dur: '3.394'
+  text: |-
+    It's really hard to deal
+    with the wrong abstraction.
+- start: '929.842'
+  dur: '2.079'
+  text: I often make a "dup tag".
+- start: '931.921'
+  dur: '2.009'
+  text: You know how you can make a "to do" tag?
+- start: '933.93'
+  dur: '1.277'
+  text: Like people say, "Oh, I'm going to
+- start: '935.207'
+  dur: '1.42'
+  text: '"lose track of my duplication."'
+- start: '936.627'
+  dur: '1.07'
+  text: Well, fix that problem.
+- start: '937.697'
+  dur: '2.422'
+  text: |-
+    Make a "dup tag" and give
+    every "dup" a number,
+- start: '940.119'
+  dur: '3.267'
+  text: |-
+    so if you have the same
+    code in two or three places,
+- start: '943.386'
+  dur: '2.185'
+  text: |-
+    like if that's the sixth
+    instance of duplication,
+- start: '945.571'
+  dur: '1.417'
+  text: give it an ID like a database,
+- start: '946.988'
+  dur: '2.282'
+  text: |-
+    and put "dup six" in a bunch
+    of places in your code.
+- start: '949.27'
+  dur: '0.908'
+  text: You'll know.
+- start: '950.178'
+  dur: '1.647'
+  text: |-
+    You'll see the duplication
+    if you change a part,
+- start: '951.825'
+  dur: '2.322'
+  text: |-
+    like fix the problem of
+    not being able to find it,
+- start: '954.147'
+  dur: '2.414'
+  text: |-
+    rather than reaching too
+    soon for an abstraction.
+- start: '956.561'
+  dur: '2.993'
+  text: |-
+    It's much easier to
+    deal with a duplication.
+- start: '959.554'
+  dur: '1.16'
+  text: Alright, so moving on.
+- start: '960.714'
+  dur: '2.126'
+  text: Here's Sulfuras. There's three tests.
+- start: '962.84'
+  dur: '3.264'
+  text: |-
+    You would think if I put my
+    shim in and put an empty method,
+- start: '966.104'
+  dur: '6.074'
+  text: |-
+    I would have three test failures.
+    (laughter)
+- start: '972.178'
+  dur: '1.771'
+  text: And yet they all pass.
+- start: '973.949'
+  dur: '0.877'
+  text: So, what's this about?
+- start: '974.826'
+  dur: '1.734'
+  text: Well, I look at the test and I realize
+- start: '976.56'
+  dur: '1.306'
+  text: in all the tests [unintelligible] that
+- start: '977.866'
+  dur: '2.661'
+  text: nothing happens if it's Sulfuras.
+- start: '980.527'
+  dur: '1.703'
+  text: And again, I had no idea when I was
+- start: '982.23'
+  dur: '1.216'
+  text: looking at that 43 lines of statement
+- start: '983.446'
+  dur: '2.709'
+  text: |-
+    that somehow it all asserted
+    that nothing happened,
+- start: '986.155'
+  dur: '4.462'
+  text: |-
+    so it turns out this is the code
+    that makes the tests pass. (laughter)
+- start: '990.617'
+  dur: '3.328'
+  text: How nice is that? We love that, OK?
+- start: '993.945'
+  dur: '1.53'
+  text: |-
+    So here's Backstage, and
+    there's a whole bunch of these,
+- start: '995.475'
+  dur: '1.871'
+  text: and it looks like this.
+- start: '997.346'
+  dur: '2.116'
+  text: That's the code that makes the tests pass.
+- start: '999.462'
+  dur: '2.358'
+  text: And so now, we're totally back to green.
+- start: '1001.82'
+  dur: '2.411'
+  text: |-
+    This looks exactly like
+    it did when I started.
+- start: '1004.231'
+  dur: '2.691'
+  text: And this is what I got.
+- start: '1006.922'
+  dur: '1.485'
+  text: I put this case statement in the front,
+- start: '1008.407'
+  dur: '2.227'
+  text: and it tracked all the execution paths.
+- start: '1010.634'
+  dur: '2.299'
+  text: |-
+    I have a bunch of methods
+    that look like this
+- start: '1012.933'
+  dur: '2.852'
+  text: |-
+    that I created and added
+    to the Gilded Rose class,
+- start: '1015.785'
+  dur: '1.422'
+  text: and the rest of the tick methods still
+- start: '1017.207'
+  dur: '3.023'
+  text: |-
+    contains that monstrous
+    43-line "if" statement,
+- start: '1020.23'
+  dur: '2.621'
+  text: |-
+    which I don't understand,
+    but I no longer need,
+- start: '1022.851'
+  dur: '3.756'
+  text: so I'm just going to delete it, it's gone.
+- start: '1026.607'
+  dur: '5.033'
+  text: |-
+    Now if you don't have good tests,
+    this may freak you out,  (laughter)
+- start: '1031.64'
+  dur: '1.872'
+  text: but then if you feel freaked out by this
+- start: '1033.512'
+  dur: '1.152'
+  text: and you don't have good tests,
+- start: '1034.664'
+  dur: '1.666'
+  text: you're really making a choice here, right?
+- start: '1036.33'
+  dur: '2.686'
+  text: If you have code that you don't understand
+- start: '1039.016'
+  dur: '1.674'
+  text: and that you're afraid to change,
+- start: '1040.69'
+  dur: '4.303'
+  text: |-
+    you can keep it forever, if
+    you think that's a good idea,
+- start: '1044.993'
+  dur: '2.957'
+  text: or you can put some kind of test [harness)
+- start: '1047.95'
+  dur: '1.317'
+  text: around it so that you can refactor,
+- start: '1049.267'
+  dur: '2.483'
+  text: |-
+    but keeping it forever is
+    not really a good choice,
+- start: '1051.75'
+  dur: '0.415'
+  text: so you want to get to the point where
+- start: '1052.165'
+  dur: '2.608'
+  text: |-
+    you have confidence that
+    you can safely refactor,
+- start: '1054.773'
+  dur: '2.574'
+  text: |-
+    and it means you never have
+    to understand that code,
+- start: '1057.347'
+  dur: '2.547'
+  text: |-
+    you can do characterization
+    tests around the edges,
+- start: '1059.894'
+  dur: '1.26'
+  text: so that you'll have green,
+- start: '1061.154'
+  dur: '1.252'
+  text: you'll have a wall at your back for tests,
+- start: '1062.406'
+  dur: '1.313'
+  text: and then you can refactor your way,
+- start: '1063.719'
+  dur: '1.114'
+  text: to the point where you can delete
+- start: '1064.833'
+  dur: '2.727'
+  text: the code that you don't understand.
+- start: '1067.56'
+  dur: '1.052'
+  text: And the moral of this story is that
+- start: '1068.612'
+  dur: '2.944'
+  text: small methods are simple.
+- start: '1071.556'
+  dur: '0.837'
+  text: Here we have it.
+- start: '1072.393'
+  dur: '1.258'
+  text: This is the code we just wrote.
+- start: '1073.651'
+  dur: '1.772'
+  text: |-
+    This is the squint test
+    version, don't try to read it.
+- start: '1075.423'
+  dur: '1.314'
+  text: |-
+    This is the code we
+    just wrote on the right,
+- start: '1076.737'
+  dur: '1.755'
+  text: and this is how we start it on the left.
+- start: '1078.492'
+  dur: '3.674'
+  text: You notice that the shape is flat,
+- start: '1082.166'
+  dur: '2.05'
+  text: and the colors are starting to cluster.
+- start: '1084.216'
+  dur: '2.294'
+  text: Now, again I believe in metrics, because
+- start: '1086.51'
+  dur: '1.738'
+  text: I know that my personal notion of what
+- start: '1088.248'
+  dur: '2.618'
+  text: is simple or complex is just my opinion,
+- start: '1090.866'
+  dur: '4.049'
+  text: |-
+    and I totally know that
+    metrics are fallible,
+- start: '1094.915'
+  dur: '3.267'
+  text: but human opinion is no more precise.
+- start: '1098.182'
+  dur: '2.483'
+  text: |-
+    And that metrics are kind
+    of a crowdsource idea
+- start: '1100.665'
+  dur: '2.145'
+  text: |-
+    of what a bunch of people
+    thought a metric could be.
+- start: '1102.81'
+  dur: '3.384'
+  text: |-
+    It is a useful data point
+    for me to compare to my own.
+- start: '1106.194'
+  dur: '1.653'
+  text: The original class Flogged to 50,
+- start: '1107.847'
+  dur: '2.961'
+  text: and this new class Flogs to 40,
+- start: '1110.808'
+  dur: '1.772'
+  text: but that overstates its complexity
+- start: '1112.58'
+  dur: '0.839'
+  text: because now there's a bunch of methods,
+- start: '1113.419'
+  dur: '3.436'
+  text: |-
+    and the most complex method is
+    Backstage and if Flogs to 12.
+- start: '1116.855'
+  dur: '2.833'
+  text: This code is way simpler.
+- start: '1119.688'
+  dur: '1.673'
+  text: Well, this is great, and you'd think that
+- start: '1121.361'
+  dur: '2.312'
+  text: everyone would just do this.
+- start: '1123.673'
+  dur: '2.495'
+  text: |-
+    And so, it's an interesting
+    question why they don't.
+- start: '1126.168'
+  dur: '1.212'
+  text: Now, one of the things I already told you,
+- start: '1127.38'
+  dur: '1.26'
+  text: I already gave you one reason, right?
+- start: '1128.64'
+  dur: '2.169'
+  text: We do more of what's there.
+- start: '1130.809'
+  dur: '2.533'
+  text: And so, the tendency is to add more
+- start: '1133.342'
+  dur: '1.156'
+  text: to the "if" statement, if that's there,
+- start: '1134.498'
+  dur: '1.358'
+  text: but I think there's another reason
+- start: '1135.856'
+  dur: '2.753'
+  text: why we don't undertake these refactorings,
+- start: '1138.609'
+  dur: '1.215'
+  text: and it's because of this.
+- start: '1139.824'
+  dur: '2.791'
+  text: |-
+    I'm just going to make the
+    50 smaller and move it over.
+- start: '1142.615'
+  dur: '3.248'
+  text: It took me 10 refactoring steps to get
+- start: '1145.863'
+  dur: '4.094'
+  text: |-
+    from the big conditional to
+    a bunch of small methods,
+- start: '1149.957'
+  dur: '5.328'
+  text: |-
+    and here's the Flog score of
+    all the intermediate steps.
+- start: '1155.285'
+  dur: '1.538'
+  text: All the intermediate refactorings
+- start: '1156.823'
+  dur: '2.755'
+  text: made code more complicated.
+- start: '1159.578'
+  dur: '2.287'
+  text: I know that I'm going to get to that 40.
+- start: '1161.865'
+  dur: '2.401'
+  text: |-
+    I understand the principles
+    of object-oriented design,
+- start: '1164.266'
+  dur: '1.708'
+  text: and I know the value of small methods,
+- start: '1165.974'
+  dur: '3.235'
+  text: |-
+    and because of that, I
+    believe in the refactorings,
+- start: '1169.209'
+  dur: '2.506'
+  text: |-
+    and that lets me tolerate
+    the intermediate complexity.
+- start: '1171.715'
+  dur: '3.535'
+  text: |-
+    But if you don't know,
+    if you haven't learned
+- start: '1175.25'
+  dur: '1.028'
+  text: about the value of small methods,
+- start: '1176.278'
+  dur: '2.368'
+  text: |-
+    it's hard to undertake
+    those intermediate steps.
+- start: '1178.646'
+  dur: '5.173'
+  text: They seem like academic things that
+- start: '1183.819'
+  dur: '4.732'
+  text: |-
+    people will do that are
+    for some pie-in-the-sky
+- start: '1188.551'
+  dur: '2.635'
+  text: principle that don't improve code,
+- start: '1191.186'
+  dur: '2.054'
+  text: but I can promise you that if you can see
+- start: '1193.24'
+  dur: '2.252'
+  text: far enough to see to the end,
+- start: '1195.492'
+  dur: '4.325'
+  text: |-
+    this intermediate complexity
+    leads to ultimate simplicity.
+- start: '1199.817'
+  dur: '3.005'
+  text: |-
+    And, so now I'm going to
+    circle back around my task,
+- start: '1202.822'
+  dur: '1.348'
+  text: now that I've done this refactoring,
+- start: '1204.17'
+  dur: '1.423'
+  text: I can circle back around my original task
+- start: '1205.593'
+  dur: '2.897'
+  text: which is to implement Conjure.
+- start: '1208.49'
+  dur: '1.693'
+  text: How should I do this?
+- start: '1210.183'
+  dur: '3.581'
+  text: Here's what I got, I've got this.
+- start: '1213.764'
+  dur: '3.805'
+  text: Should I do that?
+- start: '1217.569'
+  dur: '3.366'
+  text: It would be easy, it would be really easy.
+- start: '1220.935'
+  dur: '2.862'
+  text: |-
+    The answer to that is
+    "no", I should not do that.
+- start: '1223.797'
+  dur: '3.033'
+  text: |-
+    That is not the way I
+    should solve this problem,
+- start: '1226.83'
+  dur: '3.13'
+  text: |-
+    and it's because this
+    code is not open/closed.
+- start: '1229.96'
+  dur: '4.367'
+  text: |-
+    It is not open for extension,
+    and closed for modification.
+- start: '1234.327'
+  dur: '3.534'
+  text: |-
+    Open/closed supplies the
+    "O" in [solid], and it is,
+- start: '1237.861'
+  dur: '1.09'
+  text: and I'm going to say it right out loud,
+- start: '1238.951'
+  dur: '4.499'
+  text: |-
+    it's a principle of
+    object-oriented design.
+- start: '1243.45'
+  dur: '2.974'
+  text: |-
+    It's one of the pieces
+    of cumulative wisdom
+- start: '1246.424'
+  dur: '1.119'
+  text: created by folks who've written
+- start: '1247.543'
+  dur: '1.953'
+  text: a mountain of object-oriented code,
+- start: '1249.496'
+  dur: '2.276'
+  text: and they have experienced every
+- start: '1251.772'
+  dur: '2.908'
+  text: possible kind of programming pain.
+- start: '1254.68'
+  dur: '3.455'
+  text: |-
+    And over time, they have
+    noticed some principles,
+- start: '1258.135'
+  dur: '3.129'
+  text: and they developed a style guide
+- start: '1261.264'
+  dur: '2.485'
+  text: about how to organize code.
+- start: '1263.749'
+  dur: '1.395'
+  text: That's what object-oriented design is.
+- start: '1265.144'
+  dur: '2.062'
+  text: |-
+    That's what the rules of
+    object-oriented design are.
+- start: '1267.206'
+  dur: '3.392'
+  text: |-
+    It's a style guide about
+    how to organize code
+- start: '1270.598'
+  dur: '1.987'
+  text: with all the obvious tradeoffs,
+- start: '1272.585'
+  dur: '2.051'
+  text: |-
+    all the places where you
+    can make your own decisions.
+- start: '1274.636'
+  dur: '4.58'
+  text: |-
+    In this case, you can feel free
+    to ignore their discoveries,
+- start: '1279.216'
+  dur: '1.125'
+  text: in which case you'll get to experience
+- start: '1280.341'
+  dur: '3.124'
+  text: all that pain over again for yourself.
+- start: '1283.465'
+  dur: '1.324'
+  text: That's what will happen.
+- start: '1284.789'
+  dur: '1.787'
+  text: On the macro level, this style guide says
+- start: '1286.576'
+  dur: '4.041'
+  text: |-
+    it's best to arrange code
+    so that adding new behavior
+- start: '1290.617'
+  dur: '3.709'
+  text: |-
+    does not require that
+    you edit existing code.
+- start: '1294.326'
+  dur: '1.335'
+  text: I know that seems impossible.
+- start: '1295.661'
+  dur: '1.494'
+  text: I'm going to say it again, right?
+- start: '1297.155'
+  dur: '3.305'
+  text: |-
+    Open/closed says you ought to
+    be able to add new behavior
+- start: '1300.46'
+  dur: '2.787'
+  text: without editing existing code.
+- start: '1303.247'
+  dur: '2.12'
+  text: |-
+    Now, forget about how impossible
+    that seems for a minute.
+- start: '1305.367'
+  dur: '2.033'
+  text: |-
+    I just want you to
+    imagine something for me.
+- start: '1307.4'
+  dur: '5.75'
+  text: |-
+    Imagine the world, imagine
+    your apps, if that is true.
+- start: '1313.15'
+  dur: '2.563'
+  text: Imagine that you can add new behavior
+- start: '1315.713'
+  dur: '1.846'
+  text: without editing existing code.
+- start: '1317.559'
+  dur: '3.331'
+  text: Think about what that means.
+- start: '1320.89'
+  dur: '1.593'
+  text: It means you always have green tests,
+- start: '1322.483'
+  dur: '1.617'
+  text: it means you are always safe,
+- start: '1324.1'
+  dur: '2.404'
+  text: it means you never cause some
+- start: '1326.504'
+  dur: '2.176'
+  text: distant and unrelated side-effect.
+- start: '1328.68'
+  dur: '2.241'
+  text: That is a sweet, sweet world,
+- start: '1330.921'
+  dur: '2.07'
+  text: if your code is open/closed.
+- start: '1332.991'
+  dur: '1.537'
+  text: |-
+    And so, on the macro
+    level, we are trying to get
+- start: '1334.528'
+  dur: '1.91'
+  text: |-
+    to the point where we
+    can add new behavior,
+- start: '1336.438'
+  dur: '1.785'
+  text: without editing existing code.
+- start: '1338.223'
+  dur: '2.345'
+  text: |-
+    And on the micro level,
+    what that means here,
+- start: '1340.568'
+  dur: '2.421'
+  text: right now, in this code,
+- start: '1342.989'
+  dur: '1.564'
+  text: is that when we see methods that have
+- start: '1344.553'
+  dur: '3.393'
+  text: a repeating prefix or repeating suffix,
+- start: '1347.946'
+  dur: '2.494'
+  text: there is a tortured object in there
+- start: '1350.44'
+  dur: '4.254'
+  text: |-
+    that's trying to get out.
+    (laughter)
+- start: '1354.694'
+  dur: '2.032'
+  text: Right here, in this place,
+- start: '1356.726'
+  dur: '1.648'
+  text: you're about to make a decision
+- start: '1358.374'
+  dur: '2.126'
+  text: that's going to have consequences
+- start: '1360.5'
+  dur: '2.841'
+  text: that echo through your code base forever.
+- start: '1363.341'
+  dur: '2.395'
+  text: Are you going to write procedures,
+- start: '1365.736'
+  dur: '2.528'
+  text: or are you going to trust objects?
+- start: '1368.264'
+  dur: '2.511'
+  text: |-
+    If you insist on having
+    all the logic visible,
+- start: '1370.775'
+  dur: '1.978'
+  text: right here where you can see it,
+- start: '1372.753'
+  dur: '1.423'
+  text: you are insisting really on knowing
+- start: '1374.176'
+  dur: '2.457'
+  text: both the condition on which you switch,
+- start: '1376.633'
+  dur: '1.333'
+  text: and the thing that you do,
+- start: '1377.966'
+  dur: '2.392'
+  text: |-
+    the action that you take
+    when that switch happens.
+- start: '1380.358'
+  dur: '1.745'
+  text: If you're uncomfortable, and unless
+- start: '1382.103'
+  dur: '3.787'
+  text: |-
+    you know both those things
+    at once in this file,
+- start: '1385.89'
+  dur: '1.335'
+  text: |-
+    under your eyes, in this
+    code, then you're going to
+- start: '1387.225'
+  dur: '2.589'
+  text: be forced to add a new method right here.
+- start: '1389.814'
+  dur: '2.817'
+  text: |-
+    You have to put that conjured
+    tick method right here.
+- start: '1392.631'
+  dur: '1.872'
+  text: But if you don't, if you're OK with that,
+- start: '1394.503'
+  dur: '1.728'
+  text: you can listen to object-oriented design.
+- start: '1396.231'
+  dur: '2.553'
+  text: |-
+    It says that when you
+    have differing prefixes,
+- start: '1398.784'
+  dur: '2.529'
+  text: |-
+    and common suffixes,
+    then what you really have
+- start: '1401.313'
+  dur: '3.797'
+  text: |-
+    is a normal class that
+    ought to have a method tick,
+- start: '1405.11'
+  dur: '2.268'
+  text: and a Gilded Rose ought to be holding on
+- start: '1407.378'
+  dur: '2.612'
+  text: to an instance of it.
+- start: '1409.99'
+  dur: '1.843'
+  text: And it is real easy to right that code.
+- start: '1411.833'
+  dur: '3.15'
+  text: |-
+    If you can think of that
+    thing, thinking of the thing
+- start: '1414.983'
+  dur: '1.772'
+  text: is far harder than writing the code.
+- start: '1416.755'
+  dur: '1.376'
+  text: Here's how the code looks.
+- start: '1418.131'
+  dur: '1.573'
+  text: I've got this Normal tick method,
+- start: '1419.704'
+  dur: '1.801'
+  text: I'm just going to call it "tick",
+- start: '1421.505'
+  dur: '1.513'
+  text: I'm going to put in a Normal class,
+- start: '1423.018'
+  dur: '1.507'
+  text: I'm going to throw a cruft in there to get
+- start: '1424.525'
+  dur: '3.086'
+  text: |-
+    the initialization and
+    the attributes defined,
+- start: '1427.611'
+  dur: '1.741'
+  text: I'm going to go back into Gilded Rose
+- start: '1429.352'
+  dur: '1.503'
+  text: and the Normal tick method there,
+- start: '1430.855'
+  dur: '1.817'
+  text: I'll get an instance of my new class,
+- start: '1432.672'
+  dur: '3.862'
+  text: |-
+    and I'll forward this
+    message - boom, that's it.
+- start: '1436.534'
+  dur: '2.897'
+  text: Alright, well, so I've got this,
+- start: '1439.431'
+  dur: '2.924'
+  text: |-
+    so Normal is an object,
+    but nothing else is,
+- start: '1442.355'
+  dur: '1.458'
+  text: and I'm about to go back on the path where
+- start: '1443.813'
+  dur: '3.393'
+  text: |-
+    I have to increase
+    intermediate complexity,
+- start: '1447.206'
+  dur: '1.619'
+  text: because look what just happened, alright?
+- start: '1448.825'
+  dur: '2.169'
+  text: My new Normal tick method looks like this.
+- start: '1450.994'
+  dur: '1.169'
+  text: It uses this item class.
+- start: '1452.163'
+  dur: '1.602'
+  text: But Brie, the Brie tick method is still
+- start: '1453.765'
+  dur: '2.799'
+  text: calculated inside the Gilded Rose.
+- start: '1456.564'
+  dur: '1.684'
+  text: The quality and days remaining are part
+- start: '1458.248'
+  dur: '1.932'
+  text: of the public API for Gilded Rose,
+- start: '1460.18'
+  dur: '1.008'
+  text: and so now I have to say, well,
+- start: '1461.188'
+  dur: '2.016'
+  text: |-
+    if I have an item, go
+    get the item's quality,
+- start: '1463.204'
+  dur: '2.241'
+  text: otherwise, get the one I know about.
+- start: '1465.445'
+  dur: '3.355'
+  text: |-
+    And I have to do the same thing
+    for days remaining, alright?
+- start: '1468.8'
+  dur: '3.8'
+  text: |-
+    It looks messy, but it's
+    short-term, it will go away.
+- start: '1472.6'
+  dur: '1.96'
+  text: |-
+    And so, let's just walk
+    through all the other objects.
+- start: '1474.56'
+  dur: '1.024'
+  text: Now that you understand this pattern,
+- start: '1475.584'
+  dur: '1.289'
+  text: it's really easy, right?
+- start: '1476.873'
+  dur: '1.978'
+  text: Class Brie, move method tick,
+- start: '1478.851'
+  dur: '3.073'
+  text: |-
+    put the cruft in there,
+    forward the message.
+- start: '1481.924'
+  dur: '1.409'
+  text: Easy enough.
+- start: '1483.333'
+  dur: '2.159'
+  text: This is really interesting.
+- start: '1485.492'
+  dur: '2.078'
+  text: Now some trust is coming into play, right?
+- start: '1487.57'
+  dur: '1.747'
+  text: |-
+    I have an empty method,
+    look what I have to do.
+- start: '1489.317'
+  dur: '1.602'
+  text: Make a new class, put the method in,
+- start: '1490.919'
+  dur: '1.567'
+  text: pry this method open, get an instance
+- start: '1492.486'
+  dur: '1.314'
+  text: of that class, forward the message.
+- start: '1493.8'
+  dur: '4.496'
+  text: |-
+    You can be forgiven for
+    being suspicious about this,
+- start: '1498.296'
+  dur: '1.487'
+  text: but if you trust the refactorings,
+- start: '1499.783'
+  dur: '1.107'
+  text: you have confidence that this is
+- start: '1500.89'
+  dur: '1.79'
+  text: going to turn out well in the end.
+- start: '1502.68'
+  dur: '3.086'
+  text: |-
+    I'm not going to diverge,
+    I'm not taking a detour,
+- start: '1505.766'
+  dur: '1.072'
+  text: I'm going to go all the way down
+- start: '1506.838'
+  dur: '2.634'
+  text: this path and finish this refactoring.
+- start: '1509.472'
+  dur: '1.872'
+  text: Backstage, I'll make the tick method,
+- start: '1511.344'
+  dur: '4.456'
+  text: |-
+    I'll make that stuff,
+    I'll do the forwarding.
+- start: '1515.8'
+  dur: '5.532'
+  text: |-
+    Alright, so now they're all
+    objects and I've got this.
+- start: '1521.332'
+  dur: '1.918'
+  text: And I'm back here.
+- start: '1523.25'
+  dur: '4.192'
+  text: So now, in the beginning, I moved logic
+- start: '1527.442'
+  dur: '0.981'
+  text: into methods of their own,
+- start: '1528.423'
+  dur: '1.342'
+  text: because I didn't want to put a bunch
+- start: '1529.765'
+  dur: '1.726'
+  text: of code in this case statement,
+- start: '1531.491'
+  dur: '2.504'
+  text: |-
+    but now that I have objects,
+    everything is simpler,
+- start: '1533.995'
+  dur: '3.355'
+  text: |-
+    and I'm going to just start
+    rewinding my decisions.
+- start: '1537.35'
+  dur: '2.06'
+  text: I'm just going to delete the method,
+- start: '1539.41'
+  dur: '2.034'
+  text: |-
+    and shove the code that
+    used to be in the method
+- start: '1541.444'
+  dur: '3.462'
+  text: |-
+    back up in the branches
+    of the case statement.
+- start: '1544.906'
+  dur: '1.604'
+  text: We'll do that.
+- start: '1546.51'
+  dur: '1.89'
+  text: Now, earlier I said that duplication was
+- start: '1548.4'
+  dur: '1.16'
+  text: cheaper than the wrong abstraction,
+- start: '1549.56'
+  dur: '2.24'
+  text: |-
+    but now we're starting
+    to see abstractions,
+- start: '1551.8'
+  dur: '3.322'
+  text: |-
+    and I'm just going to go and
+    abstract away some duplication.
+- start: '1555.122'
+  dur: '1.494'
+  text: I'm going to put the cruft back up in here
+- start: '1556.616'
+  dur: '3.048'
+  text: so in Gilded Rose, I no longer need that.
+- start: '1559.664'
+  dur: '2.791'
+  text: |-
+    What I really need to do
+    is be able to get an item.
+- start: '1562.455'
+  dur: '2.178'
+  text: And the way I need to get an item is that.
+- start: '1564.633'
+  dur: '0.943'
+  text: That's how I'm going to get it.
+- start: '1565.576'
+  dur: '1.135'
+  text: If I just knew the class name,
+- start: '1566.711'
+  dur: '3.012'
+  text: |-
+    I could send that message
+    to it, and it would work.
+- start: '1569.723'
+  dur: '2.494'
+  text: |-
+    And it's actually really easy
+    to figure out the class name.
+- start: '1572.217'
+  dur: '2.323'
+  text: The code's already here.
+- start: '1574.54'
+  dur: '2.622'
+  text: It's this, there it is.
+- start: '1577.162'
+  dur: '1.39'
+  text: That will get me the class name back,
+- start: '1578.552'
+  dur: '2.268'
+  text: so if I just give that a name,
+- start: '1580.82'
+  dur: '1.71'
+  text: I can send that message to myself,
+- start: '1582.53'
+  dur: '3.167'
+  text: and now I have the right kind of item.
+- start: '1585.697'
+  dur: '3.113'
+  text: |-
+    I don't need a name anymore,
+    so that got simpler.
+- start: '1588.81'
+  dur: '2.456'
+  text: |-
+    So now, I have separated
+    the reason I'm switching
+- start: '1591.266'
+  dur: '3.654'
+  text: from the thing I do when I switch.
+- start: '1594.92'
+  dur: '1.425'
+  text: And I can just forget about what's
+- start: '1596.345'
+  dur: '1.357'
+  text: inside that class [form] method.
+- start: '1597.702'
+  dur: '1.202'
+  text: I don't really care anymore.
+- start: '1598.904'
+  dur: '1.096'
+  text: It just answers the right class.
+- start: '1600'
+  dur: '1.93'
+  text: It's going to work.
+- start: '1601.93'
+  dur: '0.584'
+  text: It's going to hand back a thing that can
+- start: '1602.514'
+  dur: '2.279'
+  text: |-
+    answer the message I'm
+    going to send to it.
+- start: '1604.793'
+  dur: '1.819'
+  text: |-
+    And now tick looks like
+    that and these now,
+- start: '1606.612'
+  dur: '1.818'
+  text: so I'm rewinding the complexity,
+- start: '1608.43'
+  dur: '0.858'
+  text: I don't need this anymore.
+- start: '1609.288'
+  dur: '3.398'
+  text: |-
+    I have items in every case,
+    so I'll get rid of all that.
+- start: '1612.686'
+  dur: '3.685'
+  text: |-
+    And now here's the whole
+    body of code that I have.
+- start: '1616.371'
+  dur: '1.891'
+  text: |-
+    I'm holding an instance of
+    the correct item object,
+- start: '1618.262'
+  dur: '2.447'
+  text: and I just sent it the tick method.
+- start: '1620.709'
+  dur: '1.767'
+  text: |-
+    so, we have four different,
+    down at the bottom there,
+- start: '1622.476'
+  dur: '2.38'
+  text: |-
+    you can see we have four
+    different kinds of item classes,
+- start: '1624.856'
+  dur: '4.06'
+  text: |-
+    but from Gilded Rose's point
+    of view, item is a role.
+- start: '1628.916'
+  dur: '3.941'
+  text: |-
+    It doesn't think of it like
+    this, it thinks of it like that.
+- start: '1632.857'
+  dur: '3.05'
+  text: |-
+    You just need someone in there
+    that can answer that API,
+- start: '1635.907'
+  dur: '3.294'
+  text: |-
+    that knows those messages, it's
+    a [duck] type, if you will.
+- start: '1639.201'
+  dur: '1.232'
+  text: And if you look at the code I have now,
+- start: '1640.433'
+  dur: '2.566'
+  text: the message passing works like this.
+- start: '1642.999'
+  dur: '1.359'
+  text: All these messages get forwarded,
+- start: '1644.358'
+  dur: '2.222'
+  text: |-
+    and if you had a Foo
+    that had a Gilded Rose
+- start: '1646.58'
+  dur: '2.82'
+  text: |-
+    that sent those messages,
+    it would look like this.
+- start: '1649.4'
+  dur: '3.037'
+  text: And so, now I'm in a situation like this.
+- start: '1652.437'
+  dur: '1.953'
+  text: When an object's only purpose is to
+- start: '1654.39'
+  dur: '1.254'
+  text: forward messages somewhere else,
+- start: '1655.644'
+  dur: '3.208'
+  text: |-
+    you have to wonder if it
+    justifies its existence.
+- start: '1658.852'
+  dur: '1.81'
+  text: |-
+    This actually is a code
+    [unintelligible] that has a name,
+- start: '1660.662'
+  dur: '2.635'
+  text: and its name is Middleman.
+- start: '1663.297'
+  dur: '3.203'
+  text: So, if that's all the Gilded Rose does,
+- start: '1666.5'
+  dur: '1.628'
+  text: |-
+    it probably shouldn't
+    exist, but it turns out
+- start: '1668.128'
+  dur: '2.467'
+  text: it still does something important.
+- start: '1670.595'
+  dur: '5.155'
+  text: |-
+    Given a string like Normal,
+    it can figure out what
+- start: '1675.75'
+  dur: '3.745'
+  text: |-
+    item class, what class plays
+    the appropriate item role.
+- start: '1679.495'
+  dur: '2.204'
+  text: And so now, I'm going to use another word
+- start: '1681.699'
+  dur: '3.411'
+  text: |-
+    that you should love, you
+    should love this word.
+- start: '1685.11'
+  dur: '1.258'
+  text: Gilded Rose, the only thing that
+- start: '1686.368'
+  dur: '3.309'
+  text: Gilded Rose is is an item factory.
+- start: '1689.677'
+  dur: '2.09'
+  text: |-
+    I just need to figure out
+    how to get the right object,
+- start: '1691.767'
+  dur: '1.45'
+  text: and then I can send it a message.
+- start: '1693.217'
+  dur: '2.179'
+  text: We've simplified our problem by
+- start: '1695.396'
+  dur: '2.58'
+  text: separating the thing I'm switching on
+- start: '1697.976'
+  dur: '1.818'
+  text: from the thing I do when I switch.
+- start: '1699.794'
+  dur: '1.441'
+  text: We've divided those things in half,
+- start: '1701.235'
+  dur: '2.646'
+  text: |-
+    so I can make the code
+    [unintelligible] less,
+- start: '1703.881'
+  dur: '2.453'
+  text: and we can do smaller things.
+- start: '1706.334'
+  dur: '2.091'
+  text: I don't need to know what they do,
+- start: '1708.425'
+  dur: '3.067'
+  text: |-
+    I just need to know how
+    to get the right one.
+- start: '1711.492'
+  dur: '1.892'
+  text: |-
+    And so, I'm going to change this
+    code to reflect the reality.
+- start: '1713.384'
+  dur: '2.033'
+  text: I'm going to make Gilded Rose a module.
+- start: '1715.417'
+  dur: '2.32'
+  text: |-
+    I'm going to say four,
+    some people put new.
+- start: '1717.737'
+  dur: '1.872'
+  text: They make a new method on module,
+- start: '1719.609'
+  dur: '2.331'
+  text: and I just can't bear that,
+- start: '1721.94'
+  dur: '2.259'
+  text: but it's OK with me if you do it that way.
+- start: '1724.199'
+  dur: '1.277'
+  text: So, I have to make it a class method
+- start: '1725.476'
+  dur: '1.349'
+  text: because I'm calling it.
+- start: '1726.825'
+  dur: '1.449'
+  text: |-
+    I'm no longer keeping
+    an instance of anything,
+- start: '1728.274'
+  dur: '2.072'
+  text: so I don't need an [add-a-reader].
+- start: '1730.346'
+  dur: '1.503'
+  text: All these Middleman messages now,
+- start: '1731.849'
+  dur: '1.5'
+  text: |-
+    since you're really
+    going to talk to the item
+- start: '1733.349'
+  dur: '1.485'
+  text: that you get back when you call four,
+- start: '1734.834'
+  dur: '2.872'
+  text: all these messages, they just go away.
+- start: '1737.706'
+  dur: '1.978'
+  text: So now, this is what we have.
+- start: '1739.684'
+  dur: '2.134'
+  text: And the way you use it is you send four
+- start: '1741.818'
+  dur: '2.572'
+  text: to Gilded Rose, and it gives back an item,
+- start: '1744.39'
+  dur: '3.03'
+  text: and it's the item that you talked to.
+- start: '1747.42'
+  dur: '1.947'
+  text: |-
+    And so, now that we've
+    fixed the Gilded Rose,
+- start: '1749.367'
+  dur: '1.871'
+  text: I'm going to turn my attention to the
+- start: '1751.238'
+  dur: '5.166'
+  text: classes that play the item role.
+- start: '1756.404'
+  dur: '2.266'
+  text: There's a lot of duplication here that
+- start: '1758.67'
+  dur: '1.043'
+  text: we've been tolerating for a long time.
+- start: '1759.713'
+  dur: '1.27'
+  text: They all have this in them.
+- start: '1760.983'
+  dur: '2.573'
+  text: |-
+    And I'm going to create
+    an inheritance hierarchy,
+- start: '1763.556'
+  dur: '2.034'
+  text: and clean that up.
+- start: '1765.59'
+  dur: '1.72'
+  text: I'm going to make a little item class,
+- start: '1767.31'
+  dur: '2.473'
+  text: |-
+    push all that stuff up to
+    it, then all these guys,
+- start: '1769.783'
+  dur: '1.585'
+  text: |-
+    I can delete that code
+    from all these guys,
+- start: '1771.368'
+  dur: '3.535'
+  text: and make them subclasses of item.
+- start: '1774.903'
+  dur: '2.781'
+  text: Now, despite what you may have heard,
+- start: '1777.684'
+  dur: '3.454'
+  text: inheritance is not evil,
+- start: '1781.138'
+  dur: '2.835'
+  text: |-
+    and I can tell you exactly
+    when it's safe to use it.
+- start: '1783.973'
+  dur: '1.217'
+  text: Now here's what you want.
+- start: '1785.19'
+  dur: '3.084'
+  text: You want a shallow, narrow hierarchy,
+- start: '1788.274'
+  dur: '1.494'
+  text: you don't want it to be deep,
+- start: '1789.768'
+  dur: '1.738'
+  text: and you don't want it to be wide, alright?
+- start: '1791.506'
+  dur: '2.951'
+  text: |-
+    Shallow and narrow, you would
+    like the subclasses to be,
+- start: '1794.457'
+  dur: '2.096'
+  text: OK, I will say this twice.
+- start: '1796.553'
+  dur: '1.183'
+  text: You would like the subclasses to be
+- start: '1797.736'
+  dur: '3.963'
+  text: |-
+    at the leaf nodes of
+    your object graph, right?
+- start: '1801.699'
+  dur: '1.522'
+  text: |-
+    So, you have objects, and
+    you've got other objects,
+- start: '1803.221'
+  dur: '0.945'
+  text: and you've got other objects,
+- start: '1804.166'
+  dur: '2.328'
+  text: and down at the end of your sort of tree,
+- start: '1806.494'
+  dur: '3.116'
+  text: |-
+    there are objects that don't
+    know about any other things.
+- start: '1809.61'
+  dur: '1.791'
+  text: Right? So we want the subclasses to be
+- start: '1811.401'
+  dur: '3.024'
+  text: |-
+    the leaf nodes of the object
+    we have to be at the edge,
+- start: '1814.425'
+  dur: '2.861'
+  text: and we want all the subclasses to use
+- start: '1817.286'
+  dur: '2.347'
+  text: all the codes in the superclass.
+- start: '1819.633'
+  dur: '1.009'
+  text: Now, I'm going to repeat that again.
+- start: '1820.642'
+  dur: '3.816'
+  text: |-
+    Shallow, narrow, subclasses
+    at the leaf nodes,
+- start: '1824.458'
+  dur: '2.537'
+  text: |-
+    and subclasses use all the
+    behavior in the superclass.
+- start: '1826.995'
+  dur: '2.403'
+  text: If that is the problem that you have,
+- start: '1829.398'
+  dur: '2.059'
+  text: |-
+    there is no better
+    solution than inheritance,
+- start: '1831.457'
+  dur: '3.078'
+  text: and you are free to use it.
+- start: '1834.535'
+  dur: '2.611'
+  text: So, however, although I love inheritance,
+- start: '1837.146'
+  dur: '3.193'
+  text: |-
+    I use it in appropriate
+    ways, and it is not evil,
+- start: '1840.339'
+  dur: '2.402'
+  text: |-
+    but sometimes we are.
+    (laughter)
+- start: '1842.741'
+  dur: '1.647'
+  text: You might be.
+- start: '1844.388'
+  dur: '1.808'
+  text: And it's easy to get inheritance wrong,
+- start: '1846.196'
+  dur: '4.031'
+  text: and this tree has a little problem,
+- start: '1850.227'
+  dur: '1.877'
+  text: and it's this, I don't like this.
+- start: '1852.104'
+  dur: '3.136'
+  text: |-
+    The public API of item is
+    quality of days remaining,
+- start: '1855.24'
+  dur: '1.953'
+  text: |-
+    and the public API of
+    those four subclasses
+- start: '1857.193'
+  dur: '2.098'
+  text: contains one additional method tick.
+- start: '1859.291'
+  dur: '2.615'
+  text: |-
+    And I think that superclass
+    ought to play the item role,
+- start: '1861.906'
+  dur: '2.466'
+  text: |-
+    which means to me it's
+    got to implement tick.
+- start: '1864.372'
+  dur: '2.143'
+  text: And the question then becomes,
+- start: '1866.515'
+  dur: '1.635'
+  text: what is the appropriate implementation
+- start: '1868.15'
+  dur: '2.669'
+  text: of tick to put in the superclass?
+- start: '1870.819'
+  dur: '2.533'
+  text: |-
+    You could define tick and
+    have it raise an error
+- start: '1873.352'
+  dur: '2.142'
+  text: |-
+    that says subclasses
+    have to implement tick.
+- start: '1875.494'
+  dur: '2.02'
+  text: You could do that, I do that sometimes,
+- start: '1877.514'
+  dur: '2.049'
+  text: |-
+    but here I think there's
+    a default implementation
+- start: '1879.563'
+  dur: '4.183'
+  text: that's appropriate, and it's this.
+- start: '1883.746'
+  dur: '2.753'
+  text: Do nothing.
+- start: '1886.499'
+  dur: '2.853'
+  text: |-
+    It's perfectly OK with
+    me, tick to do nothing.
+- start: '1889.352'
+  dur: '1.45'
+  text: And now, I did that because the
+- start: '1890.802'
+  dur: '1.57'
+  text: inheritance heirarchy bothered me,
+- start: '1892.372'
+  dur: '2.828'
+  text: and I'm just removing code now.
+- start: '1895.2'
+  dur: '2.5'
+  text: |-
+    Now that I've done that,
+    you might notice something
+- start: '1897.7'
+  dur: '1.811'
+  text: about Sulfuras' implementation of tick.
+- start: '1899.511'
+  dur: '2.889'
+  text: It overrides item, it subclasses item to
+- start: '1902.4'
+  dur: '3.24'
+  text: |-
+    override tick to do exactly
+    what the superclass does.
+- start: '1905.64'
+  dur: '4.464'
+  text: And what that means is that here
+- start: '1910.104'
+  dur: '4.829'
+  text: it would be equally correct to say this,
+- start: '1914.933'
+  dur: '4.563'
+  text: |-
+    which means that this
+    class is not necessary
+- start: '1919.496'
+  dur: '2.177'
+  text: |-
+    and all the intermediate
+    complexity that I created
+- start: '1921.673'
+  dur: '4.797'
+  text: |-
+    as I was following this
+    refactoring just went away.
+- start: '1926.47'
+  dur: '3.201'
+  text: There is no more Sulfuras class.
+- start: '1929.671'
+  dur: '2.099'
+  text: So, I'm going to do one last thing.
+- start: '1931.77'
+  dur: '0.397'
+  text: We're almost finished here.
+- start: '1932.167'
+  dur: '1.959'
+  text: So, this case statement contains
+- start: '1934.126'
+  dur: '3.122'
+  text: two different types of information.
+- start: '1937.248'
+  dur: '3.638'
+  text: |-
+    It contains a set of
+    string to class mappings,
+- start: '1940.886'
+  dur: '3.498'
+  text: |-
+    and it contains the
+    algorithm to hook them up.
+- start: '1944.384'
+  dur: '2.008'
+  text: And I contend to you that case statements
+- start: '1946.392'
+  dur: '1.325'
+  text: are meant for business logic,
+- start: '1947.717'
+  dur: '2.67'
+  text: |-
+    and this doesn't really
+    feel like business logic.
+- start: '1950.387'
+  dur: '2.736'
+  text: This feels like configuration information.
+- start: '1953.123'
+  dur: '4.238'
+  text: |-
+    And so, I'm just going to
+    extract configuration data here.
+- start: '1957.361'
+  dur: '2.628'
+  text: |-
+    I'm going to make a hash,
+    and then I'm going to change
+- start: '1959.989'
+  dur: '4.481'
+  text: |-
+    the algorithm to just be the
+    algorithm that uses that hash.
+- start: '1964.47'
+  dur: '2.06'
+  text: Now, in real life, this would probably go
+- start: '1966.53'
+  dur: '2.115'
+  text: |-
+    through some transitions
+    where now the hash
+- start: '1968.645'
+  dur: '2.509'
+  text: can change independently of the algorithm
+- start: '1971.154'
+  dur: '1.521'
+  text: that matches these things up,
+- start: '1972.675'
+  dur: '1.545'
+  text: and if you find the hash changing a lot,
+- start: '1974.22'
+  dur: '2.982'
+  text: |-
+    you might be tempted to
+    maybe make it a Yamo file,
+- start: '1977.202'
+  dur: '1.432'
+  text: |-
+    and if you find the Yamo
+    file changing a lot,
+- start: '1978.634'
+  dur: '3.196'
+  text: |-
+    you might be tempted
+    to put in the database.
+- start: '1981.83'
+  dur: '1.31'
+  text: Now I can vary that data independently of
+- start: '1983.14'
+  dur: '4.22'
+  text: |-
+    this rule about how they
+    get hooked up together.
+- start: '1987.36'
+  dur: '3.059'
+  text: |-
+    And so, that's it, that's
+    the whole refactoring.
+- start: '1990.419'
+  dur: '2.103'
+  text: We've got a bunch of small objects
+- start: '1992.522'
+  dur: '1.678'
+  text: now instead of small methods.
+- start: '1994.2'
+  dur: '1.702'
+  text: Here's the whole code.
+- start: '1995.902'
+  dur: '2.643'
+  text: |-
+    In the Gilded Rose module,
+    there's an item class,
+- start: '1998.545'
+  dur: '3.025'
+  text: and then there's three item subclasses,
+- start: '2001.57'
+  dur: '2.419'
+  text: each of which contains a tick method.
+- start: '2003.989'
+  dur: '2.51'
+  text: There's a set of configuration information
+- start: '2006.499'
+  dur: '2.26'
+  text: that's used by this algorithm to decide
+- start: '2008.759'
+  dur: '3.23'
+  text: |-
+    what item class is
+    appropriate for what string.
+- start: '2011.989'
+  dur: '3.518'
+  text: |-
+    Here's the squint testable
+    version of small objects,
+- start: '2015.507'
+  dur: '2.819'
+  text: |-
+    and this is it compared to
+    the original big conditional.
+- start: '2018.326'
+  dur: '2.337'
+  text: |-
+    Now that's interesting that
+    in the small objects string,
+- start: '2020.663'
+  dur: '1.614'
+  text: |-
+    it looks like it's nested
+    too deep, but it's not.
+- start: '2022.277'
+  dur: '1.824'
+  text: |-
+    I just have the classes
+    inside the modules.
+- start: '2024.101'
+  dur: '3.709'
+  text: |-
+    Right? So, that is only
+    really one level of indenting.
+- start: '2027.81'
+  dur: '0.791'
+  text: The more interesting comparison here is
+- start: '2028.601'
+  dur: '3.129'
+  text: |-
+    the squint test between
+    the intermediate solution,
+- start: '2031.73'
+  dur: '2.647'
+  text: |-
+    the small method solution,
+    and the small object solution.
+- start: '2034.377'
+  dur: '2.412'
+  text: |-
+    Notice that small objects
+    is a little bit longer,
+- start: '2036.789'
+  dur: '4.201'
+  text: |-
+    but the colors are clustered
+    more tightly together.
+- start: '2040.99'
+  dur: '1.18'
+  text: So we have really distilled the things
+- start: '2042.17'
+  dur: '3.544'
+  text: that change together in single places.
+- start: '2045.714'
+  dur: '2.465'
+  text: |-
+    Here's the Flog scores
+    that we used to have.
+- start: '2048.179'
+  dur: '3.222'
+  text: So, OK, I have time to make you guess.
+- start: '2051.401'
+  dur: '2.951'
+  text: |-
+    I made a bunch of small
+    objects...what's the Flog score?
+- start: '2054.352'
+  dur: '4.599'
+  text: Male:Well, 15.
+- start: '2058.951'
+  dur: '1.825'
+  text: Sandi:But you know what? OK, here.
+- start: '2060.776'
+  dur: '3.051'
+  text: |-
+    What's in the intermediate,
+    we'll come back to that.
+- start: '2063.827'
+  dur: '1.648'
+  text: |-
+    I like that 15 guess, that
+    was an excellent guess,
+- start: '2065.475'
+  dur: '0.999'
+  text: and you'll know why in a minute.
+- start: '2066.474'
+  dur: '3.454'
+  text: Here's the intermediate complexity scores.
+- start: '2069.928'
+  dur: '0.828'
+  text: Alright, so I've got this.
+- start: '2070.756'
+  dur: '2.404'
+  text: That 33 vastly overstates the complexity
+- start: '2073.16'
+  dur: '3.67'
+  text: |-
+    of the final solution,
+    and it's because of this.
+- start: '2076.83'
+  dur: '2.025'
+  text: |-
+    When you have the first
+    [string] was one class,
+- start: '2078.855'
+  dur: '1.655'
+  text: the whole Gilded Rose class,
+- start: '2080.51'
+  dur: '1.395'
+  text: |-
+    and you gotta kind of
+    know all about that class.
+- start: '2081.905'
+  dur: '2.052'
+  text: |-
+    And the second solution
+    of the small methods
+- start: '2083.957'
+  dur: '2.448'
+  text: it was the Gilded Rose version two, right?
+- start: '2086.405'
+  dur: '2.161'
+  text: |-
+    It was a single class, and
+    you gotta kind of know,
+- start: '2088.566'
+  dur: '1.755'
+  text: you've gotta hold that class in your head.
+- start: '2090.321'
+  dur: '2.88'
+  text: |-
+    This third solution is a
+    bunch of small classes,
+- start: '2093.201'
+  dur: '1.184'
+  text: it's a bunch of different classes,
+- start: '2094.385'
+  dur: '3.285'
+  text: |-
+    and you don't need to reason
+    about all of them at once.
+- start: '2097.67'
+  dur: '1.46'
+  text: |-
+    As a matter of fact,
+    you really only need to
+- start: '2099.13'
+  dur: '1.726'
+  text: read the most complicated object in there,
+- start: '2100.856'
+  dur: '1.773'
+  text: |-
+    and the most complicated
+    class is a backstage class
+- start: '2102.629'
+  dur: '2.772'
+  text: and it Flogs to 12, close to the 15,
+- start: '2105.401'
+  dur: '1.811'
+  text: and the average complexity of the set of
+- start: '2107.212'
+  dur: '3.325'
+  text: classes in that final solution is seven.
+- start: '2110.537'
+  dur: '3.384'
+  text: And so, I contend to you, the complexity
+- start: '2113.921'
+  dur: '5.701'
+  text: |-
+    has fallen by 75% because
+    I made many small objects.
+- start: '2119.622'
+  dur: '1.102'
+  text: And so now I'm going to circle back around
+- start: '2120.724'
+  dur: '2.626'
+  text: to my task, implement Conjured.
+- start: '2123.35'
+  dur: '6.993'
+  text: Take a minute and imagine how to do it.
+- start: '2130.343'
+  dur: '4.237'
+  text: |-
+    There's a code that
+    makes all the tests pass.
+- start: '2134.58'
+  dur: '3.807'
+  text: Here's how to use it.
+- start: '2138.387'
+  dur: '2.855'
+  text: And now we're done.
+- start: '2141.242'
+  dur: '3.858'
+  text: Alright, so, summary.
+- start: '2145.1'
+  dur: '3.214'
+  text: |-
+    When you are new at
+    this, they told you DRY.
+- start: '2148.314'
+  dur: '1.383'
+  text: Right? Don't repeat yourself.
+- start: '2149.697'
+  dur: '1.558'
+  text: And I'm not saying it's bad,
+- start: '2151.255'
+  dur: '1.915'
+  text: |-
+    and I'm not saying that
+    duplication is good,
+- start: '2153.17'
+  dur: '1.272'
+  text: but I'm telling you that if your choice
+- start: '2154.442'
+  dur: '2.727'
+  text: |-
+    is between duplication
+    and the wrong abstraction,
+- start: '2157.169'
+  dur: '1.717'
+  text: you should choose duplication.
+- start: '2158.886'
+  dur: '2.591'
+  text: Trying to fix a problem by increasing
+- start: '2161.477'
+  dur: '2.097'
+  text: the complexity of the wrong abstraction
+- start: '2163.574'
+  dur: '2.922'
+  text: |-
+    is like chasing a beach
+    ball in the outgoing tide.
+- start: '2166.496'
+  dur: '1.799'
+  text: |-
+    Every time you take a stroke,
+    it recedes ahead of you,
+- start: '2168.295'
+  dur: '2.253'
+  text: |-
+    and pretty soon, you're
+    out way over your head.
+- start: '2170.548'
+  dur: '3.667'
+  text: It's very hard to fix those problems.
+- start: '2174.215'
+  dur: '1.985'
+  text: Next, don't try to get to the future.
+- start: '2176.2'
+  dur: '2.05'
+  text: Open/closed, the right code that can
+- start: '2178.25'
+  dur: '2.314'
+  text: adapt to the future when it arrives.
+- start: '2180.564'
+  dur: '2.081'
+  text: |-
+    New requirements, this
+    requirement to implement Conjured
+- start: '2182.645'
+  dur: '3.507'
+  text: was the impetus to make a change.
+- start: '2186.152'
+  dur: '3.457'
+  text: |-
+    It gives you the information
+    you need about how
+- start: '2189.609'
+  dur: '2.593'
+  text: |-
+    to make a choice about how
+    to rearrange your code now,
+- start: '2192.202'
+  dur: '3.298'
+  text: so that you can do the next thing.
+- start: '2195.5'
+  dur: '3.212'
+  text: |-
+    Kent Beck has a wonderfully
+    succinct way to put this.
+- start: '2198.712'
+  dur: '4.056'
+  text: He says, "Make the change easy,
+- start: '2202.768'
+  dur: '2.652'
+  text: '"and then make the easy change."'
+- start: '2205.42'
+  dur: '1.435'
+  text: He actually put it a little bit longer.
+- start: '2206.855'
+  dur: '3.906'
+  text: |-
+    He said, "Make the change
+    easy, this might be hard,
+- start: '2210.761'
+  dur: '1.658'
+  text: '"and then make the easy change."'
+- start: '2212.419'
+  dur: '3.911'
+  text: |-
+    And so, we spent 99% of this
+    talk making the change easy,
+- start: '2216.33'
+  dur: '3.996'
+  text: |-
+    and then it took one slide
+    to make the easy change.
+- start: '2220.326'
+  dur: '2.198'
+  text: |-
+    At the core of this, at the
+    underpinnings of all this
+- start: '2222.524'
+  dur: '2.021'
+  text: is the idea of making small objects,
+- start: '2224.545'
+  dur: '3.287'
+  text: |-
+    making objects that had
+    a single responsibility.
+- start: '2227.832'
+  dur: '4.32'
+  text: |-
+    And finally, trust the principles
+    of object-oriented design.
+- start: '2232.152'
+  dur: '2.526'
+  text: They let you predict the consequences
+- start: '2234.678'
+  dur: '2.952'
+  text: of your code arrangement choices,
+- start: '2237.63'
+  dur: '2.518'
+  text: |-
+    and learning something about
+    what those consequences are,
+- start: '2240.148'
+  dur: '2.366'
+  text: is going to let you raise your game.
+- start: '2242.514'
+  dur: '2.792'
+  text: Metrics are useful, but they're fallible,
+- start: '2245.306'
+  dur: '1.646'
+  text: but opinions are no more precise,
+- start: '2246.952'
+  dur: '3.356'
+  text: |-
+    so use metrics to give you
+    another body of information
+- start: '2250.308'
+  dur: '2.15'
+  text: about how complicated your code is,
+- start: '2252.458'
+  dur: '2.862'
+  text: |-
+    and then learn the rules
+    of object-oriented design
+- start: '2255.32'
+  dur: '4.08'
+  text: |-
+    so that you can choose which
+    direction you want to go in.
+- start: '2259.4'
+  dur: '3.73'
+  text: |-
+    Intermediate refactorings often
+    make code more complicated,
+- start: '2263.13'
+  dur: '1.241'
+  text: but if you know the rules, you can
+- start: '2264.371'
+  dur: '2.548'
+  text: trust yourself to work through complexity,
+- start: '2266.919'
+  dur: '3.474'
+  text: |-
+    and finally reach more
+    open/closed code that's simpler,
+- start: '2270.393'
+  dur: '3.211'
+  text: |-
+    and smaller, and that lets
+    you have straightforward,
+- start: '2273.604'
+  dur: '3.341'
+  text: changeable, beautiful code.
+- start: '2276.945'
+  dur: '4.577'
+  text: I'm Sandi Metz, I wrote this book,
+- start: '2281.522'
+  dur: '3.043'
+  text: |-
+    I'm writing this book,
+    (laughter)
+- start: '2284.565'
+  dur: '2.215'
+  text: It'll be in the slide deck.
+- start: '2286.78'
+  dur: '0.393'
+  text: I'm teaching in London.
+- start: '2287.173'
+  dur: '2.137'
+  text: |-
+    There's a public course in
+    London coming up in June or July,
+- start: '2289.31'
+  dur: '2.371'
+  text: in case you're from over there.
+- start: '2291.681'
+  dur: '2.24'
+  text: |-
+    Thanks to you all, and
+    thanks to Jim Weirich
+- start: '2293.921'
+  dur: '1.62'
+  text: who gave me this Kata.
+- start: '2295.541'
+  dur: '11.349'
+  text: "(applause)"
+- start: '2306.89'
+  dur: '17.594'
+  text: "(jazzy music)"

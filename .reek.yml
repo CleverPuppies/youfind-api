@@ -1,0 +1,3 @@
+---
+  exclude_paths:
+    - lib/caption_info.rb # one-time test fixture creator
