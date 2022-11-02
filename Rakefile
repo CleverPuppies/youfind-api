@@ -49,6 +49,11 @@ namespace :db do
   end
 end
 
+desc 'Run application console'
+task :console do
+  sh 'pry -r ./load_all'
+end
+
 desc 'run tests'
 task :spec do
   sh 'ruby spec/gateway_yt_spec.rb'
