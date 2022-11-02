@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 
-require_relative 'captions_mapper'
+require_relative 'caption_mapper'
 
 module YouFind
   # Provides access to contributor data
@@ -27,7 +27,7 @@ module YouFind
       class DataMapper
         def initialize(data, token, gateway_class)
           @data = data
-          @captions_mapper = CaptionsMapper.new(token, gateway_class)
+          @caption_mapper = CaptionMapper.new(token, gateway_class)
         end
 
         def build_entity
@@ -36,7 +36,7 @@ module YouFind
             title: title,
             url: url,
             embedded_url: embedded_url,
-            duration: duration,
+            time: time,
             views: views,
             captions: captions
           )
@@ -60,7 +60,7 @@ module YouFind
           @data['embedded_url']
         end
 
-        def duration
+        def time
           @data['duration_raw']
         end
 
@@ -69,7 +69,7 @@ module YouFind
         end
 
         def captions
-          @captions_mapper.load_captions(video_id)
+          @caption_mapper.load_captions(video_id)
         end
       end
     end

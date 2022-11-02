@@ -3,7 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative 'captions'
+require_relative 'caption'
 
 module YouFind
   module Entity
@@ -15,9 +15,10 @@ module YouFind
       attribute :title,       Strict::String
       attribute :url,         Strict::String
       attribute :embedded_url, Strict::String
-      attribute :duration,    Strict::String
+      attribute :time,    Strict::String
       attribute :views,       Strict::String
-      attribute :captions,    Captions
+      attribute :captions,    Strict::Array.of(Caption)
+
     end
   end
 end

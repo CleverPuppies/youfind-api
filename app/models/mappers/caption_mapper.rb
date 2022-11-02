@@ -4,7 +4,7 @@ module YouFind
   # Provides access to contributor data
   module Youtube
     # Data Mapper: Github contributor -> Member entity
-    class CaptionsMapper
+    class CaptionMapper
       def initialize(yt_token, gateway_class = Youtube::API)
         @token = yt_token
         @gateway_class = gateway_class
@@ -12,8 +12,9 @@ module YouFind
       end
 
       def load_captions(video_id)
-        data = @gateway.video_captions(video_id)
-        CaptionsMapper.build_entity(data)
+        @gateway.video_captions(video_id).map do |caption|
+          CaptionMapper.build_entity(caption)
+        end
       end
 
       def self.build_entity(data)
@@ -27,15 +28,25 @@ module YouFind
         end
 
         def build_entity
-          YouFind::Entity::Captions.new(
-            transcript: transcript
+          YouFind::Entity::Caption.new(
+            start: start,
+            duration: duration,
+            text: text
           )
         end
 
         private
 
-        def transcript
-          @data
+        def start
+          @data['start']
+        end
+
+        def duration
+          @data['dur']
+        end
+
+        def text
+          @data['text']
         end
       end
     end

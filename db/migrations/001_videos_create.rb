@@ -9,7 +9,7 @@ Sequel.migration do
     
       String :origin_id, unique: true
       String :title
-      Integer :duration, null: false
+      String :duration, null: false
       
       DateTime :created_at
       DateTime :updated_at

@@ -48,7 +48,7 @@ describe 'Tests Youtube API library' do
       _(video.title).must_equal CORRECT['title']
       _(video.url).must_equal CORRECT['url']
       _(video.id).must_equal CORRECT['id']
-      _(video.duration).must_equal CORRECT['duration']
+      _(video.time).must_equal CORRECT['duration']
     end
 
     it 'SAD: should raise exception when unauthorized' do
@@ -62,19 +62,19 @@ describe 'Tests Youtube API library' do
 
   describe 'Captions' do
     before do
-      @captions = YouFind::Youtube::CaptionsMapper
+      @captions = YouFind::Youtube::CaptionMapper
                   .new(YT_API_KEY)
                   .load_captions(VIDEO_ID)
     end
 
     it 'HAPPY: should be able to retrieve captions' do
-      _(@captions.transcript).wont_be_nil
+      _(@captions).wont_be_nil
     end
 
     it 'HAPPY: should have start, duration, text' do
-      first_slice = @captions.transcript.first
+      first_slice = @captions.first
       _(first_slice[:start]).must_equal CORRECT['captions'][0]['start']
-      _(first_slice[:dur]).must_equal CORRECT['captions'][0]['dur']
+      _(first_slice[:duration]).must_equal CORRECT['captions'][0]['dur']
       _(first_slice[:text]).must_equal CORRECT['captions'][0]['text']
     end
   end

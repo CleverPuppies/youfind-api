@@ -6,8 +6,8 @@ Sequel.migration do
             primary_key :id
             foreign_key :video_id
 
-            String :start
-            Integer :duration
+            Float :start, null: false
+            Float :duration, null: false
             String :text
 
             DateTime :created_at
