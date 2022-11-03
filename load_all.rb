@@ -2,5 +2,7 @@
 
 require_relative 'require_app'
 require_app
+include YouFind
+include Database
 
 def app = YouFind::App
