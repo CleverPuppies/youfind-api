@@ -9,10 +9,9 @@ module YouFind
     class Caption < Dry::Struct
       include Dry.Types
 
-      attribute :start, Strict::String
-      attribute :duration, Strict::String
-      attribute :text, Strict::String
-      
+      attribute :start,     Strict::String
+      attribute :duration,  Strict::String
+      attribute :text,      Strict::String
     end
   end
 end

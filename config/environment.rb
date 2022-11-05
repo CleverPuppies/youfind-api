@@ -21,6 +21,7 @@ module YouFind
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
+        ENV['YT_TOKEN'] = config.API_KEY
       end
 
       # Database Setup

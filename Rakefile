@@ -54,9 +54,10 @@ task :console do
   sh 'pry -r ./load_all'
 end
 
-desc 'run tests'
-task :spec do
-  sh 'ruby spec/gateway_yt_spec.rb'
+desc 'Run tests once'
+Rake::TestTask.new(:spec) do |t|
+  t.pattern = 'spec/*_spec.rb'
+  t.warning = false
 end
 
 namespace :vcr do
