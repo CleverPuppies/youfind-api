@@ -9,9 +9,14 @@ module YouFind
     class Caption < Dry::Struct
       include Dry.Types
 
-      attribute :start,     Strict::String
-      attribute :duration,  Strict::String
+      attribute :id,        Integer.optional
+      attribute :start,     Coercible::Float
+      attribute :duration,  Coercible::Float
       attribute :text,      Strict::String
+
+      def to_attr_hash
+        to_hash.except(:id)
+      end
     end
   end
 end

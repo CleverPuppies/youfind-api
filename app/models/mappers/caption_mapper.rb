@@ -29,6 +29,7 @@ module YouFind
 
         def build_entity
           YouFind::Entity::Caption.new(
+            id: nil,
             start: start,
             duration: duration,
             text: text

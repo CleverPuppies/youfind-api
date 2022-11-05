@@ -32,7 +32,8 @@ module YouFind
 
         def build_entity
           YouFind::Entity::Video.new(
-            id: video_id,
+            id: nil,
+            origin_id: video_id,
             title: title,
             url: url,
             embedded_url: embedded_url,
