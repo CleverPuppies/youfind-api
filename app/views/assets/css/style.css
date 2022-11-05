@@ -2,6 +2,10 @@
     color: rgb(234, 51, 35);
 }
 
+.title:hover{
+    color: rgb(234, 51, 35);
+}
+
 .form{
     position: relative;
 }
