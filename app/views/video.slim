@@ -11,28 +11,47 @@ div.container.mt-5
                     i.fa-solid.fa-lg.fa-search.mx-3.my-2
                     input{
                         type='text' name='yt_video_url'
-                        class='form-control form-input px-4 py-3'
+                        class='form-control form-lg-input px-4 py-3'
                         placeholder='e.g. https://www.youtube.com/watch?v=jNQXAC9IVRw'
                     }
 hr
 .container
     .row
-        .col
+        .col-3
+            iframe.rounded{
+                height='300px'
+                src=data.embedded_url
+                frameborder='0'
+                scrolling='no'
+            }
+        .col-4.mt-4
             h2
                 = data.title
             div
+                i.fa-solid.fa-eye.me-2
                 = data.views+" views"
             div
+                i.fa-solid.fa-clock.me-2
                 = data.time
-        .col
-            span.data.iframe
-                iframe{
-                    height="100%"
-                    src=data.embedded_url
-                }
-    .row
-        h2 Captions
-        .row.top-buffer
+        
+    .row.mt-5.ms-3
+        .row.mb-3
+            .col-2.my-auto
+                h2 Captions
+            .col
+                .row.vertical-align.query-bar.w-50
+                    .form
+                        i.fa-solid.fa-search.sm-search.mx-3.mb-3
+                        input.h-auto{
+                            type='text' name='yt_video_url'
+                            class='form-control form-sm-input px-4'
+                            placeholder='Search words'
+                        }
+        .row.ms-2
             .col-lg-1.col-md-2.col-sm-2
             - data.captions.each do |caption|
-                p #{caption[:text]}
+                .row
+                    .col-7
+                        a.row.fitting-width.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
+                            pre.mb-0
+                                = "[#{caption.start.to_i.to_s}]#{' '*(data.captions.last.start.to_i.to_s.length - caption.start.to_i.to_s.length)} #{caption[:text]}"

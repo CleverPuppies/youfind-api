@@ -10,22 +10,26 @@
     position: relative;
 }
 
-.form .fa-search{
+.form .fa-lg.fa-search{
     position: absolute;
     top:20px;
     left: 20px;
     color: #9ca3af;
 }
 
-.form span{
+.form .fa-search.sm-search{
     position: absolute;
-    right: 17px;
-    top: 13px;
-    padding: 2px;
-    border-left: 1px solid #d1d5db;
+    top: 10px;
+    left: 10px;
+    color: #9ca3af;
 }
 
-.form-input{
+.form-sm-input{
+    text-indent: 23px;
+    border-radius: 10px;
+}
+
+.form-lg-input{
     height: 55px;
     text-indent: 33px;
     border-radius: 10px;
@@ -37,4 +41,23 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
+
+.video-wrapper{
+    height: 100%;
+    height: 400px;
+}
+
+.caption-line{
+    text-decoration: none;
+    color: black;
+}
+
+.caption-line:hover{
+    font-weight: bold;
+    color: rgb(234, 51, 35);
+}
+
+.fitting-width{
+    width:fit-content;
+}
