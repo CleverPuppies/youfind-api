@@ -2,8 +2,11 @@
 
 With YouFind, you can find words mentioned in YouTube videos.
 
-## Resources
+## ER Diagram
 
+<img width="594" alt="Screen Shot 2022-11-06 at 1 47 38 PM" src="https://user-images.githubusercontent.com/50112902/200156545-1795a615-77e5-4b72-80c6-70b9c2720fc1.png">
+
+## Resources
 - Video
 - Caption
 
