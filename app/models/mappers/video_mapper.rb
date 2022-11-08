@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 
-require_relative 'captions_mapper'
+require_relative 'caption_mapper'
 
 module YouFind
   # Provides access to contributor data
@@ -15,7 +15,7 @@ module YouFind
 
       def find(video_id)
         data = @gateway.video_data(video_id)
-        data['embeded_url'] = "https://www.youtube.com/embed/#{video_id}"
+        data['embedded_url'] = "https://www.youtube.com/embed/#{video_id}"
         build_entity(data)
       end
 
@@ -27,16 +27,17 @@ module YouFind
       class DataMapper
         def initialize(data, token, gateway_class)
           @data = data
-          @captions_mapper = CaptionsMapper.new(token, gateway_class)
+          @caption_mapper = CaptionMapper.new(token, gateway_class)
         end
 
         def build_entity
           YouFind::Entity::Video.new(
-            id: video_id,
+            id: nil,
+            origin_id: video_id,
             title: title,
             url: url,
-            embeded_url: embeded_url,
-            duration: duration,
+            embedded_url: embedded_url,
+            time: time,
             views: views,
             captions: captions
           )
@@ -56,11 +57,11 @@ module YouFind
           @data['url']
         end
 
-        def embeded_url
-          @data['embeded_url']
+        def embedded_url
+          @data['embedded_url']
         end
 
-        def duration
+        def time
           @data['duration_raw']
         end
 
@@ -69,7 +70,7 @@ module YouFind
         end
 
         def captions
-          @captions_mapper.load_captions(video_id)
+          @caption_mapper.load_captions(video_id)
         end
       end
     end
