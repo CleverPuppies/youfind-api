@@ -52,6 +52,6 @@ hr
             - data.captions.each do |caption|
                 .row
                     .col-7
-                        a.row.fitting-width.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
+                        a.row.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
                             pre.mb-0
                                 = "[#{caption.start.to_i.to_s}]#{' '*(data.captions.last.start.to_i.to_s.length - caption.start.to_i.to_s.length)} #{caption[:text]}"
