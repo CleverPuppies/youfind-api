@@ -25,7 +25,8 @@ module YouFind
       end
 
       # Database Setup
-      def self.db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
+      db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
+      def self.db = db
     end
   end
 end
