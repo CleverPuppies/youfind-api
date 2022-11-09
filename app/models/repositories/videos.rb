@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 module YouFind
   module Repository
     # Repository for Video Entities
     class Videos
-
       def self.find_captions(entity, text)
         # SELECT * FROM captions WHERE id = origin_id AND text LIKE "%#{text}%"
         video_record = Database::VideoOrm.first(origin_id: entity.origin_id)
         # puts text
-        Captions::rebuild_many Database::CaptionOrm
+        Captions.rebuild_many Database::CaptionOrm
           .where(video_id: video_record.id)
           .where(Sequel.like(:text, "%#{text}%"))
           .all

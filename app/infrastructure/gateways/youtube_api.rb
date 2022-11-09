@@ -60,7 +60,7 @@ module YouFind
         }.freeze
 
         def successful?
-          !HTTP_ERROR.keys.include?(code)
+          !HTTP_ERROR.keys.include?(code) && body.to_s != '[]'
         end
 
         def raise_error

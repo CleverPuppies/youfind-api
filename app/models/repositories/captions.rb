@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module YouFind
   module Repository
     # Repository for Caption

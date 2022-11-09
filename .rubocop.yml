@@ -9,3 +9,9 @@ Metrics/BlockLength:
   Enabled: true
   Exclude:
     - spec/**/*
+    - Rakefile
+
+Style/MixinUsage:
+  Enabled: true
+  Exclude:
+    - load_all.rb

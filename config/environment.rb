@@ -17,7 +17,7 @@ module YouFind
         path: File.expand_path('config/secrets.yml')
       )
       Figaro.load
-      def self.config() = Figaro.env
+      def self.config = Figaro.env
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
@@ -25,9 +25,7 @@ module YouFind
       end
 
       # Database Setup
-      DB = Sequel.connect(ENV['DATABASE_URL'])
-      def self.DB() = DB
+      def self.db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
     end
-
   end
 end

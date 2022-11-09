@@ -42,7 +42,7 @@ gem 'pry'
 
 # Code Quality
 group :development do
-    gem 'flog'
-    gem 'reek'
-    gem 'rubocop'
+  gem 'flog'
+  gem 'reek'
+  gem 'rubocop'
 end
