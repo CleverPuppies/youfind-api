@@ -6,10 +6,10 @@ require 'dry-struct'
 module YouFind
   module Entity
     # Domain entity for word input to search inside captions
-    class FilterInput < Dry::Struct
+    class WordsInput < Dry::Struct
       include Dry.Types
 
-      attribute :input,        Strict::String
+      attribute :input,        Strict::Array.of(String)
       attribute :associations, Strict::Array.of(String)
 
       def to_attr_hash

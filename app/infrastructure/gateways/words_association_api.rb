@@ -11,8 +11,8 @@ module YouFind
         @words_assos_key = api_key
       end
 
-      def words_associations(text)
-        Request.new(@words_assos_key).video(video_id).parse[0]
+      def words_associations(words)
+        Request.new(@words_assos_key).video(words).parse[0]
       end
 
       # Sends out HTTP request to Youtube
