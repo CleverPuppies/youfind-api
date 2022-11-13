@@ -1,0 +1,63 @@
+.title{
+    color: rgb(234, 51, 35);
+}
+
+.title:hover{
+    color: rgb(234, 51, 35);
+}
+
+.form{
+    position: relative;
+}
+
+.form .fa-lg.fa-search{
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+}
+
+.form .fa-search.sm-search{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #9ca3af;
+}
+
+.form-sm-input{
+    text-indent: 23px;
+    border-radius: 10px;
+}
+
+.form-lg-input{
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.video-wrapper{
+    height: 100%;
+    height: 400px;
+}
+
+.caption-line{
+    text-decoration: none;
+    color: black;
+}
+
+.caption-line:hover{
+    font-weight: bold;
+    color: rgb(234, 51, 35);
+}
+
+.fitting-width{
+    width:fit-content;
+}

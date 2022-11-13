@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2022 02:10:24 GMT
+      - Sun, 13 Nov 2022 05:54:49 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -33,9 +33,9 @@ http_interactions:
       Cache-Control:
       - public, max-age=0, must-revalidate
       Etag:
-      - '"3a7-qpajF2i6oVkMNh0UWSt6p+dFf6I"'
+      - '"3a7-JsYkO7OEP7KbQNxaVq0vXS0CiM4"'
       X-Vercel-Id:
-      - hnd1::iad1::s25jq-1666750223846-3e06c29198ab
+      - hnd1::iad1::t8dfl-1668318888789-0d804f7e9629
       Access-Control-Allow-Origin:
       - "*"
       X-Vercel-Cache:
@@ -49,15 +49,15 @@ http_interactions:
       X-Ratelimit-Core-Limit:
       - '500'
       X-Ratelimit-Core-Remaining:
-      - '402'
+      - '497'
       X-Ratelimit-Core-Reset:
-      - '2211'
+      - '75146'
       X-Ratelimit-Download-Data-Limit:
       - '10'
       X-Ratelimit-Download-Data-Remaining:
       - '10'
       X-Ratelimit-Download-Data-Reset:
-      - '2211'
+      - '75146'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -69,50 +69,8 @@ http_interactions:
       string: '[{"id":{"videoId":"8bZh5LMaSmE"},"url":"https://www.youtube.com/watch?v=8bZh5LMaSmE","title":"RailsConf
         2014 - All the Little Things by Sandi Metz","description":"","duration_raw":"38:47","snippet":{"url":"https://www.youtube.com/watch?v=8bZh5LMaSmE","duration":"38:47","publishedAt":"8
         years ago","thumbnails":{"id":"8bZh5LMaSmE","url":"https://i.ytimg.com/vi/8bZh5LMaSmE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDbng46zDJkbHgH-FeFhve7n8syHQ","default":{"url":"https://i.ytimg.com/vi/8bZh5LMaSmE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDbng46zDJkbHgH-FeFhve7n8syHQ","width":720,"height":404},"high":{"url":"https://i.ytimg.com/vi/8bZh5LMaSmE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDbng46zDJkbHgH-FeFhve7n8syHQ","width":720,"height":404},"height":404,"width":720},"title":"RailsConf
-        2014 - All the Little Things by Sandi Metz","views":"147845"},"views":"147845"}]'
-  recorded_at: Wed, 26 Oct 2022 02:10:24 GMT
-- request:
-    method: get
-    uri: https://ytube-videos.p.rapidapi.com/info?id=cleverpuppies
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Rapidapi-Key:
-      - BAD_TOKEN
-      X-Rapidapi-Host:
-      - ytube-videos.p.rapidapi.com
-      Connection:
-      - close
-      Host:
-      - ytube-videos.p.rapidapi.com
-      User-Agent:
-      - http.rb/5.1.0
-  response:
-    status:
-      code: 403
-      message: Forbidden
-    headers:
-      Date:
-      - Wed, 26 Oct 2022 02:10:25 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - close
-      X-Rapidapi-Version:
-      - 1.2.8
-      X-Rapidapi-Region:
-      - AWS - ap-northeast-1
-      X-Rapidapi-Proxy-Response:
-      - 'true'
-      Server:
-      - RapidAPI-1.2.8
-    body:
-      encoding: UTF-8
-      string: '{"message":"You are not subscribed to this API."}'
-  recorded_at: Wed, 26 Oct 2022 02:10:25 GMT
+        2014 - All the Little Things by Sandi Metz","views":"148547"},"views":"148547"}]'
+  recorded_at: Sun, 13 Nov 2022 05:54:49 GMT
 - request:
     method: get
     uri: https://ytube-videos.p.rapidapi.com/captions?id=8bZh5LMaSmE
@@ -136,7 +94,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2022 02:10:26 GMT
+      - Sun, 13 Nov 2022 05:54:50 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -148,7 +106,7 @@ http_interactions:
       Etag:
       - '"13a92-pt6DDWjLYoWVpiGm05lo3CgVbMk"'
       X-Vercel-Id:
-      - hnd1::iad1::lthst-1666750225761-6a51b5dc4f73
+      - hnd1::iad1::bxlb9-1668318889732-0f2e7e03c91e
       Access-Control-Allow-Origin:
       - "*"
       X-Vercel-Cache:
@@ -162,15 +120,15 @@ http_interactions:
       X-Ratelimit-Core-Limit:
       - '500'
       X-Ratelimit-Core-Remaining:
-      - '401'
+      - '496'
       X-Ratelimit-Core-Reset:
-      - '2209'
+      - '75145'
       X-Ratelimit-Download-Data-Limit:
       - '10'
       X-Ratelimit-Download-Data-Remaining:
       - '10'
       X-Ratelimit-Download-Data-Reset:
-      - '2209'
+      - '75145'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -1126,5 +1084,47 @@ http_interactions:
         to you all, and\nthanks to Jim Weirich"},{"start":"2293.921","dur":"1.62","text":"who
         gave me this Kata."},{"start":"2295.541","dur":"11.349","text":"(applause)"},{"start":"2306.89","dur":"17.594","text":"(jazzy
         music)"}]'
-  recorded_at: Wed, 26 Oct 2022 02:10:26 GMT
+  recorded_at: Sun, 13 Nov 2022 05:54:50 GMT
+- request:
+    method: get
+    uri: https://ytube-videos.p.rapidapi.com/info?id=cleverpuppies
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - BAD_TOKEN
+      X-Rapidapi-Host:
+      - ytube-videos.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - ytube-videos.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Sun, 13 Nov 2022 05:54:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"You are not subscribed to this API."}'
+  recorded_at: Sun, 13 Nov 2022 05:54:56 GMT
 recorded_with: VCR 6.1.0

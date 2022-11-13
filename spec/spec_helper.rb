@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 SimpleCov.start
 
@@ -13,7 +15,7 @@ require_app
 
 VIDEO_ID = '8bZh5LMaSmE'
 CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
-YT_API_KEY = CONFIG['API_KEY']
+YT_API_KEY = YouFind::App.config.API_KEY
 CORRECT = YAML.safe_load(File.read('spec/fixtures/yt_results.yml'))
 
 CASSETTES_FOLDER = 'spec/fixtures/cassettes'

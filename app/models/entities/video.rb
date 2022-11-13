@@ -3,21 +3,26 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative 'captions'
+require_relative 'caption'
 
 module YouFind
   module Entity
-    # Domain entity for team members
+    # Domain entity for videos
     class Video < Dry::Struct
       include Dry.Types
 
-      attribute :id,          Strict::String
-      attribute :title,       Strict::String
-      attribute :url,         Strict::String
-      attribute :embeded_url, Strict::String
-      attribute :duration,    Strict::String
-      attribute :views,       Strict::String
-      attribute :captions,    Captions
+      attribute :id, Integer.optional
+      attribute :origin_id,     Strict::String
+      attribute :title,         Strict::String
+      attribute :url,           Strict::String
+      attribute :embedded_url,  Strict::String
+      attribute :time,          Strict::String
+      attribute :views,         Strict::String
+      attribute :captions,      Strict::Array.of(Caption)
+
+      def to_attr_hash
+        to_hash.except(:id, :captions)
+      end
     end
   end
 end
