@@ -23,6 +23,10 @@ module YouFind
       def to_attr_hash
         to_hash.except(:id, :captions)
       end
+
+      def find_caption(text)
+        Repository::Videos.find_caption(self, text)
+      end
     end
   end
 end

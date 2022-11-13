@@ -9,11 +9,6 @@ module YouFind
         rebuild_entity Database::CaptionOrm.first(id: id)
       end
 
-      # def self.string_match_captions(video_id, text)
-      #   # SELECT * FROM captions WHERE id = video_id AND text LIKE "%#{text}%"
-      #   rebuild_many Database::CaptionOrm.all(id: video_id, Sequel.like(:text, "%#{text}%"))
-      # end
-
       def self.rebuild_entity(db_record)
         return nil unless db_record
 
