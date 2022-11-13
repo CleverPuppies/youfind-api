@@ -109,6 +109,7 @@ GEM
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
     sqlite3 (1.5.3-arm64-darwin)
+    sqlite3 (1.5.3-x86_64-darwin)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
@@ -125,6 +126,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-darwin-21
 
 DEPENDENCIES
   dry-struct (~> 1)

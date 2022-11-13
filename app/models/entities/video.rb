@@ -11,7 +11,7 @@ module YouFind
     class Video < Dry::Struct
       include Dry.Types
 
-      attribute :id,             Integer.optional
+      attribute :id, Integer.optional
       attribute :origin_id,     Strict::String
       attribute :title,         Strict::String
       attribute :url,           Strict::String

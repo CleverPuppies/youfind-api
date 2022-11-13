@@ -11,9 +11,8 @@ module YouFind
     plugin :common_logger, $stderr
     plugin :halt
 
-    route do |routing|
+    route do |routing| # rubocop:disable Metrics/BlockLength
       routing.assets # load custom CSS
-      # puts routing.assets
 
       # GET /
       routing.root do
@@ -41,8 +40,8 @@ module YouFind
             if video_data.nil?
               puts "video #{video_id} not found in database"
               video_data = Youtube::VideoMapper
-                          .new(ENV['YT_TOKEN'])
-                          .find(video_id)
+                           .new(ENV.fetch('YT_TOKEN', nil))
+                           .find(video_id)
               Repository::Videos.create(video_data)
               puts "video #{video_id} added to database"
             end

@@ -5,7 +5,7 @@ require_relative 'helpers/vcr_helper'
 
 describe 'Tests environment' do
   it 'must be in testing environment' do
-    _(ENV['RACK_ENV']).must_equal 'test'
+    _(ENV.fetch('RACK_ENV', nil)).must_equal 'test'
   end
 end
 
