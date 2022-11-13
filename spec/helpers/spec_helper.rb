@@ -10,7 +10,7 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-require_relative '../require_app'
+require_relative '../../require_app'
 require_app
 
 VIDEO_ID = '8bZh5LMaSmE'
