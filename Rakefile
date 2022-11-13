@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rake/testtask'
+require_relative 'require_app'
 
 task :default do
   puts `rake -T`
@@ -9,6 +10,10 @@ end
 desc 'run the puma server'
 task :run do
   sh 'bundle exec puma'
+end
+
+task :rerun do
+  sh "rerun -c --ignore 'coverage/*' -- bundle exec puma"
 end
 
 namespace :db do
@@ -34,6 +39,7 @@ namespace :db do
       return
     end
 
+    require_app
     DatabaseHelper.wipe_database
   end
 

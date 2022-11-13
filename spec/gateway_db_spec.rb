@@ -46,7 +46,7 @@ describe 'Integration Tests for Youtube API and Database' do
 
       YouFind::Repository::For.entity(video).create(video)
 
-      _(YouFind::Repository::For.entity(video).find_captions(video, 'Google')[0].text)
+      _(YouFind::Repository::For.entity(video).find_caption(video, 'Google')[0].text)
         .must_equal "And so, it is so famous\nthat you can just Google it,"
     end
   end

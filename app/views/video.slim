@@ -40,18 +40,28 @@ hr
                 h2 Captions
             .col
                 .row.vertical-align.query-bar.w-50
-                    .form
-                        i.fa-solid.fa-search.sm-search.mx-3.mb-3
-                        input.h-auto{
-                            type='text' name='yt_video_url'
-                            class='form-control form-sm-input px-4'
-                            placeholder='Search words'
-                        }
+                    form method='get' action='/video/#{data.origin_id}'
+                        .form
+                            i.fa-solid.fa-search.sm-search.mx-3.mb-3
+                            input.h-auto{
+                                type='text' name='text'
+                                class='form-control form-sm-input px-4'
+                                placeholder='Search words'
+                            }
         .row.ms-2
             .col-lg-1.col-md-2.col-sm-2
-            - data.captions.each do |caption|
-                .row
-                    .col-7
-                        a.row.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
-                            pre.mb-0
-                                = "[#{caption.start.to_i.to_s}]#{' '*(data.captions.last.start.to_i.to_s.length - caption.start.to_i.to_s.length)} #{caption[:text]}"
+            - if text.nil? or text.empty?
+                - data.captions.each do |caption|
+                    .row
+                        .col-7
+                            a.row.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
+                                pre.mb-0
+                                    = "[#{caption.start.to_i.to_s}]#{' '*(data.captions.last.start.to_i.to_s.length - caption.start.to_i.to_s.length)} #{caption[:text]}"
+
+            - else
+                - data.find_caption(text).each do |caption|
+                    .row
+                        .col-7
+                            a.row.caption-line href="https://youtu.be/#{data.origin_id}?t=#{caption.start.to_i.to_s}"
+                                pre.mb-0
+                                    = "[#{caption.start.to_i.to_s}]#{' '*(data.captions.last.start.to_i.to_s.length - caption.start.to_i.to_s.length)} #{caption[:text]}"

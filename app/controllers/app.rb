@@ -34,7 +34,7 @@ module YouFind
         end
 
         routing.on String do |video_id|
-          # GET /video/id/captions
+          # GET /video/id/
           routing.get do
             video_data = Repository::Videos.find_origin_id(video_id)
             if video_data.nil?
@@ -45,7 +45,7 @@ module YouFind
               Repository::Videos.create(video_data)
               puts "video #{video_id} added to database"
             end
-            view 'video', locals: { data: video_data }
+            view 'video', locals: { data: video_data, text: routing.params['text'] }
           end
         end
       end
