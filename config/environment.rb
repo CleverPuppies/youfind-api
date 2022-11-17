@@ -25,9 +25,8 @@ module YouFind
       end
 
       # Database Setup
-      DB = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
-      def self.DB = DB # rubocop:disable Naming/MethodName
+      db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
+      def self.db = db
     end
-    # rubocop:enable Lint/ConstantDefinitionInBlock
   end
 end

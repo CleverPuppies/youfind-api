@@ -4,7 +4,7 @@ module YouFind
   module Repository
     # Repository for Video Entities
     class Videos
-      def self.find_caption(entity, text)
+      def self.find_captions(entity, text)
         # SELECT * FROM captions WHERE id = origin_id AND text LIKE "%#{text}%"
         video_record = Database::VideoOrm.first(origin_id: entity.origin_id)
         # puts text

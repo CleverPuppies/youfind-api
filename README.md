@@ -1,6 +1,6 @@
 # YouFind
 
-With YouFind, you can find words mentioned in YouTube videos.
+YouFind aims to solve one simple problem, find in a YouTube video the precise moment you want to listen again. Based on a smart word search we will give you all the captions where the topic you input is present. Then we send you to youtube at the exact moment when your choosen caption was pronounced.
 
 ## ER Diagram
 

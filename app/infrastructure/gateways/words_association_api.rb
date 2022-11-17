@@ -3,43 +3,34 @@
 require 'http'
 
 module YouFind
-  # Library for Youtube Web API
-  module Youtube
-    # Library for Youtube web API
+  # Library for Words Association Web API
+  module WordsAssociation
+    # Library for Words Association web API
     class API
       def initialize(api_key)
-        @yt_key = api_key
+        @words_assos_key = api_key
       end
 
-      def video_data(video_id)
-        Request.new(@yt_key).video(video_id).parse[0]
-      end
-
-      def video_captions(video_id)
-        Request.new(@yt_key).captions(video_id).parse
+      def words_associations(words)
+        Request.new(@words_assos_key).video(words).parse[0]
       end
 
       # Sends out HTTP request to Youtube
       class Request
-        VIDEOS_PATH = 'https://ytube-videos.p.rapidapi.com/info'
-        CAPTIONS_PATH = 'https://ytube-videos.p.rapidapi.com/captions'
+        ASSOCIATIONS_PATH = 'https://twinword-word-associations-v1.p.rapidapi.com/associations/'
 
         def initialize(api_key)
-          @yt_key = api_key
+          @words_assos_key = api_key
         end
 
-        def video(video_id)
-          retrieve(VIDEOS_PATH, { id: video_id })
-        end
-
-        def captions(video_id)
-          retrieve(CAPTIONS_PATH, { id: video_id })
+        def associations(words)
+          retrieve(ASSOCIATIONS_PATH, { entry: words })
         end
 
         def retrieve(url, params)
           http_response = HTTP.headers(
-            'X-RapidAPI-Key' => @yt_key,
-            'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com'
+            'X-RapidAPI-Key' => @words_assos_key,
+            'X-RapidAPI-Host' => 'twinword-word-associations-v1.p.rapidapi.com'
           ).get(url, params: params)
           Response.new(http_response).tap do |response|
             raise(response.raise_error) unless response.successful?
@@ -60,7 +51,7 @@ module YouFind
         }.freeze
 
         def successful?
-          !HTTP_ERROR.keys.include?(code) && body.to_s != '[]'
+          !HTTP_ERROR.keys.include?(code) && body['result_msg'] == 'Success'
         end
 
         def raise_error

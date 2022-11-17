@@ -1,3 +1,7 @@
 ---
-  exclude_paths:
-    - lib/caption_info.rb # one-time test fixture creator
+detectors:
+  UtilityFunction:
+    public_methods_only: true
+    
+exclude_paths:
+  - lib/caption_info.rb # one-time test fixture creator
