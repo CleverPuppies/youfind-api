@@ -1190,4 +1190,138 @@ http_interactions:
       string: '{"version":"7.4.1","author":"twinword inc.","email":"help@twinword.com","result_code":"462","result_msg":"Entry
         word not found"}'
   recorded_at: Thu, 17 Nov 2022 08:51:56 GMT
+- request:
+    method: get
+    uri: https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=famous
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<RAPIDAPI_KEY>"
+      X-Rapidapi-Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Nov 2022 13:55:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1783'
+      Connection:
+      - close
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - 76b8f776fadc1da3-NRT
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=4Z7AQTr1sK2oEHB9ssRuhJ1s5S%2FTC1LkKN1Ya%2BttHDosJYIl1aidDSr8RIfudOmrpQ9krXhK%2FrmMvDnmYSJaxBd%2BdJmXN%2BqwsXL44rHxK7XEAYzlwd%2FNOXh%2BxJxeRjbJva4l"}],"group":"cf-nel","max_age":604800}'
+      X-Ratelimit-Requests-Limit:
+      - '10000'
+      X-Ratelimit-Requests-Remaining:
+      - '9979'
+      X-Ratelimit-Requests-Reset:
+      - '1787934'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+    body:
+      encoding: UTF-8
+      string: '{"entry":"famous","request":"famous","response":{"famous":1},"associations":"tragedian,
+        renowned, distinguished, noted, celebrated, eminent, perhaps, prominent, known,
+        personage, illustrious, honorary, honorable, fame, notable, maybe, celebrity,
+        popular, excellent, reputation, savant, academician, playwright, great, outstanding,
+        operetta, heroine, pronounced, pundit, writer","associations_array":["tragedian","renowned","distinguished","noted","celebrated","eminent","perhaps","prominent","known","personage","illustrious","honorary","honorable","fame","notable","maybe","celebrity","popular","excellent","reputation","savant","academician","playwright","great","outstanding","operetta","heroine","pronounced","pundit","writer"],"associations_scored":{"tragedian":0.42569893452202123,"renowned":0.5400818586988942,"distinguished":0.5299259770379752,"noted":0.4906636271278082,"celebrated":0.4012727738274518,"eminent":0.5227242706690995,"perhaps":0.3508079674618075,"prominent":0.39335842402292176,"known":0.46444401252247863,"personage":0.25378535460129614,"illustrious":0.26223458766294655,"honorary":0.42841928165607496,"honorable":0.42454207640799324,"fame":0.3953846111187263,"notable":0.26306574249223785,"maybe":0.4396011860363275,"celebrity":0.5110142072671491,"popular":0.6477735550588212,"excellent":0.3188021617531757,"reputation":0.5809952862792511,"savant":0.19640162578179857,"academician":0.20141363264086645,"playwright":0.4114931972804928,"great":0.394054026243428,"outstanding":0.23117701029157234,"operetta":0.45003058631242565,"heroine":0.32205740042180564,"pronounced":0.1524789789296178,"pundit":0.1940520621288058,"writer":0.5281848274441273},"version":"7.4.1","author":"twinword
+        inc.","email":"help@twinword.com","result_code":"200","result_msg":"Success"}'
+  recorded_at: Thu, 17 Nov 2022 13:55:55 GMT
+- request:
+    method: get
+    uri: https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=famous
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<RAPIDAPI_KEY>"
+      X-Rapidapi-Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Nov 2022 14:15:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1783'
+      Connection:
+      - close
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - 76b91481de82345d-NRT
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=jVpqsnMBSvmqGy4kYDHpjfyUn%2FfRUPc4yhQ8kAHW0n%2B%2FYUhL7xZ9yucuQ7UI%2FEx34xBLJKyR%2F2rsMu1qEXO2SWnYdt1BkOqvc7wSa%2FYAXwP4R5oY9BUHMwMrV7jKdxejjvb7"}],"group":"cf-nel","max_age":604800}'
+      X-Ratelimit-Requests-Limit:
+      - '10000'
+      X-Ratelimit-Requests-Remaining:
+      - '9977'
+      X-Ratelimit-Requests-Reset:
+      - '1786745'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+    body:
+      encoding: UTF-8
+      string: '{"entry":"famous","request":"famous","response":{"famous":1},"associations":"tragedian,
+        renowned, distinguished, noted, celebrated, eminent, perhaps, prominent, known,
+        personage, illustrious, honorary, honorable, fame, notable, maybe, celebrity,
+        popular, excellent, reputation, savant, academician, playwright, great, outstanding,
+        operetta, heroine, pronounced, pundit, writer","associations_array":["tragedian","renowned","distinguished","noted","celebrated","eminent","perhaps","prominent","known","personage","illustrious","honorary","honorable","fame","notable","maybe","celebrity","popular","excellent","reputation","savant","academician","playwright","great","outstanding","operetta","heroine","pronounced","pundit","writer"],"associations_scored":{"tragedian":0.42569893452202123,"renowned":0.5400818586988942,"distinguished":0.5299259770379752,"noted":0.4906636271278082,"celebrated":0.4012727738274518,"eminent":0.5227242706690995,"perhaps":0.3508079674618075,"prominent":0.39335842402292176,"known":0.46444401252247863,"personage":0.25378535460129614,"illustrious":0.26223458766294655,"honorary":0.42841928165607496,"honorable":0.42454207640799324,"fame":0.3953846111187263,"notable":0.26306574249223785,"maybe":0.4396011860363275,"celebrity":0.5110142072671491,"popular":0.6477735550588212,"excellent":0.3188021617531757,"reputation":0.5809952862792511,"savant":0.19640162578179857,"academician":0.20141363264086645,"playwright":0.4114931972804928,"great":0.394054026243428,"outstanding":0.23117701029157234,"operetta":0.45003058631242565,"heroine":0.32205740042180564,"pronounced":0.1524789789296178,"pundit":0.1940520621288058,"writer":0.5281848274441273},"version":"7.4.1","author":"twinword
+        inc.","email":"help@twinword.com","result_code":"200","result_msg":"Success"}'
+  recorded_at: Thu, 17 Nov 2022 14:15:44 GMT
 recorded_with: VCR 6.1.0

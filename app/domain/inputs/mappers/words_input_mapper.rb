@@ -15,9 +15,9 @@ module YouFind
       def find_associations(input)
         begin
           data = JSON.parse @gateway.words_associations(input).body
-          build_entity(data)
+          build_entity(data).word_collection
         rescue
-          input
+          [input]
         end
       end
 

@@ -51,7 +51,7 @@ module YouFind
         }.freeze
 
         def successful?
-          !HTTP_ERROR.keys.include?(code) && JSON.parse(body)['result_code'] == 200
+          !HTTP_ERROR.keys.include?(code) && JSON.parse(body)['result_code'] == '200'
         end
 
         def raise_error
