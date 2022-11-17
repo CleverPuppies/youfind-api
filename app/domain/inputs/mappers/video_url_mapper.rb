@@ -7,31 +7,14 @@ module YouFind
   module Inputs
     # Data Mapper: Github contributor -> Member entity
     class VideoUrlMapper
-      def valid?(url)
-        build_entity(url).valid?
+      def initialize(url)
+        @url = url
       end
 
-      def build_entity(data)
-        DataMapper.new(data).build_entity
-      end
-
-      # Extracts entity specific elements from data structure
-      class DataMapper
-        def initialize(data)
-          @data = data
-        end
-
-        def build_entity
-          YouFind::Entity::VideoUrl.new(
-            url: @data
-          )
-        end
-
-        private
-
-        def url
-          @data
-        end
+      def valid?
+        (@url.include? 'youtube.com') &&
+        (@url.include? 'v=') &&
+        (@url.split('v=')[1].length == 11)
       end
     end
   end

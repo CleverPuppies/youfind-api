@@ -25,7 +25,7 @@ module YouFind
           # POST /video/
           routing.post do
             yt_video_url = routing.params['yt_video_url']
-            routing.halt 400 unless yt_url_checker(yt_video_url)
+            routing.halt 400 unless Inputs::VideoUrl(yt_video_url).valid?
             video_id = yt_video_url.split('v=')[1]
             routing.redirect "video/#{video_id}"
           end
