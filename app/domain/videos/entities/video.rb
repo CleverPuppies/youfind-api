@@ -25,7 +25,7 @@ module YouFind
       end
 
       def find_caption(text)
-        Repository::Videos.find_caption(self, text)
+        Repository::Videos.find_captions(self, text)
       end
     end
   end

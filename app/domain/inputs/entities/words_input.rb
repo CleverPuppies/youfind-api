@@ -15,6 +15,10 @@ module YouFind
       def to_attr_hash
         to_hash.except(:input)
       end
+
+      def word_collection
+        input + associations
+      end
     end
   end
 end

@@ -12,9 +12,9 @@ module YouFind
       attribute :url,        Strict::String
 
       def valid?
-        (@url.include? 'youtube.com') &&
-        (@url.include? 'v=') &&
-        (@url.split('v=')[1].length == 11)
+        (url.include? 'youtube.com') &&
+        (url.include? 'v=') &&
+        (url.split('v=')[1].length == 11)
       end
     end
   end

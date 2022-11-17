@@ -21,12 +21,14 @@ module YouFind
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
-        ENV['YT_TOKEN'] = config.API_KEY
+        ENV['RAPID_API_TOKEN'] = config.API_KEY
       end
 
       # Database Setup
-      db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
-      def self.db = db
+      # db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
+      # def self.db = db
+      DB = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
+      def self.DB = DB # rubocop:disable Naming/MethodName
     end
   end
 end

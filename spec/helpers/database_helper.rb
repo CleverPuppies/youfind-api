@@ -5,9 +5,9 @@ module DatabaseHelper
   # TODO
   def self.wipe_database
     # Ignore foreign key constraints when wiping tables
-    YouFind::App.db.run('PRAGMA foreign_keys = OFF')
+    YouFind::App.DB.run('PRAGMA foreign_keys = OFF')
     YouFind::Database::VideoOrm.map(&:destroy)
     YouFind::Database::CaptionOrm.map(&:destroy)
-    YouFind::App.db.run('PRAGMA foreign_keys = ON')
+    YouFind::App.DB.run('PRAGMA foreign_keys = ON')
   end
 end

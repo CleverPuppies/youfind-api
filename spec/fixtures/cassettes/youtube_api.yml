@@ -1127,4 +1127,67 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"You are not subscribed to this API."}'
   recorded_at: Sun, 13 Nov 2022 05:54:56 GMT
+- request:
+    method: get
+    uri: https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=Google
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<RAPIDAPI_KEY>"
+      X-Rapidapi-Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Nov 2022 08:51:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '128'
+      Connection:
+      - close
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      Cf-Ray:
+      - 76b73a2ded59efae-NRT
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cCEgWuT2zbq9Jj%2FaQslZ9ZSIsEjMYVboKdYnjunouyQjYpSO2N%2BTx1ZRv78%2BbnW%2Bn14PeDZctiAxqKZaTa0cTG8D%2Fbwc9plpLBhEadiEfOK%2FIZu2d1XY%2BRjxVlu0%2FtdNxM0c"}],"group":"cf-nel","max_age":604800}'
+      X-Ratelimit-Requests-Limit:
+      - '10000'
+      X-Ratelimit-Requests-Remaining:
+      - '9997'
+      X-Ratelimit-Requests-Reset:
+      - '1806174'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+    body:
+      encoding: UTF-8
+      string: '{"version":"7.4.1","author":"twinword inc.","email":"help@twinword.com","result_code":"462","result_msg":"Entry
+        word not found"}'
+  recorded_at: Thu, 17 Nov 2022 08:51:56 GMT
 recorded_with: VCR 6.1.0

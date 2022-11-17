@@ -12,7 +12,7 @@ module YouFind
       end
 
       def words_associations(words)
-        Request.new(@words_assos_key).video(words).parse[0]
+        Request.new(@words_assos_key).associations(words)
       end
 
       # Sends out HTTP request to Youtube
@@ -51,7 +51,7 @@ module YouFind
         }.freeze
 
         def successful?
-          !HTTP_ERROR.keys.include?(code) && body['result_msg'] == 'Success'
+          !HTTP_ERROR.keys.include?(code) && JSON.parse(body)['result_code'] == 200
         end
 
         def raise_error

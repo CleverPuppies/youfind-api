@@ -1,6 +1,5 @@
 # frozen_string_literal: false
 
-require_relative 'caption_mapper'
 
 module YouFind
   # Provides access to the input YouTube video url
@@ -14,8 +13,12 @@ module YouFind
       end
 
       def find_associations(input)
-        data = @gateway.words_associations(input)
-        build_entity(data)
+        begin
+          data = JSON.parse @gateway.words_associations(input).body
+          build_entity(data)
+        rescue
+          input
+        end
       end
 
       def build_entity(data)
@@ -30,15 +33,19 @@ module YouFind
 
         def build_entity
           YouFind::Entity::WordsInput.new(
-            input: @data['response'].keys,
-            associations: @data['associations_array']
+            input: input,
+            associations: associations
           )
         end
 
         private
 
-        def url
-          @data
+        def input
+          @data['response'].keys
+        end
+
+        def associations
+          @data['associations_array']
         end
       end
     end

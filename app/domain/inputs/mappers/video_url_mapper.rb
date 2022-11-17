@@ -1,7 +1,5 @@
 # frozen_string_literal: false
 
-require_relative 'caption_mapper'
-
 module YouFind
   # Provides access to the input YouTube video url
   module Inputs
@@ -12,9 +10,7 @@ module YouFind
       end
 
       def valid?
-        (@url.include? 'youtube.com') &&
-        (@url.include? 'v=') &&
-        (@url.split('v=')[1].length == 11)
+        YouFind::Entity::VideoUrl.new(url: @url).valid?
       end
     end
   end

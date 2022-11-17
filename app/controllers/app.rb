@@ -24,7 +24,7 @@ module YouFind
           # POST /video/
           routing.post do
             yt_video_url = routing.params['yt_video_url']
-            routing.halt 400 unless Inputs::VideoUrl(yt_video_url).valid?
+            routing.halt 400 unless Inputs::VideoUrlMapper.new(yt_video_url).valid?
             video_id = yt_video_url.split('v=')[1]
             routing.redirect "video/#{video_id}"
           end
@@ -35,7 +35,7 @@ module YouFind
           routing.get do
             video_data = Repository::Videos.find_origin_id(video_id)
             if video_data.nil?
-              video_data = Youtube::VideoMapper.new(ENV.fetch('YT_TOKEN', nil)).find(video_id)
+              video_data = Youtube::VideoMapper.new(ENV.fetch('RAPID_API_TOKEN', nil)).find(video_id)
               Repository::Videos.create(video_data)
             end
             view 'video', locals: { data: video_data, text: routing.params['text'] }
