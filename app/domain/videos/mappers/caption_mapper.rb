@@ -47,7 +47,7 @@ module YouFind
         end
 
         def text
-          @data['text']
+          @data['text'].downcase
         end
       end
     end

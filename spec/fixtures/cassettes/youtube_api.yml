@@ -1324,4 +1324,46 @@ http_interactions:
         operetta, heroine, pronounced, pundit, writer","associations_array":["tragedian","renowned","distinguished","noted","celebrated","eminent","perhaps","prominent","known","personage","illustrious","honorary","honorable","fame","notable","maybe","celebrity","popular","excellent","reputation","savant","academician","playwright","great","outstanding","operetta","heroine","pronounced","pundit","writer"],"associations_scored":{"tragedian":0.42569893452202123,"renowned":0.5400818586988942,"distinguished":0.5299259770379752,"noted":0.4906636271278082,"celebrated":0.4012727738274518,"eminent":0.5227242706690995,"perhaps":0.3508079674618075,"prominent":0.39335842402292176,"known":0.46444401252247863,"personage":0.25378535460129614,"illustrious":0.26223458766294655,"honorary":0.42841928165607496,"honorable":0.42454207640799324,"fame":0.3953846111187263,"notable":0.26306574249223785,"maybe":0.4396011860363275,"celebrity":0.5110142072671491,"popular":0.6477735550588212,"excellent":0.3188021617531757,"reputation":0.5809952862792511,"savant":0.19640162578179857,"academician":0.20141363264086645,"playwright":0.4114931972804928,"great":0.394054026243428,"outstanding":0.23117701029157234,"operetta":0.45003058631242565,"heroine":0.32205740042180564,"pronounced":0.1524789789296178,"pundit":0.1940520621288058,"writer":0.5281848274441273},"version":"7.4.1","author":"twinword
         inc.","email":"help@twinword.com","result_code":"200","result_msg":"Success"}'
   recorded_at: Thu, 17 Nov 2022 14:15:44 GMT
+- request:
+    method: get
+    uri: https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=google
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<RAPIDAPI_KEY>"
+      X-Rapidapi-Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Sun, 20 Nov 2022 06:07:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"You are not subscribed to this API."}'
+  recorded_at: Sun, 20 Nov 2022 06:07:04 GMT
 recorded_with: VCR 6.1.0
