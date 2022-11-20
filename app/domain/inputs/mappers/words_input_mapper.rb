@@ -1,6 +1,5 @@
 # frozen_string_literal: false
 
-
 module YouFind
   # Provides access to the input YouTube video url
   module Inputs
@@ -13,12 +12,10 @@ module YouFind
       end
 
       def find_associations(input)
-        begin
-          data = JSON.parse @gateway.words_associations(input).body
-          build_entity(data).word_collection
-        rescue
-          [input]
-        end
+        data = JSON.parse @gateway.words_associations(input).body
+        build_entity(data).word_collection
+      rescue StandardError
+        [input]
       end
 
       def build_entity(data)

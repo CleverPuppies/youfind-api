@@ -29,8 +29,6 @@ module YouFind
       end
 
       # Database Setup
-      # db = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
-      # def self.db = db
       DB = Sequel.connect(ENV.fetch('DATABASE_URL', nil))
       def self.DB = DB # rubocop:disable Naming/MethodName
 
@@ -38,5 +36,6 @@ module YouFind
       LOGGER = Logger.new($stderr)
       def self.logger = LOGGER
     end
+    # rubocop:enable Lint/ConstantDefinitionInBlock
   end
 end

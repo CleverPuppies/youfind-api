@@ -7,25 +7,28 @@ module YouFind
   # Web App
   class App < Roda
     plugin :flash
-    plugin :render, engine: 'slim', views: 'app/views'
-    plugin :assets, css: 'style.css', path: 'app/views/assets'
+    plugin :render, engine: 'slim', views: 'app/presentation/views_html'
+    plugin :assets, path: 'app/presentation/assets',
+                    css: 'style.css'
     plugin :common_logger, $stderr
     plugin :halt
 
     route do |routing| # rubocop:disable Metrics/BlockLength
-      routing.assets # load custom CSS
+      routing.assets # load CSS
 
       # GET /
       routing.root do
         view 'home'
       end
 
-      routing.on 'video' do
+      routing.on 'video' do # rubocop:disable Metrics/BlockLength
         routing.is do
           # POST /video/
           routing.post do
             yt_video_url = routing.params['yt_video_url']
-            unless Inputs::VideoUrlMapper.new(yt_video_url).valid?
+            unless (yt_video_url.include? 'youtube.com') &&
+                   (yt_video_url.include? 'v=') &&
+                   (yt_video_url.split('v=')[1].length == 11)
               flash[:error] = 'Invalid URL for a Youtube video'
               response.status = 400
               routing.redirect '/'
@@ -39,30 +42,29 @@ module YouFind
           # GET /video/id/
           routing.get do
             video_data = Repository::For.klass(Entity::Video)
-              .find_origin_id(video_id)
-            
-            if video_data.nil?
-              begin
-                video_data = Youtube::VideoMapper.new(App.config.RAPID_API_TOKEN).find(video_id)
-              rescue => err # TODO: Specifically catch BadRequestError
-                logger.error err
-                flash[:error] = 'Could not find the video'
-                routing.redirect '/'
-              end
-
-              # Add video to database
-              begin
-                Repository::For.klass(video_data).create(video_data)
-              rescue StandardError => err
-                # summon logger
-                logger.error err.backtrace.join("\n")
-                flash[:error] = 'Having trouble accessing the database'
-              end
+                                        .find_origin_id(video_id)
+            begin
+              video_data = Youtube::VideoMapper.new(App.config.RAPID_API_TOKEN).find(video_id) if video_data.nil?
+            rescue StandardError => e # TODO: Specifically catch BadRequestError
+              App.logger.error e
+              flash[:error] = 'Could not find the video'
+              routing.redirect '/'
             end
-            view 'video', locals: { data: video_data, text: routing.params['text'] }
+
+            # Add video to database
+            begin
+              Repository::For.klass(video_data).create(video_data)
+            rescue StandardError => e
+              App.logger.error e.backtrace.join("\n")
+              flash[:error] = 'Having trouble accessing the database'
+            end
+            video = Views::Video.new(
+              video_data,
+              routing.params['text']
+            )
+            view 'video', locals: { video: video }
           end
         end
-        
       end
     end
   end

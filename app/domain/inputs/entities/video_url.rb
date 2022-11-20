@@ -9,13 +9,7 @@ module YouFind
     class VideoUrl < Dry::Struct
       include Dry.Types
 
-      attribute :url,        Strict::String
-
-      def valid?
-        (url.include? 'youtube.com') &&
-        (url.include? 'v=') &&
-        (url.split('v=')[1].length == 11)
-      end
+      attribute :url, Strict::String
     end
   end
 end
