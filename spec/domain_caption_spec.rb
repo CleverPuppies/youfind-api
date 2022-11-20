@@ -25,6 +25,6 @@ describe 'Test caption search' do
   it 'HAPPY: should be able to do caption search' do
     root = @yt_video
     _(root.find_caption('google')[0].text)
-      .must_equal "and so, it is so famous\nthat you can just Google it,"
+      .must_equal "and so, it is so famous\nthat you can just google it,"
   end
 end

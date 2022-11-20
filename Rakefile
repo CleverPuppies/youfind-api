@@ -12,8 +12,17 @@ task :run do
   sh 'bundle exec puma'
 end
 
+desc 'run puma server on watch mode'
 task :rerun do
   sh "rerun -c --ignore 'coverage/*' -- bundle exec puma"
+end
+
+desc 'Generates a 64 byte secret for Rack::Session'
+task :new_session_secret do
+  require 'base64'
+  require 'SecureRandom'
+  secret = SecureRandom.random_bytes(64).then { Base64.urlsafe_encode64(_1) }
+  puts "SESSION_SECRET: #{secret}"
 end
 
 namespace :db do

@@ -7,16 +7,16 @@ module YouFind
       def self.find_captions(entity, text)
         # SELECT * FROM captions WHERE id = origin_id AND text LIKE "%#{text}%"
         video_record = Database::VideoOrm.first(origin_id: entity.origin_id)
-        
+
         searching_words = YouFind::Inputs::WordsInputMapper
                             .new(ENV.fetch('RAPID_API_TOKEN', nil))
                             .find_associations(text)
-        
+
         captions = searching_words.map do |word|
           Captions.rebuild_many Database::CaptionOrm
             .where(video_id: video_record.id)
             .where(Sequel.like(:text, "%#{word}%"))
-            .all 
+            .all
         end
         captions.flatten.uniq.sort_by(&:start)
       end

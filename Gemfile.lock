@@ -80,6 +80,8 @@ GEM
     puma (5.6.5)
       nio4r (~> 2.0)
     rack (3.0.0)
+    rack-session (0.3.0)
+      rack (>= 3.0.0.beta1)
     rainbow (3.1.1)
     rake (13.0.6)
     rb-fsevent (0.11.2)
@@ -144,6 +146,7 @@ DEPENDENCIES
   pg
   pry
   puma (~> 5)
+  rack-session (~> 0.3)
   rake
   reek
   rerun (~> 0)
