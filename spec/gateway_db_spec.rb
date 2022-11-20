@@ -51,7 +51,7 @@ describe 'Integration Tests for Youtube API and Database' do
       _(rebuilt.views).must_equal(video.views)
 
       _(YouFind::Repository::For.entity(video).find_captions(video, 'famous')[0].text)
-        .must_equal "And so, it is so famous\nthat you can just Google it,"
+        .must_equal "and so, it is so famous\nthat you can just google it,"
     end
   end
 end
