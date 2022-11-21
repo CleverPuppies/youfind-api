@@ -59,9 +59,10 @@ module YouFind
               App.logger.error e.backtrace.join("\n")
               flash[:error] = 'Having trouble accessing the database'
             end
+
             video = Views::Video.new(
               video_data,
-              routing.params['text']
+              routing.params['text'] || ""
             )
             view 'video', locals: { video: video }
           end
