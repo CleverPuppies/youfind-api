@@ -18,6 +18,8 @@ module YouFind
         [input]
       end
 
+      private
+
       def build_entity(data)
         DataMapper.new(data).build_entity
       end

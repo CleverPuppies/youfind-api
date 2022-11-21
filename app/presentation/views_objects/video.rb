@@ -37,7 +37,7 @@ module Views
     end
 
     def captions
-      return @video.captions if @text.nil? || @text.empty?
+      return @video.captions if @text.empty?
 
       @video.find_caption(@text)
     end
