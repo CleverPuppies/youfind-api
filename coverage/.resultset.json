@@ -834,6 +834,7 @@
           null,
           null,
           null,
+          null,
           0,
           null,
           null,
@@ -957,8 +958,8 @@
           null,
           1,
           10,
-          478,
-          478,
+          433,
+          433,
           null,
           null,
           10,
@@ -991,7 +992,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/tests/gateway_db_spec.rb": {
+      "/Users/wilbertharriman/repos/YouFind/spec/tests/integration/layers/gateway_db_spec.rb": {
         "lines": [
           null,
           null,
@@ -1065,7 +1066,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/tests/gateway_yt_spec.rb": {
+      "/Users/wilbertharriman/repos/YouFind/spec/tests/integration/layers/gateway_yt_spec.rb": {
         "lines": [
           null,
           null,
@@ -1143,6 +1144,6 @@
         ]
       }
     },
-    "timestamp": 1669542768
+    "timestamp": 1669543223
   }
 }

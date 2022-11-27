@@ -22,7 +22,7 @@ module YouFind
         view 'home'
       end
 
-      routing.on 'video' do # rubocop:disable Metrics/BlockLength
+      routing.on 'video' do
         routing.is do
           # POST /video/
           routing.post do
@@ -49,7 +49,7 @@ module YouFind
               video_data,
               routing.params['text'] || ''
             )
-            
+
             view 'video', locals: { video: video }
           end
         end
