@@ -20,6 +20,10 @@ module YouFind
       attribute :views,         Strict::String
       attribute :captions,      Strict::Array.of(Caption)
 
+      def video_id
+        origin_id
+      end
+
       def to_attr_hash
         to_hash.except(:id, :captions)
       end

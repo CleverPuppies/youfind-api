@@ -27,6 +27,8 @@ group :production do
 end
 
 # Contollers and services
+gem 'dry-monads', '~> 1.4'
+gem 'dry-transaction', '~> 0.13'
 gem 'dry-validation', '~> 1.7'
 
 # DOMAIN LAYER
