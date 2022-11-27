@@ -26,6 +26,8 @@ module YouFind
         routing.is do
           # POST /video/
           routing.post do
+            # url_request = Forms::NewVideo.new.call(routing.params)
+
             yt_video_url = routing.params['yt_video_url']
             unless (yt_video_url.include? 'youtube.com') &&
                    (yt_video_url.include? 'v=') &&
@@ -45,7 +47,10 @@ module YouFind
             video_data = Repository::For.klass(Entity::Video)
                                         .find_origin_id(video_id)
             begin
-              video_data = Youtube::VideoMapper.new(App.config.RAPID_API_TOKEN).find(video_id) if video_data.nil?
+              if video_data.nil?
+                video_data = Youtube::VideoMapper.new(App.config.RAPID_API_TOKEN)
+                                                 .find(video_id)
+              end
             rescue StandardError => e # TODO: Specifically catch BadRequestError
               App.logger.error e
               flash[:error] = 'Could not find the video'
@@ -62,7 +67,7 @@ module YouFind
 
             video = Views::Video.new(
               video_data,
-              routing.params['text'] || ""
+              routing.params['text'] || ''
             )
             view 'video', locals: { video: video }
           end
