@@ -26,6 +26,12 @@ group :production do
   gem 'pg'
 end
 
+# Contollers and services
+gem 'dry-monads', '~> 1.4'
+gem 'dry-transaction', '~> 0.13'
+gem 'dry-validation', '~> 1.7'
+
+# DOMAIN LAYER
 # Validation
 gem 'dry-struct', '~> 1'
 gem 'dry-types', '~> 1'
