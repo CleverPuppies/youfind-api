@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/wilbertharriman/repos/YouFind/require_app.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/require_app.rb": {
         "lines": [
           null,
           null,
@@ -16,12 +16,12 @@
           1,
           null,
           1,
-          20,
+          23,
           null,
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/config/environment.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -54,6 +54,7 @@
           null,
           null,
           null,
+          null,
           1,
           1,
           null,
@@ -66,7 +67,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/infrastructure/database/caption_orm.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/database/caption_orm.rb": {
         "lines": [
           null,
           null,
@@ -85,7 +86,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/infrastructure/database/video_orm.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/database/video_orm.rb": {
         "lines": [
           null,
           null,
@@ -109,7 +110,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/infrastructure/gateways/words_association_api.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/gateways/words_association_api.rb": {
         "lines": [
           null,
           null,
@@ -168,7 +169,7 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null,
@@ -176,7 +177,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/infrastructure/gateways/youtube_api.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/gateways/youtube_api.rb": {
         "lines": [
           null,
           null,
@@ -252,56 +253,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/presentation/views_objects/video.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/inputs/entities/video_url.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/caption_representer.rb": {
         "lines": [
           null,
           null,
@@ -310,17 +262,19 @@
           null,
           1,
           1,
+          1,
+          1,
+          1,
           null,
           1,
           1,
-          null,
           1,
           null,
           null,
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/inputs/entities/words_input.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/http_response_representer.rb": {
         "lines": [
           null,
           null,
@@ -330,6 +284,11 @@
           1,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          1,
           1,
           1,
           null,
@@ -337,7 +296,18 @@
           1,
           null,
           1,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           1,
@@ -348,7 +318,109 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/inputs/mappers/video_url_mapper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/video_representer.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/responses/api_result.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          5,
+          null,
+          4,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/entities/video_url.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/entities/words_input.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/mappers/video_url_mapper.rb": {
         "lines": [
           null,
           null,
@@ -369,7 +441,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/inputs/mappers/words_input_mapper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/mappers/words_input_mapper.rb": {
         "lines": [
           null,
           null,
@@ -386,38 +458,38 @@
           null,
           1,
           2,
-          1,
+          0,
           null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
+          2,
           null,
           null,
           1,
           null,
           1,
+          0,
+          null,
+          null,
+          null,
           1,
+          1,
+          0,
           null,
           null,
           1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
           null,
           null,
           null,
@@ -425,7 +497,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/entities/caption.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/entities/caption.rb": {
         "lines": [
           null,
           null,
@@ -451,7 +523,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/entities/video.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/entities/video.rb": {
         "lines": [
           null,
           null,
@@ -485,13 +557,20 @@
           null,
           1,
           1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/mappers/caption_mapper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/mappers/caption_mapper.rb": {
         "lines": [
           null,
           null,
@@ -550,7 +629,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/mappers/video_mapper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/mappers/video_mapper.rb": {
         "lines": [
           null,
           null,
@@ -632,7 +711,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/repositories/captions.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/captions.rb": {
         "lines": [
           null,
           null,
@@ -646,9 +725,9 @@
           null,
           null,
           1,
-          5745,
+          5738,
           null,
-          5745,
+          5738,
           null,
           null,
           null,
@@ -657,8 +736,8 @@
           null,
           null,
           1,
-          38,
-          5745,
+          8,
+          5738,
           null,
           null,
           null,
@@ -670,7 +749,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/repositories/for.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/for.rb": {
         "lines": [
           null,
           null,
@@ -698,7 +777,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/domain/videos/repositories/videos.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/videos.rb": {
         "lines": [
           null,
           null,
@@ -714,7 +793,7 @@
           null,
           null,
           2,
-          32,
+          2,
           null,
           null,
           null,
@@ -781,13 +860,11 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/application/controllers/app.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/controllers/app.rb": {
         "lines": [
           null,
           null,
           1,
-          1,
-          1,
           null,
           1,
           null,
@@ -795,20 +872,23 @@
           1,
           1,
           1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
           null,
           1,
           1,
           null,
           1,
-          0,
           null,
           null,
-          0,
-          0,
           null,
+          1,
+          1,
           null,
-          0,
-          0,
           null,
           0,
           0,
@@ -816,26 +896,31 @@
           null,
           0,
           0,
+          null,
+          0,
+          0,
           0,
           null,
           null,
           0,
           0,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
           0,
           null,
           null,
           null,
+          0,
+          0,
           null,
           0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
           null,
           null,
           null,
@@ -844,7 +929,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/app/application/forms/new_video.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/services/add_video.rb": {
         "lines": [
           null,
           null,
@@ -859,40 +944,10 @@
           1,
           1,
           null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/wilbertharriman/repos/YouFind/app/application/services/add_video.rb": {
-        "lines": [
-          null,
-          null,
           1,
           null,
           1,
           1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          0,
-          null,
           null,
           null,
           1,
@@ -937,63 +992,134 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/helpers/vcr_helper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/services/get_video.rb": {
         "lines": [
-          null,
-          null,
           1,
-          1,
-          null,
-          null,
           1,
           1,
           1,
           null,
           1,
-          4,
-          4,
-          4,
-          null,
-          null,
+          1,
           null,
           1,
-          11,
-          560,
-          560,
           null,
+          1,
+          1,
           null,
-          11,
+          1,
+          0,
+          0,
+          0,
+          0,
           null,
-          null,
-          null,
+          0,
           null,
           null,
           null,
           null,
           1,
-          11,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/helpers/database_helper.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/helpers/vcr_helper.rb": {
         "lines": [
           null,
           null,
+          1,
+          1,
           null,
+          null,
+          1,
+          1,
           1,
           null,
           1,
-          null,
-          5,
           5,
           5,
           5,
           null,
+          null,
+          null,
+          1,
+          12,
+          322,
+          322,
+          null,
+          null,
+          12,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          12,
+          null,
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/tests/integration/layers/gateway_db_spec.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/helpers/database_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          6,
+          6,
+          6,
+          6,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/domain_caption_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/gateway_db_spec.rb": {
         "lines": [
           null,
           null,
@@ -1067,7 +1193,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/tests/integration/layers/gateway_yt_spec.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/gateway_yt_spec.rb": {
         "lines": [
           null,
           null,
@@ -1144,7 +1270,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/YouFind/spec/tests/integration/services/add_video_spec.rb": {
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/services/add_video_spec.rb": {
         "lines": [
           null,
           null,
@@ -1180,23 +1306,50 @@
           1,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
           null,
-          0,
-          0,
-          0,
+          null,
+          null
+        ]
+      },
+      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/unit/result_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1669544243
+    "timestamp": 1670141902
   }
 }

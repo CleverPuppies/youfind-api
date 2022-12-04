@@ -5,13 +5,17 @@ ruby File.read('.ruby-version').strip
 
 # Configuration and Utilities
 gem 'figaro', '~> 1.2'
+gem 'rack-test' # for testing and also for diagnosis in production
 gem 'rake'
 
-# Web Application
+# PRESENTATION LAYER
+gem 'multi_json'
+gem 'roar'
+
+# APPLICATION LAYER
 gem 'puma', '~> 5'
 gem 'rack-session', '~>0.3'
 gem 'roda', '~> 3'
-gem 'slim', '~> 4'
 
 # Database
 gem 'hirb', '~> 0.7'

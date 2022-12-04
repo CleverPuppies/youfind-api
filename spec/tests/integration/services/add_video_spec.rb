@@ -8,7 +8,7 @@ describe 'AddVideo Service Integration Test' do
   VcrHelper.setup_vcr
 
   before do
-    VcrHelper.configure_vcr_for_youtube(recording: :none)
+    VcrHelper.configure_vcr_for_youtube
   end
 
   after do
@@ -25,13 +25,11 @@ describe 'AddVideo Service Integration Test' do
               .new(YT_API_KEY)
               .find(VIDEO_ID)
 
-      url_request = YouFind::Forms::NewVideo.new.call(yt_video_url: VIDEO_URL)
-
-      video_saved = YouFind::Service::AddVideo.new.call(url_request)
+      video_saved = YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
 
       _(video_saved.success?).must_equal true
 
-      rebuilt = video_saved.value!
+      rebuilt = video_saved.value!.message
 
       _(rebuilt.origin_id).must_equal(video.origin_id)
       _(rebuilt.title).must_equal(video.title)

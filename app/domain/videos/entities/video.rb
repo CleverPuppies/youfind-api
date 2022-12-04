@@ -29,7 +29,14 @@ module YouFind
       end
 
       def find_caption(text)
-        Repository::Videos.find_captions(self, text)
+        self.captions = Repository::Videos.find_captions(self, text)
+        self
+      end
+
+      private
+
+      def captions=(new_captions)
+        @attributes[:captions] = new_captions
       end
     end
   end

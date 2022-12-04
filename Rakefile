@@ -71,7 +71,7 @@ end
 
 desc 'Run unit and integration tests'
 Rake::TestTask.new(:spec) do |t|
-  t.pattern = 'spec/tests/{integration,unit}/**/*_spec.rb'
+  t.pattern = 'spec/tests/**/*_spec.rb'
   t.warning = false
 end
 

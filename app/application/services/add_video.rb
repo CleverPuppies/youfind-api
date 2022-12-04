@@ -8,21 +8,15 @@ module YouFind
     class AddVideo
       include Dry::Transaction
 
-      step :parse_url
       step :find_video
       step :store_video
 
       private
 
-      def parse_url(input)
-        if input.success?
-          video_id = input[:yt_video_url].split('v=')[-1]
-          Success(video_id: video_id)
-        else
-          Failure("URL #{input.errors.messages.first}")
-        end
-      end
+      DB_ERR_MSG = 'Having trouble accessing the database'
+      YT_NOT_FOUND_MSG = 'Could not find video on Youtube'
 
+      # Expects input[:video_id]
       def find_video(input)
         if (video = video_in_database(input))
           input[:local_video] = video
@@ -31,7 +25,7 @@ module YouFind
         end
         Success(input)
       rescue StandardError => e
-        Failure(e.to_s)
+        Failure(Response::ApiResult.new(status: :not_found, message: e.to_s))
       end
 
       def store_video(input)
@@ -41,10 +35,10 @@ module YouFind
           else
             input[:local_video]
           end
-        Success(video)
+        Success(Response::ApiResult.new(status: :created, message: video))
       rescue StandardError => e
-        App.logger.error e.backtrace.join("\n")
-        Failure('Having trouble accessing the database')
+        puts e.backtrace.join("\n")
+        Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
       end
 
       # following are support methods that other services could use
@@ -54,7 +48,7 @@ module YouFind
           .new(App.config.RAPID_API_TOKEN)
           .find(input[:video_id])
       rescue StandardError
-        raise 'Could not find video on Youtube'
+        raise YT_NOT_FOUND_MSG
       end
 
       def video_in_database(input)
