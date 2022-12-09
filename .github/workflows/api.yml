@@ -43,5 +43,6 @@ jobs:
       - name: Run all specs
         env: # define secrets in Github project -> settings -> secrets
           API_KEY: ${{ secrets.API_KEY }}
+          DB_FILENAME: ${{ secrets.DB_FILENAME }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
         run: bundle exec rake spec
