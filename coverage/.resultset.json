@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/wilbertharriman/repos/youfind/api-youfind/require_app.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/require_app.rb": {
         "lines": [
           null,
           null,
@@ -21,7 +21,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/config/environment.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -54,7 +54,6 @@
           null,
           null,
           null,
-          null,
           1,
           1,
           null,
@@ -67,7 +66,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/database/caption_orm.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/infrastructure/database/caption_orm.rb": {
         "lines": [
           null,
           null,
@@ -86,7 +85,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/database/video_orm.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/infrastructure/database/video_orm.rb": {
         "lines": [
           null,
           null,
@@ -110,7 +109,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/gateways/words_association_api.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/infrastructure/gateways/words_association_api.rb": {
         "lines": [
           null,
           null,
@@ -177,7 +176,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/infrastructure/gateways/youtube_api.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/infrastructure/gateways/youtube_api.rb": {
         "lines": [
           null,
           null,
@@ -253,7 +252,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/caption_representer.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/presentation/representers/caption_representer.rb": {
         "lines": [
           null,
           null,
@@ -262,6 +261,7 @@
           null,
           1,
           1,
+          null,
           1,
           1,
           1,
@@ -274,7 +274,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/http_response_representer.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/presentation/representers/http_response_representer.rb": {
         "lines": [
           null,
           null,
@@ -318,7 +318,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/representers/video_representer.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/presentation/representers/video_representer.rb": {
         "lines": [
           null,
           null,
@@ -345,7 +345,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/presentation/responses/api_result.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/presentation/responses/api_result.rb": {
         "lines": [
           null,
           null,
@@ -373,7 +373,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/entities/video_url.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/inputs/entities/video_url.rb": {
         "lines": [
           null,
           null,
@@ -392,7 +392,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/entities/words_input.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/inputs/entities/words_input.rb": {
         "lines": [
           null,
           null,
@@ -420,7 +420,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/mappers/video_url_mapper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/inputs/mappers/video_url_mapper.rb": {
         "lines": [
           null,
           null,
@@ -441,7 +441,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/inputs/mappers/words_input_mapper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/inputs/mappers/words_input_mapper.rb": {
         "lines": [
           null,
           null,
@@ -497,7 +497,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/entities/caption.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/entities/caption.rb": {
         "lines": [
           null,
           null,
@@ -523,7 +523,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/entities/video.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/entities/video.rb": {
         "lines": [
           null,
           null,
@@ -570,7 +570,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/mappers/caption_mapper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/mappers/caption_mapper.rb": {
         "lines": [
           null,
           null,
@@ -629,7 +629,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/mappers/video_mapper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/mappers/video_mapper.rb": {
         "lines": [
           null,
           null,
@@ -711,7 +711,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/captions.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/repositories/captions.rb": {
         "lines": [
           null,
           null,
@@ -749,7 +749,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/for.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/repositories/for.rb": {
         "lines": [
           null,
           null,
@@ -777,7 +777,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/domain/videos/repositories/videos.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/domain/videos/repositories/videos.rb": {
         "lines": [
           null,
           null,
@@ -860,7 +860,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/controllers/app.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/application/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -929,7 +929,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/services/add_video.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/application/services/add_video.rb": {
         "lines": [
           null,
           null,
@@ -992,10 +992,13 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/app/application/services/get_video.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/app/application/services/get_video.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
+          null,
           1,
           1,
           null,
@@ -1010,6 +1013,7 @@
           1,
           0,
           0,
+          null,
           0,
           0,
           null,
@@ -1029,7 +1033,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/helpers/vcr_helper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/helpers/vcr_helper.rb": {
         "lines": [
           null,
           null,
@@ -1050,8 +1054,8 @@
           null,
           1,
           12,
-          322,
-          322,
+          352,
+          352,
           null,
           null,
           12,
@@ -1068,7 +1072,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/helpers/database_helper.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/helpers/database_helper.rb": {
         "lines": [
           null,
           null,
@@ -1085,7 +1089,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/domain_caption_spec.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/tests/integration/layers/domain_caption_spec.rb": {
         "lines": [
           null,
           null,
@@ -1119,7 +1123,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/gateway_db_spec.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/tests/integration/layers/gateway_db_spec.rb": {
         "lines": [
           null,
           null,
@@ -1193,7 +1197,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/layers/gateway_yt_spec.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/tests/integration/layers/gateway_yt_spec.rb": {
         "lines": [
           null,
           null,
@@ -1270,7 +1274,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/integration/services/add_video_spec.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/tests/integration/services/add_video_spec.rb": {
         "lines": [
           null,
           null,
@@ -1320,7 +1324,7 @@
           null
         ]
       },
-      "/Users/wilbertharriman/repos/youfind/api-youfind/spec/tests/unit/result_spec.rb": {
+      "/Users/lamachine/NTHU/SOA/youfind-api/spec/tests/unit/result_spec.rb": {
         "lines": [
           null,
           null,
@@ -1350,6 +1354,6 @@
         ]
       }
     },
-    "timestamp": 1670141902
+    "timestamp": 1670568343
   }
 }
