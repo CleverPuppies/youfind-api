@@ -36,8 +36,8 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Setup test database
-        #env: # define secrets in Github project -> settings -> secrets
-        #    DB_FILENAME: ${{ secrets.DB_FILENAME }}
+        env: # define secrets in Github project -> settings -> secrets
+            DB_FILENAME: ${{ secrets.DB_FILENAME }}
         run: RACK_ENV=test bundle exec rake db:migrate
 
       - name: Run all specs
