@@ -7,7 +7,6 @@ module YouFind
       include Dry::Transaction
 
       step :retrieve_video
-      step :filter_captions
 
       private
 
@@ -17,20 +16,11 @@ module YouFind
       def retrieve_video(input)
         video = Repository::For.klass(Entity::Video).find_origin_id(input[:video_id])
         raise NOT_FOUND_ERR if video.nil?
-
-        input[:local_video] = video
-        Success(input)
+        Success(Response::ApiResult.new(status: :ok, message: video))
       rescue StandardError
         Failure(
           Response::ApiResult.new(status: :internal_error, message: DB_ERR)
         )
-      end
-
-      def filter_captions(input)
-        video = input[:local_video]
-        text = input[:text]
-        video = text.nil? ? video : video.find_caption(text)
-        Success(Response::ApiResult.new(status: :ok, message: video))
       end
     end
   end

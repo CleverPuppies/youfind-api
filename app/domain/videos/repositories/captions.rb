@@ -11,7 +11,6 @@ module YouFind
 
       def self.rebuild_entity(db_record)
         return nil unless db_record
-
         Entity::Caption.new(
           id: db_record.id,
           start: db_record.start,
@@ -28,6 +27,20 @@ module YouFind
 
       def self.create(entity)
         Database::CaptionOrm.create(entity.to_attr_hash)
+      end
+
+      def self.find_captions(video_id, text)
+        # SELECT * FROM captions WHERE id = origin_id AND text LIKE "%#{text}%"
+        searching_words = YouFind::Inputs::WordsInputMapper.new(App.config.RAPID_API_TOKEN)
+                                                           .find_associations(text)
+
+        captions = searching_words.map do |word|
+          Captions.rebuild_many Database::CaptionOrm
+            .where(video_id: video_id)
+            .where(Sequel.like(:text, "%#{word}%"))
+            .all
+        end
+        captions.flatten.uniq.sort_by(&:start)
       end
     end
   end
