@@ -2,23 +2,26 @@
 
 module YouFind
   module Service
-    # Transaction to get video from db and filter its captions given a text param
-    class GetVideo
+    # Transaction to get captions filtered based on a given a http param
+    class SearchCaption
       include Dry::Transaction
 
-      step :retrieve_video
+      step :retrieve_captions
 
       private
 
-      NOT_FOUND_ERR = 'Video not found'
+      NOT_FOUND_ERR = 'No subtitles found'
       DB_ERR = 'Cannot access database'
 
-      def retrieve_video(input)
+      def retrieve_captions(input)
         video = Repository::For.klass(Entity::Video).find_origin_id(input[:video_id])
         raise NOT_FOUND_ERR if video.nil?
 
+        text = input[:text].nil? ? '' : input[:text]
+        video = video.find_caption(text)
         Success(Response::ApiResult.new(status: :ok, message: video))
-      rescue StandardError
+      rescue StandardError => e
+        puts e.backtrace.join("\n")
         Failure(
           Response::ApiResult.new(status: :internal_error, message: DB_ERR)
         )

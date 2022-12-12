@@ -46,7 +46,7 @@ module YouFind
             # GET /video/{video_id}/captions?text={captions_search_text}
             routing.on 'captions' do
               routing.get do
-                result = Service::SearchCaptions.new.call(video_id: video_id, text: routing.params['text'])
+                result = Service::SearchCaption.new.call(video_id: video_id, text: routing.params['text'])
 
                 if result.failure?
                   failed = Representer::HttpResponse.new(result.failure)
@@ -55,10 +55,7 @@ module YouFind
 
                 http_response = Representer::HttpResponse.new(result.value!)
                 response.status = http_response.http_status_code
-
-                result.value!.message.map do |value|
-                  Representer::Caption.new(value).to_json
-                end.to_s
+                Representer::Video.new(result.value!.message).to_json
               end
             end
 

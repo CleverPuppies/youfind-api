@@ -10,6 +10,8 @@ module YouFind
     # Represent a Video entity as json
     class Video < Roar::Decorator
       include Roar::JSON
+      include Roar::Hypermedia
+      include Roar::Decorator::HypermediaConsumer
 
       property :origin_id
       property :title
@@ -17,7 +19,18 @@ module YouFind
       property :embedded_url
       property :time
       property :views
-      collection :captions, extend: Representer::Caption
+      collection :captions, extend: Representer::Caption,
+                            class: OpenStruct
+
+      link :self do
+        "#{App.config.API_HOST}/api/v1/video/#{origin_id}"
+      end
+
+      private
+
+      def origin_id
+        represented.origin_id
+      end
     end
   end
 end

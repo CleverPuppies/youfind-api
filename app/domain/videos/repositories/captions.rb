@@ -11,6 +11,7 @@ module YouFind
 
       def self.rebuild_entity(db_record)
         return nil unless db_record
+
         Entity::Caption.new(
           id: db_record.id,
           start: db_record.start,

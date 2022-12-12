@@ -35,12 +35,6 @@ module YouFind
         rebuild_entity Database::VideoOrm.first(origin_id: origin_id)
       end
 
-      def self.find_id_from_origin_id(origin_id)
-        # SELECT * FROM videos WHERE origin_id = origin_id
-        video = rebuild_entity Database::VideoOrm.first(origin_id: origin_id)
-        video[:id]
-      end
-
       def self.create(entity)
         raise 'Video already exists' if find(entity)
 
