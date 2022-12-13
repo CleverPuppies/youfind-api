@@ -6,7 +6,7 @@ module YouFind
   # Web App
   class App < Roda
     plugin :halt
-    plugin :flash
+    plugin :caching
     plugin :all_verbs # allows DELETE and other HTTP verbs beyond GET/POST
     plugin :common_logger, $stderr
 
@@ -61,6 +61,8 @@ module YouFind
 
             # GET /video/{video_id}
             routing.get do
+              response.cache_control public: true, max_age: 300
+              # TODO: Use request object
               result = Service::GetVideo.new.call(video_id: video_id)
 
               if result.failure?
