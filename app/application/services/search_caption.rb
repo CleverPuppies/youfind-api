@@ -14,11 +14,12 @@ module YouFind
       DB_ERR = 'Cannot access database'
 
       def retrieve_captions(input)
-        video = Repository::For.klass(Entity::Video).find_origin_id(input[:video_id])
+        video = Repository::For.klass(Entity::Video).find_origin_id(
+          input[:requested].video_id
+        )
         raise NOT_FOUND_ERR if video.nil?
 
-        text = input[:text].nil? ? '' : input[:text]
-        video = video.find_caption(text)
+        video = video.find_caption(input[:requested].text)
         Success(Response::ApiResult.new(status: :ok, message: video))
       rescue StandardError => e
         puts e.backtrace.join("\n")

@@ -27,16 +27,16 @@ module YouFind
 
       configure :development do
         use Rack::Cache,
-          verbose: true,
-          metastore: 'file:_cache/rack/meta',
-          entitystore: 'file:_cache/rack/body'
+            verbose: true,
+            metastore: 'file:_cache/rack/meta',
+            entitystore: 'file:_cache/rack/body'
       end
 
       configure :production do
         use Rack::Cache,
-          verbose: true,
-          metastore: config.REDISCLOUD_URL + '/0/metastore',
-          entitystore: config.REDISCLOUD_URL + '/0/entitystore'
+            verbose: true,
+            metastore: "#{config.REDISCLOUD_URL}/0/metastore",
+            entitystore: "#{config.REDISCLOUD_URL}/0/entitystore"
       end
 
       configure :development, :test do

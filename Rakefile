@@ -66,7 +66,7 @@ end
 
 namespace :cache do
   task :config do
-    require_relative 'config/environment.rb'
+    require_relative 'config/environment'
     require_relative 'app/infrastructure/cache/*'
     @api = YouFind::App
   end
@@ -81,7 +81,7 @@ namespace :cache do
     end
 
     desc 'List production cache'
-    task :production => :config do
+    task production: :config do
       puts 'Finding production cache'
       keys = YouFind::Cache::Client.new(@api.config).keys
       puts 'No keys found' if keys.none?
@@ -97,7 +97,7 @@ namespace :cache do
     end
 
     desc 'Delete production cache'
-    task :production => :config do
+    task production: :config do
       print 'Are you sure you wish to wipe the production cache? (y/n) '
       if $stdin.gets.chomp.downcase == 'y'
         puts 'Deleting production cache'

@@ -23,7 +23,8 @@ describe 'Caption Search Service Integration Test' do
     it 'HAPPY: should be able to do caption filter based on the input text' do
       YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
 
-      caption_search = YouFind::Service::SearchCaption.new.call(video_id: VIDEO_ID, text: 'google')
+      caption_search_request = YouFind::Request::CaptionSearchPath.new(VIDEO_ID, { 'text' => 'google' })
+      caption_search = YouFind::Service::SearchCaption.new.call(requested: caption_search_request)
 
       _(caption_search.success?).must_equal true
 

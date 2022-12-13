@@ -46,7 +46,9 @@ module YouFind
             # GET /video/{video_id}/captions?text={captions_search_text}
             routing.on 'captions' do
               routing.get do
-                result = Service::SearchCaption.new.call(video_id: video_id, text: routing.params['text'])
+                caption_search_request = Request::CaptionSearchPath.new(video_id, routing.params)
+
+                result = Service::SearchCaption.new.call(requested: caption_search_request)
 
                 if result.failure?
                   failed = Representer::HttpResponse.new(result.failure)
@@ -62,8 +64,10 @@ module YouFind
             # GET /video/{video_id}
             routing.get do
               response.cache_control public: true, max_age: 300
-              # TODO: Use request object
-              result = Service::GetVideo.new.call(video_id: video_id)
+
+              path_request = Request::VideoPath.new(video_id, request)
+
+              result = Service::GetVideo.new.call(requested: path_request)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)

@@ -1279,4 +1279,46 @@ http_interactions:
       encoding: UTF-8
       string: "[]"
   recorded_at: Mon, 12 Dec 2022 13:06:54 GMT
+- request:
+    method: get
+    uri: https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<RAPIDAPI_KEY>"
+      X-Rapidapi-Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      Connection:
+      - close
+      Host:
+      - twinword-word-associations-v1.p.rapidapi.com
+      User-Agent:
+      - http.rb/5.1.0
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Tue, 13 Dec 2022 14:54:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - ap-northeast-1
+      X-Rapidapi-Proxy-Response:
+      - 'true'
+      Server:
+      - RapidAPI-1.2.8
+    body:
+      encoding: UTF-8
+      string: '{"message":"You are not subscribed to this API."}'
+  recorded_at: Tue, 13 Dec 2022 14:54:04 GMT
 recorded_with: VCR 6.1.0

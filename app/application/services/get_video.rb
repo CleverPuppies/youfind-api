@@ -14,14 +14,15 @@ module YouFind
       DB_ERR = 'Cannot access database'
 
       def retrieve_video(input)
-        video = Repository::For.klass(Entity::Video).find_origin_id(input[:video_id])
+        video = Repository::For.klass(Entity::Video).find_origin_id(
+          input[:requested].video_id
+        )
+
         raise NOT_FOUND_ERR if video.nil?
 
         Success(Response::ApiResult.new(status: :ok, message: video))
       rescue StandardError
-        Failure(
-          Response::ApiResult.new(status: :internal_error, message: DB_ERR)
-        )
+        Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
       end
     end
   end
