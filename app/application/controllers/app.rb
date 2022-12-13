@@ -6,7 +6,7 @@ module YouFind
   # Web App
   class App < Roda
     plugin :halt
-    plugin :flash
+    plugin :caching
     plugin :all_verbs # allows DELETE and other HTTP verbs beyond GET/POST
     plugin :common_logger, $stderr
 
@@ -43,9 +43,31 @@ module YouFind
               Representer::Video.new(result.value!.message).to_json
             end
 
+            # GET /video/{video_id}/captions?text={captions_search_text}
+            routing.on 'captions' do
+              routing.get do
+                caption_search_request = Request::CaptionSearchPath.new(video_id, routing.params)
+
+                result = Service::SearchCaption.new.call(requested: caption_search_request)
+
+                if result.failure?
+                  failed = Representer::HttpResponse.new(result.failure)
+                  routing.halt failed.http_status_code, failed.to_json
+                end
+
+                http_response = Representer::HttpResponse.new(result.value!)
+                response.status = http_response.http_status_code
+                Representer::Video.new(result.value!.message).to_json
+              end
+            end
+
             # GET /video/{video_id}
             routing.get do
-              result = Service::GetVideo.new.call(video_id: video_id, text: routing.params['text'])
+              response.cache_control public: true, max_age: 300
+
+              path_request = Request::VideoPath.new(video_id, request)
+
+              result = Service::GetVideo.new.call(requested: path_request)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)

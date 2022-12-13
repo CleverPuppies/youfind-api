@@ -6,6 +6,8 @@ require 'roda'
 require 'figaro'
 require 'sequel'
 require 'yaml'
+require 'rack/cache'
+require 'redis-rack-cache'
 
 module YouFind
   # Configuration for the App
@@ -22,6 +24,20 @@ module YouFind
       def self.config = Figaro.env
 
       use Rack::Session::Cookie, secret: config.SESSION_SECRET
+
+      configure :development do
+        use Rack::Cache,
+            verbose: true,
+            metastore: 'file:_cache/rack/meta',
+            entitystore: 'file:_cache/rack/body'
+      end
+
+      configure :production do
+        use Rack::Cache,
+            verbose: true,
+            metastore: "#{config.REDISCLOUD_URL}/0/metastore",
+            entitystore: "#{config.REDISCLOUD_URL}/0/entitystore"
+      end
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"

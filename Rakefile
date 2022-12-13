@@ -64,6 +64,50 @@ namespace :db do
   end
 end
 
+namespace :cache do
+  task :config do
+    require_relative 'config/environment'
+    require_relative 'app/infrastructure/cache/*'
+    @api = YouFind::App
+  end
+
+  desc 'Directory listing of local dev cache'
+  namespace :list do
+    task :dev do
+      puts 'Lists development cache'
+      list = `ls _cache/rack/meta`
+      puts 'No local cache found' if list.empty?
+      puts list
+    end
+
+    desc 'List production cache'
+    task production: :config do
+      puts 'Finding production cache'
+      keys = YouFind::Cache::Client.new(@api.config).keys
+      puts 'No keys found' if keys.none?
+      keys.each { |key| puts "Key: #{key}" }
+    end
+  end
+
+  namespace :wipe do
+    desc 'Delete development cache'
+    task :dev do
+      puts 'Deleting development cache'
+      sh 'rm -rf _cache/*'
+    end
+
+    desc 'Delete production cache'
+    task production: :config do
+      print 'Are you sure you wish to wipe the production cache? (y/n) '
+      if $stdin.gets.chomp.downcase == 'y'
+        puts 'Deleting production cache'
+        wiped = YouFind::Cache::Client.new(@api.config).wipe
+        wiped.each_key { |key| puts "Wiped: #{key}" }
+      end
+    end
+  end
+end
+
 desc 'Run application console'
 task :console do
   sh 'pry -r ./load_all'
