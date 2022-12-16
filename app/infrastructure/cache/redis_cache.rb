@@ -5,6 +5,7 @@ require 'redis'
 module YouFind
   # Redis client utility
   module Cache
+    # Redis client class
     class Client
       def initialize(config)
         @redis = Redis.new(url: config.REDISCLOUD_URL)

@@ -2,15 +2,18 @@
 
 require 'roda'
 
+require_relative 'helpers'
+
 module YouFind
   # Web App
   class App < Roda
+    include RouteHelpers
+
     plugin :halt
     plugin :caching
     plugin :all_verbs # allows DELETE and other HTTP verbs beyond GET/POST
     plugin :common_logger, $stderr
 
-    # rubocop:disable Metrics/BlockLength
     route do |routing|
       response['Content-Type'] = 'application/json'
 
@@ -32,12 +35,8 @@ module YouFind
             # POST /video/{video_id}
             routing.post do
               result = Service::AddVideo.new.call(video_id: video_id)
-
-              if result.failure?
-                failed = Representer::HttpResponse.new(result.failure)
-                routing.halt failed.http_status_code, failed.to_json
-              end
-
+              check_service_response(result, routing)
+              
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
               Representer::Video.new(result.value!.message).to_json
@@ -46,18 +45,15 @@ module YouFind
             # GET /video/{video_id}/captions?text={captions_search_text}
             routing.on 'captions' do
               routing.get do
-                caption_search_request = Request::CaptionSearchPath.new(video_id, routing.params)
-
-                result = Service::SearchCaption.new.call(requested: caption_search_request)
-
-                if result.failure?
-                  failed = Representer::HttpResponse.new(result.failure)
-                  routing.halt failed.http_status_code, failed.to_json
-                end
+                result = Service::SearchCaptions.new.call(video_id: video_id, text: routing.params['text'])
+                check_service_response(result, routing)
 
                 http_response = Representer::HttpResponse.new(result.value!)
                 response.status = http_response.http_status_code
-                Representer::Video.new(result.value!.message).to_json
+
+                result.value!.message.map do |value|
+                  Representer::Caption.new(value).to_json
+                end.to_s
               end
             end
 
@@ -68,11 +64,7 @@ module YouFind
               path_request = Request::VideoPath.new(video_id, request)
 
               result = Service::GetVideo.new.call(requested: path_request)
-
-              if result.failure?
-                failed = Representer::HttpResponse.new(result.failure)
-                routing.halt failed.http_status_code, failed.to_json
-              end
+              check_service_response(result, routing)
 
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
@@ -82,6 +74,5 @@ module YouFind
         end
       end
     end
-    # rubocop:enable Metrics/BlockLength
   end
 end
