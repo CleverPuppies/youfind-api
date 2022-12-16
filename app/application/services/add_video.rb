@@ -25,7 +25,8 @@ module YouFind
         end
         Success(input)
       rescue StandardError => e
-        Failure(Response::ApiResult.new(status: :not_found, message: e.to_s))
+        puts e.backtrace.join("\n")
+        Failure(Response::ApiResult.new(status: :not_found, message: YT_NOT_FOUND_MSG))
       end
 
       def store_video(input)

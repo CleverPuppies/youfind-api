@@ -3,7 +3,7 @@
 module YouFind
   module Service
     # Transaction to get captions filtered based on a given a http param
-    class SearchCaption
+    class SearchCaptions
       include Dry::Transaction
 
       step :retrieve_captions
@@ -14,18 +14,13 @@ module YouFind
       DB_ERR = 'Cannot access database'
 
       def retrieve_captions(input)
-        video = Repository::For.klass(Entity::Video).find_origin_id(
-          input[:requested].video_id
-        )
-        raise NOT_FOUND_ERR if video.nil?
-
-        video = video.find_caption(input[:requested].text)
-        Success(Response::ApiResult.new(status: :ok, message: video))
-      rescue StandardError => e
-        puts e.backtrace.join("\n")
-        Failure(
-          Response::ApiResult.new(status: :internal_error, message: DB_ERR)
-        )
+        video_id = Repository::For.klass(Entity::Video).find_id_from_origin_id(input[:video_id])
+        text = input[:text].nil? ? '' : input[:text]
+        captions = Repository::For.klass(Entity::Caption).find_captions(video_id, text)
+        Success(Response::ApiResult.new(status: :ok, message: captions))
+      rescue NoMethodError
+        msg = "Error: video #{input[:video_id]} has no been indexed yet. Please index it before searching for its captions."
+        Failure(Response::ApiResult.new(status: :not_found, message: msg))
       end
     end
   end
