@@ -10,8 +10,13 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
     - Rakefile
+    - app/application/controllers/**/*.rb
+    - config/environment.rb
 
 Style/MixinUsage:
   Enabled: true
   Exclude:
     - load_all.rb
+
+Style/OpenStructUse:
+  Enabled: false

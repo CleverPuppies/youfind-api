@@ -41,6 +41,7 @@ module YouFind
             'X-RapidAPI-Key' => @yt_key,
             'X-RapidAPI-Host' => 'ytube-videos.p.rapidapi.com'
           ).get(url, params: params)
+          puts http_response
           Response.new(http_response).tap do |response|
             raise(response.raise_error) unless response.successful?
           end
