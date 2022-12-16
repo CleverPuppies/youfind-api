@@ -82,8 +82,7 @@ describe 'Test API routes' do
       _(last_response.status).must_equal 200
 
       response = JSON.parse last_response.body
-      _(response['origin_id']).must_equal VIDEO_ID
-      _(response['captions'][0]['text']).must_equal "and so, it is so famous\nthat you can just google it,"
+      _(JSON.parse(response[0])['text']).must_equal "and so, it is so famous\nthat you can just google it,"
     end
   end
 end

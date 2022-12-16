@@ -6,7 +6,7 @@ module YouFind
     class CaptionSearchPath
       def initialize(video_id, params)
         @video_id = video_id
-        @text = params&.text
+        @text = params['text']
       end
 
       attr_reader :video_id, :text

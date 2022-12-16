@@ -24,13 +24,11 @@ describe 'Caption Search Service Integration Test' do
       YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
 
       caption_search_request = YouFind::Request::CaptionSearchPath.new(VIDEO_ID, { 'text' => 'google' })
-      caption_search = YouFind::Service::SearchCaption.new.call(requested: caption_search_request)
+      caption_search = YouFind::Service::SearchCaptions.new.call(video_id: VIDEO_ID, text: 'google')
 
       _(caption_search.success?).must_equal true
-
       rebuilt = caption_search.value!.message
-
-      _(rebuilt.captions[0].text).must_equal "and so, it is so famous\nthat you can just google it,"
+      _(rebuilt[0].text).must_equal "and so, it is so famous\nthat you can just google it,"
     end
   end
 end
