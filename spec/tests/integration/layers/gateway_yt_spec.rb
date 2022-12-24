@@ -21,7 +21,7 @@ describe 'Tests Youtube API library' do
 
   describe 'Video information' do
     it 'HAPPY: gateway should work' do
-      gateway = YouFind::Youtube::API.new(YT_API_KEY)
+      gateway = YouFind::RapidAPI::VideoAPI.new(RAPIDAPI_API_KEY)
       video = gateway.video_data(VIDEO_ID)
       _(video).wont_be_nil
       _(video['title']).must_equal CORRECT['title']
@@ -29,13 +29,13 @@ describe 'Tests Youtube API library' do
 
     it 'HAPPY: video should be found' do
       video_mapper = YouFind::Youtube::VideoMapper
-                     .new(YT_API_KEY)
+                     .new(RAPIDAPI_API_KEY)
       _(video_mapper).wont_be_nil
     end
 
     it 'HAPPY: should provide correct video info' do
       video = YouFind::Youtube::VideoMapper
-              .new(YT_API_KEY)
+              .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
       _(video.title).must_equal CORRECT['title']
       _(video.url).must_equal CORRECT['url']
@@ -48,14 +48,14 @@ describe 'Tests Youtube API library' do
           YouFind::Youtube::VideoMapper
           .new('BAD_TOKEN')
           .find('cleverpuppies')
-        end).must_raise YouFind::Youtube::API::Response::Forbidden
+        end).must_raise YouFind::RapidAPI::VideoAPI::Response::Forbidden
     end
   end
 
   describe 'Captions' do
     before do
       @captions = YouFind::Youtube::CaptionMapper
-                  .new(YT_API_KEY)
+                  .new(RAPIDAPI_API_KEY)
                   .load_captions(VIDEO_ID)
     end
 

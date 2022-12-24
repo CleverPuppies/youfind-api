@@ -42,7 +42,7 @@ jobs:
 
       - name: Run all specs
         env: # define secrets in Github project -> settings -> secrets
-          API_KEY: ${{ secrets.API_KEY }}
+          RAPIDAPI_API_KEY: ${{ secrets.RAPIDAPI_API_KEY }}
           DB_FILENAME: ${{ secrets.DB_FILENAME }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
           API_HOST: ${{ secrets.API_HOST }}

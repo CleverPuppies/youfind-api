@@ -12,7 +12,7 @@ describe 'Test caption search' do
     DatabaseHelper.wipe_database
 
     @yt_video = YouFind::Youtube::VideoMapper
-                .new(YT_API_KEY)
+                .new(RAPIDAPI_API_KEY)
                 .find(VIDEO_ID)
 
     YouFind::Repository::For.entity(@yt_video).create(@yt_video)

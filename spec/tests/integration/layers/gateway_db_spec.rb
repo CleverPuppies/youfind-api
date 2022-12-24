@@ -22,7 +22,7 @@ describe 'Integration Tests for Youtube API and Database' do
 
     it 'HAPPY: should be able to search for video in database by origin id' do
       video = YouFind::Youtube::VideoMapper
-              .new(YT_API_KEY)
+              .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 
       YouFind::Repository::For.entity(video).create(video)
@@ -35,7 +35,7 @@ describe 'Integration Tests for Youtube API and Database' do
 
     it 'HAPPY: should be able to save video from Youtube to database' do
       video = YouFind::Youtube::VideoMapper
-              .new(YT_API_KEY)
+              .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 
       rebuilt = YouFind::Repository::For.entity(video).create(video)
@@ -54,7 +54,7 @@ describe 'Integration Tests for Youtube API and Database' do
 
     it 'HAPPY: should be able to do caption search' do
       video = YouFind::Youtube::VideoMapper
-              .new(YT_API_KEY)
+              .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 
       rebuilt = YouFind::Repository::For.entity(video).create(video)

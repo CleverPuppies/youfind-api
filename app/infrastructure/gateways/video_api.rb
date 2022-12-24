@@ -3,10 +3,10 @@
 require 'http'
 
 module YouFind
-  # Library for Youtube Web API
-  module Youtube
-    # Library for Youtube web API
-    class API
+  # Library for RapidAPI Web API
+  module RapidAPI
+    # Library for Youtube videos API
+    class VideoAPI
       def initialize(api_key)
         @yt_key = api_key
       end

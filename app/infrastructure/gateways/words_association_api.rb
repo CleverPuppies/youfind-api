@@ -3,10 +3,10 @@
 require 'http'
 
 module YouFind
-  # Library for Words Association Web API
-  module WordsAssociation
+  # Library for RapidAPI Web API
+  module RapidAPI
     # Library for Words Association web API
-    class API
+    class WordsAPI
       def initialize(api_key)
         @words_assos_key = api_key
       end
