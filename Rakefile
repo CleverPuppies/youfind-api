@@ -108,6 +108,25 @@ namespace :cache do
   end
 end
 
+namespace :worker do
+  namespace :run do
+    desc 'Run the background youtube comment collector worker in development mode'
+    task :dev => :config do
+      sh 'RACK_ENV=development bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken_dev.yml'
+    end
+
+    desc 'Run the background comment collector worker in testing mode'
+    task :test => :config do
+      sh 'RACK_ENV=test bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken_test.yml'
+    end
+
+    desc 'Run the background comment collector worker in production mode'
+    task :production => :config do
+      sh 'RACK_ENV=production bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken.yml'
+    end
+  end
+end
+
 desc 'Run application console'
 task :console do
   sh 'pry -r ./load_all'
