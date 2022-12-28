@@ -21,7 +21,7 @@ describe 'AddVideo Service Integration Test' do
     end
 
     it 'HAPPY: should be able to find and save remote video to database' do
-      video = YouFind::Youtube::VideoMapper
+      video = YouFind::RapidAPI::VideoMapper
               .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 

@@ -21,7 +21,7 @@ describe 'Integration Tests for Youtube API and Database' do
     end
 
     it 'HAPPY: should be able to search for video in database by origin id' do
-      video = YouFind::Youtube::VideoMapper
+      video = YouFind::RapidAPI::VideoMapper
               .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 
@@ -34,7 +34,7 @@ describe 'Integration Tests for Youtube API and Database' do
     end
 
     it 'HAPPY: should be able to save video from Youtube to database' do
-      video = YouFind::Youtube::VideoMapper
+      video = YouFind::RapidAPI::VideoMapper
               .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 
@@ -53,7 +53,7 @@ describe 'Integration Tests for Youtube API and Database' do
     end
 
     it 'HAPPY: should be able to do caption search' do
-      video = YouFind::Youtube::VideoMapper
+      video = YouFind::RapidAPI::VideoMapper
               .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
 

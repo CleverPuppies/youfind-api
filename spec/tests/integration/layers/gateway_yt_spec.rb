@@ -28,13 +28,13 @@ describe 'Tests Youtube API library' do
     end
 
     it 'HAPPY: video should be found' do
-      video_mapper = YouFind::Youtube::VideoMapper
+      video_mapper = YouFind::RapidAPI::VideoMapper
                      .new(RAPIDAPI_API_KEY)
       _(video_mapper).wont_be_nil
     end
 
     it 'HAPPY: should provide correct video info' do
-      video = YouFind::Youtube::VideoMapper
+      video = YouFind::RapidAPI::VideoMapper
               .new(RAPIDAPI_API_KEY)
               .find(VIDEO_ID)
       _(video.title).must_equal CORRECT['title']
@@ -45,7 +45,7 @@ describe 'Tests Youtube API library' do
 
     it 'SAD: should raise exception when unauthorized' do
       _(proc do
-          YouFind::Youtube::VideoMapper
+          YouFind::RapidAPI::VideoMapper
           .new('BAD_TOKEN')
           .find('cleverpuppies')
         end).must_raise YouFind::RapidAPI::VideoAPI::Response::Forbidden
@@ -54,7 +54,7 @@ describe 'Tests Youtube API library' do
 
   describe 'Captions' do
     before do
-      @captions = YouFind::Youtube::CaptionMapper
+      @captions = YouFind::RapidAPI::CaptionMapper
                   .new(RAPIDAPI_API_KEY)
                   .load_captions(VIDEO_ID)
     end
