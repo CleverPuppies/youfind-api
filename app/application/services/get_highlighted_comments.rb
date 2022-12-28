@@ -16,12 +16,16 @@ module YouFind
         YT_NOT_FOUND_ERR = 'No comments found on YouTube'
         NO_TIMETAGS_ERR = 'No time tags found in the comments'
         DB_ERR = 'Cannot access database'
+        PROCESSING_MSG = 'Processing the Youtube comment collecting request'
 
         def retrieve_comments(input)
           comments = comments_in_database(input)
           if comments.empty?
-            input[:comments] = comments_from_youtube(input)
-            store_comments(input)
+            #input[:comments] = comments_from_youtube(input)
+            #store_comments(input)
+            Messaging::Queue.new(Api.config.COMMENT_COLLECTOR_QUEUE_URL, Api.config)
+              .send({:video_id => input[:video_id]}.to_json)
+            Failure(Value::Result.new(status: :processing, message: PROCESSING_MSG))
           else
             input[:comments] = comments
           end

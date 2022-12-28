@@ -19,6 +19,8 @@ module VcrHelper
     VCR.configure do |c|
       c.filter_sensitive_data('<RAPIDAPI_KEY>') { RAPIDAPI_API_KEY }
       c.filter_sensitive_data('<RAPIDAPI_KEY_ESC>') { CGI.escape(RAPIDAPI_API_KEY) }
+      vcr_config.ignore_hosts 'sqs.us-east-1.amazonaws.com'
+      vcr_config.ignore_hosts 'sqs.ap-northeast-1.amazonaws.com'
     end
 
     VCR.insert_cassette(
