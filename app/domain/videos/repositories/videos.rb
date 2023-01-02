@@ -48,6 +48,11 @@ module YouFind
         rebuild_entity(db_video)
       end
 
+      def self.add_comment(entity, db_comment)
+        db_video = Database::VideoOrm.first(origin_id: entity.origin_id)
+        db_video.add_comment(db_comment)
+      end
+
       def self.rebuild_entity(db_record)
         return nil unless db_record
 

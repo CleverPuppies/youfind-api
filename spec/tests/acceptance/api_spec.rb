@@ -34,6 +34,20 @@ describe 'Test API routes' do
     end
   end
 
+  describe 'Get highlights from comments route' do
+    it 'should return highlights for a video' do
+      YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
+
+      get "api/v1/video/#{VIDEO_ID}/highlights"
+      _(last_response.status).must_equal 202
+
+      5.times { sleep(1) and print('.') }
+
+      get "api/v1/video/#{VIDEO_ID}/highlights"
+      _(last_response.status).must_equal 200
+    end
+  end
+
   describe 'Add video route' do
     it 'should be able to add a video' do
       post "api/v1/video/#{VIDEO_ID}"

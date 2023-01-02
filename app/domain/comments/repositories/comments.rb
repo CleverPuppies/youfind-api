@@ -30,28 +30,36 @@ module YouFind
           end
         end
 
-        def self.create(entity)
+        def self.create(video, entity)
           return if find(entity)
 
-          db_comment = PersistComment.new(entity).create_comment
+          db_comment = PersistComment.new(video, entity).call
           rebuild_entity(db_comment)
         end
   
-        def self.find_comments(video_id)
-          # SELECT * FROM captions WHERE video_id = video_id
-          comments = Captions.rebuild_many Database::CommentOrm
-                      .where(video_id: video_id)
+        def self.find_comments(video_pk)
+          # SELECT * FROM comments WHERE video_id = video_id
+          Comments.rebuild_many Database::CommentOrm
+                      .where(video_id: video_pk)
                       .all
         end
 
         # Helper class to persist object and its members to database
         class PersistComment
-          def initialize(entity)
+          def initialize(video, entity)
+            @video = video
             @entity = entity
           end
 
           def create_comment
             Database::CommentOrm.create(@entity.to_attr_hash)
+          end
+
+          def call
+            create_comment.tap do |db_comment|
+              # TODO: Map video entity to ORM
+              Repository::For.klass(Entity::Video).add_comment(@video, db_comment)
+            end
           end
         end
       end
