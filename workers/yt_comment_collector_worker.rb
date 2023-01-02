@@ -43,7 +43,7 @@ class YtCommentCollectorWorker
     comments.each do |comment|
       YouFind::Repository::Comments.create(video, comment)
     end
-  # rescue StandardError
-  #   raise 'YT_NOT_FOUND_ERR'
+  rescue StandardError
+    raise 'YT_NOT_FOUND_ERR'
   end
 end

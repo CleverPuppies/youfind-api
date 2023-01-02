@@ -1,2 +1,2 @@
 queues:
-  - https://sqs.ap-northeast-1.amazonaws.com/917327949866/youfind-comment-collector-development
+  - https://sqs.ap-northeast-1.amazonaws.com/917327949866/youfind-comment-collector-test
