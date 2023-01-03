@@ -7,6 +7,13 @@ task :default do
   puts `rake -T`
 end
 
+desc 'Run unit and integration tests'
+Rake::TestTask.new(:spec) do |t|
+  puts 'Make sure worker is running in separate process'
+  t.pattern = 'spec/tests/**/*_spec.rb'
+  t.warning = false
+end
+
 desc 'run the puma server'
 task :run do
   sh 'bundle exec puma'
@@ -108,6 +115,52 @@ namespace :cache do
   end
 end
 
+namespace :queues do
+  task :config do
+    require 'aws-sdk-sqs'
+    require_relative 'config/environment' # load config info
+    @api = YouFind::App
+    @sqs = Aws::SQS::Client.new(
+      access_key_id: @api.config.AWS_ACCESS_KEY_ID,
+      secret_access_key: @api.config.AWS_SECRET_ACCESS_KEY,
+      region: @api.config.AWS_REGION
+    )
+    @q_name = @api.config.COMMENT_COLLECTOR_QUEUE
+    @q_url = @sqs.get_queue_url(queue_name: @q_name).queue_url
+    puts "Environment: #{@api.environment}"
+  end
+
+  desc 'Create SQS queue for worker'
+  task :create => :config do
+    @sqs.create_queue(queue_name: @q_name)
+
+    puts 'Queue created:'
+    puts "  Name: #{@q_name}"
+    puts "  Region: #{@api.config.AWS_REGION}"
+    puts "  URL: #{@q_url}"
+  rescue StandardError => e
+    puts "Error creating queue: #{e}"
+  end
+
+  desc 'Report status of queue for worker'
+  task :status => :config do
+    puts 'Queue info:'
+    puts "  Name: #{@q_name}"
+    puts "  Region: #{@api.config.AWS_REGION}"
+    puts "  URL: #{@q_url}"
+  rescue StandardError => e
+    puts "Error finding queue: #{e}"
+  end
+
+  desc 'Purge messages in SQS queue for worker'
+  task :purge => :config do
+    @sqs.purge_queue(queue_url: @q_url)
+    puts "Queue #{@q_name} purged"
+  rescue StandardError => e
+    puts "Error purging queue: #{e}"
+  end
+end
+
 namespace :worker do
   namespace :run do
     desc 'Run the background youtube comment collector worker in development mode'
@@ -130,12 +183,6 @@ end
 desc 'Run application console'
 task :console do
   sh 'pry -r ./load_all'
-end
-
-desc 'Run unit and integration tests'
-Rake::TestTask.new(:spec) do |t|
-  t.pattern = 'spec/tests/**/*_spec.rb'
-  t.warning = false
 end
 
 namespace :vcr do

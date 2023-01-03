@@ -22,7 +22,7 @@ module YouFind
 
         Success(Response::ApiResult.new(status: :ok, message: video))
       rescue StandardError
-        Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
+        Failure(Response::ApiResult.new(status: :internal_error, message: NOT_FOUND_ERR))
       end
     end
   end

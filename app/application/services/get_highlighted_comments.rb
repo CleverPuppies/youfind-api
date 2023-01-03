@@ -6,31 +6,48 @@ module YouFind
       class GetHighlightedComments
         include Dry::Transaction
         
-        step :retrieve_comments
+        step :find_video_details
+        step :request_comment_collection_worker
         step :extract_timetags
         step :generate_highlights
   
         private
   
+        NO_VIDEO_ERR = 'Video not found'
         NOT_FOUND_ERR = 'Comments not found'
         YT_NOT_FOUND_ERR = 'No comments found on YouTube'
         NO_TIMETAGS_ERR = 'No time tags found in the comments'
         DB_ERR = 'Cannot access database'
         PROCESSING_MSG = 'Processing the Youtube comment collecting request'
 
-        def retrieve_comments(input)
-          comments = comments_in_database(input)
-          if comments.empty?
-            #input[:comments] = comments_from_youtube(input)
-            #store_comments(input)
-            Messaging::Queue.new(Api.config.COMMENT_COLLECTOR_QUEUE_URL, Api.config)
-              .send({:video_id => input[:video_id]}.to_json)
-            Failure(Value::Result.new(status: :processing, message: PROCESSING_MSG))
+        def find_video_details(input)
+          input[:video] = Repository::For.klass(Entity::Video).find_origin_id(
+            input[:video_id]
+          )
+          if input[:video]
+            Success(input)
           else
-            input[:comments] = comments
+            Failure(Response::ApiResult.new(status: :not_found, message: NO_VIDEO_ERR))
           end
-    
-          Success(input)
+        rescue StandardError
+          Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
+        end
+
+        def request_comment_collection_worker(input)
+          video_pk = Repository::For.klass(Entity::Video).find_id_from_origin_id(input[:video_id])
+          input[:video_pk] = video_pk
+          comments = comments_in_database(input)
+
+          if comments.empty?
+            Messaging::Queue
+              .new(App.config.COMMENT_COLLECTOR_QUEUE_URL, App.config)
+              .send(Representer::Video.new(input[:video]).to_json)
+
+            Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
+          else 
+            input[:comments] = comments
+            Success(input)
+          end
         rescue StandardError => e
           puts e.backtrace.join("\n")
           Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
@@ -49,8 +66,7 @@ module YouFind
         end
 
         def generate_highlights(input)
-          video_id = Repository::For.klass(Entity::Video).find_id_from_origin_id(input[:video_id])
-          captions = YouFind::Repository::For.klass(Entity::Caption).find_captions(video_id)
+          captions = YouFind::Repository::For.klass(Entity::Caption).find_captions(input[:video_pk])
           captions_timestamps = captions.map { |caption| caption[:start] }
           
           time_tags_counter = Hash.new(0)
@@ -82,17 +98,17 @@ module YouFind
           raise YT_NOT_FOUND_ERR
         end
 
-        def store_comments(input)
-          input[:comments].each do |comment|
-            YouFind::Repository::Comments.create(comment)
-          end
-        rescue StandardError => e
-          puts e.backtrace.join("\n")
-          Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
-        end
+        # def store_comments(input)
+        #   input[:comments].each do |comment|
+        #     YouFind::Repository::Comments.create(comment)
+        #   end
+        # rescue StandardError => e
+        #   puts e.backtrace.join("\n")
+        #   Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR))
+        # end
 
         def comments_in_database(input)
-          YouFind::Repository::Comments.find_comments(input[:video_id])
+          YouFind::Repository::Comments.find_comments(input[:video_pk])
         end
 
         def time_tag_to_timestamp(time_tag)

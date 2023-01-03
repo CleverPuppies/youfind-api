@@ -25,7 +25,7 @@ module YouFind
         end
         Success(input)
       rescue StandardError => e
-        puts e.backtrace.join("\n")
+        # puts e.backtrace.join("\n")
         Failure(Response::ApiResult.new(status: :not_found, message: YT_NOT_FOUND_MSG))
       end
 

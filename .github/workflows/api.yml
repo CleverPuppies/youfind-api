@@ -21,6 +21,8 @@ jobs:
     strategy:
       # don't cancel other jobs if one fails
       fail-fast: false
+      # maximum number of jobs that can run simultaneously
+      max-parallel: 1
       matrix:
         os: [ubuntu, macos]
     runs-on: ${{ matrix.os }}-latest  # Runs on latest builds of matrix OSes
@@ -43,7 +45,14 @@ jobs:
       - name: Run all specs
         env: # define secrets in Github project -> settings -> secrets
           RAPIDAPI_API_KEY: ${{ secrets.RAPIDAPI_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           DB_FILENAME: ${{ secrets.DB_FILENAME }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
           API_HOST: ${{ secrets.API_HOST }}
-        run: bundle exec rake spec
+          COMMENT_COLLECTOR_QUEUE_URL: ${{ secrets.COMMENT_COLLECTOR_QUEUE_URL }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          rake worker:run:test &
+          bundle exec rake spec

@@ -14,7 +14,7 @@ module YouFind
       attribute :text,          Strict::String
 
       def to_attr_hash
-        to_hash.except(:id, :captions)
+        to_hash.except(:id)
       end
     end
   end
