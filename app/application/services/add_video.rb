@@ -25,7 +25,7 @@ module YouFind
         end
         Success(input)
       rescue StandardError => e
-        puts e.backtrace.join("\n")
+        # puts e.backtrace.join("\n")
         Failure(Response::ApiResult.new(status: :not_found, message: YT_NOT_FOUND_MSG))
       end
 
@@ -45,7 +45,7 @@ module YouFind
       # following are support methods that other services could use
 
       def video_from_youtube(input)
-        Youtube::VideoMapper
+        RapidAPI::VideoMapper
           .new(App.config.RAPID_API_TOKEN)
           .find(input[:video_id])
       rescue StandardError

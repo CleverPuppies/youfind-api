@@ -11,8 +11,8 @@ describe 'Test caption search' do
     VcrHelper.configure_vcr_for_youtube
     DatabaseHelper.wipe_database
 
-    @yt_video = YouFind::Youtube::VideoMapper
-                .new(YT_API_KEY)
+    @yt_video = YouFind::RapidAPI::VideoMapper
+                .new(RAPIDAPI_API_KEY)
                 .find(VIDEO_ID)
 
     YouFind::Repository::For.entity(@yt_video).create(@yt_video)

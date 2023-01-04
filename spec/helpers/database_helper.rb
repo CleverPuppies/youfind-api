@@ -8,6 +8,7 @@ module DatabaseHelper
     YouFind::App.DB.run('PRAGMA foreign_keys = OFF')
     YouFind::Database::VideoOrm.map(&:destroy)
     YouFind::Database::CaptionOrm.map(&:destroy)
+    YouFind::Database::CommentOrm.map(&:destroy)
     YouFind::App.DB.run('PRAGMA foreign_keys = ON')
   end
 end

@@ -41,7 +41,7 @@ module YouFind
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
-        ENV['RAPID_API_TOKEN'] = config.API_KEY
+        ENV['RAPID_API_TOKEN'] = config.RAPIDAPI_API_KEY
       end
 
       # Database Setup
