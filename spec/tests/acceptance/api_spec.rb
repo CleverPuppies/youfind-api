@@ -34,6 +34,20 @@ describe 'Test API routes' do
     end
   end
 
+  describe 'Get highlights from comments route' do
+    it 'should return highlights for a video' do
+      YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
+
+      get "api/v1/video/#{VIDEO_ID}/highlights"
+      _(last_response.status).must_equal 202
+
+      5.times { sleep(1) and print('.') }
+
+      get "api/v1/video/#{VIDEO_ID}/highlights"
+      _(last_response.status).must_equal 200
+    end
+  end
+
   describe 'Add video route' do
     it 'should be able to add a video' do
       post "api/v1/video/#{VIDEO_ID}"
@@ -63,7 +77,7 @@ describe 'Test API routes' do
 
   describe 'Get video route' do
     it 'should be able to get video' do
-      # Add video
+      # Get a video
       YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
 
       get "api/v1/video/#{VIDEO_ID}"
@@ -74,8 +88,8 @@ describe 'Test API routes' do
       _(response['embedded_url']).must_include 'embed'
     end
 
-    it 'should return subtitles that match the pattern' do
-      # Add video
+    it 'should return captions that match the pattern' do
+      # Get captions
       YouFind::Service::AddVideo.new.call(video_id: VIDEO_ID)
 
       get "api/v1/video/#{VIDEO_ID}/captions", text: 'google'

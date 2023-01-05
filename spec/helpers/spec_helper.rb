@@ -14,7 +14,7 @@ require_relative '../../require_app'
 require_app
 
 VIDEO_ID = '8bZh5LMaSmE'
-YT_API_KEY = YouFind::App.config.API_KEY
+RAPIDAPI_API_KEY = YouFind::App.config.RAPIDAPI_API_KEY
 CORRECT = YAML.safe_load(File.read('spec/fixtures/yt_results.yml'))
 VIDEO_URL = "http://youtube.com/watch?v=#{VIDEO_ID}".freeze
 

@@ -1,0 +1,2 @@
+queues:
+  - https://sqs.us-east-1.amazonaws.com/917327949866/youfind-comment-collector-production

@@ -57,6 +57,19 @@ module YouFind
               end
             end
 
+            # GET /video/{video_id}/highlights
+            routing.on 'highlights' do
+              routing.get do 
+                result = Service::GetHighlightedComments.new.call(video_id: video_id)
+                check_service_response(result, routing)
+
+                http_response = Representer::HttpResponse.new(result.value!)
+                response.status = http_response.http_status_code
+                
+                result.value!.message
+              end
+            end
+
             # GET /video/{video_id}
             routing.get do
               response.cache_control public: true, max_age: 300
@@ -68,7 +81,10 @@ module YouFind
 
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
-              Representer::Video.new(result.value!.message).to_json
+
+              Representer::Video.new(
+                result.value!.message
+              ).to_json
             end
           end
         end

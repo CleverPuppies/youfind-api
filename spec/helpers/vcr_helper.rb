@@ -9,16 +9,19 @@ module VcrHelper
   CASSETTE_FILE = 'youtube_api'
 
   def self.setup_vcr
-    VCR.configure do |c|
-      c.cassette_library_dir = CASSETTES_FOLDER
-      c.hook_into :webmock
+    VCR.configure do |vcr_config|
+      vcr_config.cassette_library_dir = CASSETTES_FOLDER
+      vcr_config.hook_into :webmock
+      vcr_config.ignore_localhost = true # for acceptance tests
+      vcr_config.ignore_hosts 'sqs.us-east-1.amazonaws.com'
+      vcr_config.ignore_hosts 'sqs.ap-northeast-1.amazonaws.com'
     end
   end
 
   def self.configure_vcr_for_youtube(recording: :new_episodes)
-    VCR.configure do |c|
-      c.filter_sensitive_data('<RAPIDAPI_KEY>') { YT_API_KEY }
-      c.filter_sensitive_data('<RAPIDAPI_KEY_ESC>') { CGI.escape(YT_API_KEY) }
+    VCR.configure do |config|
+      config.filter_sensitive_data('<RAPIDAPI_KEY>') { RAPIDAPI_API_KEY }
+      config.filter_sensitive_data('<RAPIDAPI_KEY_ESC>') { CGI.escape(RAPIDAPI_API_KEY) }
     end
 
     VCR.insert_cassette(

@@ -5,7 +5,7 @@ module YouFind
   module Inputs
     # Data Mapper: Github contributor -> Member entity
     class WordsInputMapper
-      def initialize(api_token, gateway_class = WordsAssociation::API)
+      def initialize(api_token, gateway_class = RapidAPI::WordsAPI)
         @token = api_token
         @gateway_class = gateway_class
         @gateway = @gateway_class.new(@token)

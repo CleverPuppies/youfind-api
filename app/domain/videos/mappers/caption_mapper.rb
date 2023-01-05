@@ -2,10 +2,10 @@
 
 module YouFind
   # Provides access to contributor data
-  module Youtube
+  module RapidAPI
     # Data Mapper: Github contributor -> Member entity
     class CaptionMapper
-      def initialize(yt_token, gateway_class = Youtube::API)
+      def initialize(yt_token, gateway_class = RapidAPI::VideoAPI)
         @token = yt_token
         @gateway_class = gateway_class
         @gateway = @gateway_class.new(@token)
