@@ -2,6 +2,6 @@
 
 module YouFind
   module Response
-    CollectRequest = Struct.new :video, :id
+    CollectRequest = Struct.new :video_id, :id
   end
 end

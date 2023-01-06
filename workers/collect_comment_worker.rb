@@ -50,13 +50,11 @@ module CollectComment
       job = JobReporter.new(request, Worker.config)
 
       job.report(CollectMonitor.starting_percent)
-
-      video = YouFind::Repository::For.klass(YouFind::Entity::Video)
-                                      .find_origin_id(job.video.origin_id)
-
+      
+      video_id = JSON.parse(request)["video_id"]
       comments = YouFind::Youtube::CommentMapper
                  .new(Worker.config.YOUTUBE_API_KEY)
-                 .load_comments(video)
+                 .load_comments(video_id)
 
       job.report(CollectMonitor.storing_percent)
 

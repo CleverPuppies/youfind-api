@@ -40,7 +40,7 @@ module YouFind
 
             comments.append(retrieve(COMMENTS_PATH, params))
             response = JSON.parse(comments.last)
-
+            puts comments
             response['items'].each do |comment|
               if (comment['snippet']['totalReplyCount']).positive?
                 comments.concat(comment_replies(comment['id']))

@@ -11,8 +11,8 @@ module YouFind
         @gateway = @gateway_class.new(@token)
       end
 
-      def load_comments(video)
-        @gateway.video_comments(video.video_id).map do |comments|
+      def load_comments(video_id)
+        @gateway.video_comments(video_id).map do |comments|
           comments_data = JSON.parse(comments)['items']
           comments_data.map do |comment|
             entity_data = if comment.dig('snippet', 'topLevelComment')

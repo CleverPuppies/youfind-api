@@ -11,7 +11,7 @@ module YouFind
     class CollectRequest < Roar::Decorator
       include Roar::JSON
 
-      property :video, extend: Representer::Video, class: OpenStruct
+      property :video_id
       property :id
     end
   end
