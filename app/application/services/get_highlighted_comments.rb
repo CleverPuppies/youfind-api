@@ -38,7 +38,7 @@ module YouFind
         video_pk = Repository::For.klass(Entity::Video).find_id_from_origin_id(input[:video_id])
         input[:video_pk] = video_pk
         comments = comments_in_database(input)
-        
+
         if comments.empty?
           begin
             Messaging::Queue

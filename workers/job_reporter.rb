@@ -5,14 +5,15 @@ require_relative 'progress_publisher'
 module CollectComment
   # Reports job progress to client
   class JobReporter
-    attr_accessor :video
+    attr_accessor :video_id
 
     def initialize(request_json, config)
+      puts request_json
       collect_request = YouFind::Representer::CollectRequest
                         .new(OpenStruct.new)
                         .from_json(request_json)
 
-      @video = collect_request.video
+      @video_id = collect_request.video_id
       @publisher = ProgressPublisher.new(config, collect_request.id)
     end
 

@@ -30,36 +30,21 @@ module CollectComment
     include Shoryuken::Worker
     shoryuken_options queue: config.COMMENT_COLLECTOR_QUEUE_URL, auto_delete: true
 
-    # def perform(_sqs_msg, request)
-    #   video_representer = YouFind::Representer::Video
-    #                       .new(OpenStruct.new).from_json(request)
-
-    #   video = YouFind::Repository::For.klass(YouFind::Entity::Video)
-    #                                   .find_origin_id(video_representer.origin_id)
-
-    #   comments = YouFind::Youtube::CommentMapper
-    #             .new(YtCommentCollectorWorker.config.YOUTUBE_API_KEY)
-    #             .load_comments(video)
-
-    #   comments.each do |comment|
-    #     YouFind::Repository::Comments.create(video, comment)
-    #   end
-    # end
-
     def perform(_sqs_msg, request)
       job = JobReporter.new(request, Worker.config)
 
       job.report(CollectMonitor.starting_percent)
-      
-      video_id = JSON.parse(request)["video_id"]
+
+      video = YouFind::Repository::For.klass(YouFind::Entity::Video).find_origin_id(job.video_id)
+
       comments = YouFind::Youtube::CommentMapper
                  .new(Worker.config.YOUTUBE_API_KEY)
-                 .load_comments(video_id)
+                 .load_comments(job.video_id)
 
       job.report(CollectMonitor.storing_percent)
 
       comments.each do |comment|
-        YouFind::Repository::Comments.create(job.video, comment)
+        YouFind::Repository::Comments.create(video, comment)
       end
 
       # Keep sending finished status to any latecoming subscribers
