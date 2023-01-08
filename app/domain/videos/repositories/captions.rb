@@ -30,7 +30,7 @@ module YouFind
         Database::CaptionOrm.create(entity.to_attr_hash)
       end
 
-      def self.find_captions(video_id, text='')
+      def self.find_captions(video_id, text = '')
         # SELECT * FROM captions WHERE id = origin_id AND text LIKE "%#{text}%"
         searching_words = YouFind::Inputs::WordsInputMapper.new(App.config.RAPID_API_TOKEN)
                                                            .find_associations(text)

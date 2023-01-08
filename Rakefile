@@ -131,7 +131,7 @@ namespace :queues do
   end
 
   desc 'Create SQS queue for worker'
-  task :create => :config do
+  task create: :config do
     @sqs.create_queue(queue_name: @q_name)
 
     puts 'Queue created:'
@@ -143,7 +143,7 @@ namespace :queues do
   end
 
   desc 'Report status of queue for worker'
-  task :status => :config do
+  task status: :config do
     puts 'Queue info:'
     puts "  Name: #{@q_name}"
     puts "  Region: #{@api.config.AWS_REGION}"
@@ -153,7 +153,7 @@ namespace :queues do
   end
 
   desc 'Purge messages in SQS queue for worker'
-  task :purge => :config do
+  task purge: :config do
     @sqs.purge_queue(queue_url: @q_url)
     puts "Queue #{@q_name} purged"
   rescue StandardError => e
@@ -164,18 +164,18 @@ end
 namespace :worker do
   namespace :run do
     desc 'Run the background youtube comment collector worker in development mode'
-    task :dev => :config do
-      sh 'RACK_ENV=development bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken_dev.yml'
+    task dev: :config do
+      sh 'RACK_ENV=development bundle exec shoryuken -r ./workers/collect_comment_worker.rb -C ./workers/shoryuken_dev.yml'
     end
 
     desc 'Run the background comment collector worker in testing mode'
-    task :test => :config do
-      sh 'RACK_ENV=test bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken_test.yml'
+    task test: :config do
+      sh 'RACK_ENV=test bundle exec shoryuken -r ./workers/collect_comment_worker.rb -C ./workers/shoryuken_test.yml'
     end
 
     desc 'Run the background comment collector worker in production mode'
-    task :production => :config do
-      sh 'RACK_ENV=production bundle exec shoryuken -r ./workers/yt_comment_collector_worker.rb -C ./workers/shoryuken.yml'
+    task production: :config do
+      sh 'RACK_ENV=production bundle exec shoryuken -r ./workers/collect_comment_worker.rb -C ./workers/shoryuken.yml'
     end
   end
 end

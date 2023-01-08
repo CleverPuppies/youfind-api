@@ -28,21 +28,21 @@ module YouFind
           comments = []
           nextPageToken = ''
           params = {
-            :key => @yt_key,
-            :videoId => video_id,
-            :textFormat => 'plainText',
-            :part => 'snippet',
-            :maxResults => 100
+            key: @yt_key,
+            videoId: video_id,
+            textFormat: 'plainText',
+            part: 'snippet',
+            maxResults: 100
           }
-          
+
           loop do
             params[:pageToken] = nextPageToken
-            
+
             comments.append(retrieve(COMMENTS_PATH, params))
             response = JSON.parse(comments.last)
-
+            # puts comments
             response['items'].each do |comment|
-              if comment['snippet']['totalReplyCount'] > 0
+              if (comment['snippet']['totalReplyCount']).positive?
                 comments.concat(comment_replies(comment['id']))
                 break
               end
@@ -58,16 +58,16 @@ module YouFind
           replies = []
           nextPageToken = ''
           params = {
-            :key => @yt_key,
-            :parentId => comment_id,
-            :textFormat => 'plainText',
-            :part => 'snippet',
-            :maxResults => 100
+            key: @yt_key,
+            parentId: comment_id,
+            textFormat: 'plainText',
+            part: 'snippet',
+            maxResults: 100
           }
 
           loop do
             params[:pageToken] = nextPageToken
-            
+
             replies.append(retrieve(REPLIES_PATH, params))
 
             nextPageToken = JSON.parse(replies.last)['nextPageToken']

@@ -13,7 +13,7 @@ module YouFind
       one_to_many :comments,
                   class: :'YouFind::Database::CommentOrm',
                   key: :video_id
-                  
+
       plugin :timestamps, update_on_create: true
 
       def self.find_or_create(video_info)
