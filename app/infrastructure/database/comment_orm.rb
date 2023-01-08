@@ -8,7 +8,7 @@ module YouFind
     class CommentOrm < Sequel::Model(:comments)
       many_to_one :video,
                   class: :'YouFind::Database::VideoOrm'
-      
+
       plugin :timestamps, update_on_create: true
     end
   end
