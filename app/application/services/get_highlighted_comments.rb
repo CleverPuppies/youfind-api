@@ -87,11 +87,9 @@ module YouFind
           inf_timestamps = captions_timestamps.select { |caption_timestamp| caption_timestamp < time_tag }
           normalized_time_tag = inf_timestamps.min_by do |inf_timestamp|
             (time_tag - inf_timestamp).abs
-          end
-
+          end.to_i
           time_tags_counter[normalized_time_tag] += 1
         end
-
         highlights_time_tags = time_tags_counter.sort_by { |_key, value| value }.first(10).to_h
         Success(Response::ApiResult.new(status: :ok, message: highlights_time_tags.keys.to_s))
       rescue StandardError => e
