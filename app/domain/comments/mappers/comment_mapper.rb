@@ -12,10 +12,16 @@ module YouFind
       end
 
       def load_comments(video_id)
-        @gateway.video_comments(video_id).map do |comments|
+        response = @gateway.video_comments(video_id)
+        
+        response.map do |comments|
           comments_data = JSON.parse(comments)['items']
+          puts "[BEFORE] #{comments_data.length} - #{comments_data.class}"
+          comments_data = comments_cleaner(comments_data)
+          puts "[AFTER] #{comments_data.length} - #{comments_data.class}"
+
           comments_data.map do |comment|
-            entity_data = if comment.dig('snippet', 'topLevelComment')
+            entity_data = if comment.dig('snippet', 'topLevelComment', 'snippet')
                             comment['snippet']['topLevelComment']['snippet']
                           else
                             comment['snippet']
@@ -24,6 +30,21 @@ module YouFind
             CommentMapper.build_entity(entity_data)
           end
         end.flatten
+      end
+
+      def comments_cleaner(comments) #make it a ! function
+        comments.map do |comment|
+          time_tag_regex = /[0-9]+:[0-9]+(?::[0-9]+|)/
+          text = comment['snippet']['textOriginal']
+          if comment.dig('snippet', 'topLevelComment', 'snippet')
+            text = comment['snippet']['topLevelComment']['snippet']['textOriginal']
+          end
+            if time_tag_regex.match?(text)
+            comment
+          else
+            nil
+          end
+        end.compact
       end
 
       def self.build_entity(data)
